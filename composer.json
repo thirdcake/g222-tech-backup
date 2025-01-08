@@ -1,0 +1,7 @@
+{
+    "require": {
+        "spatie/yaml-front-matter": "^2.1",
+        "twig/twig": "^3.0",
+        "erusev/parsedown": "^1.7"
+    }
+}
