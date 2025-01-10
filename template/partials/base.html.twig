@@ -3,28 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - つつじ行政書士事務所</title>
-    <meta name="description" content="{{ description }}">
-    <meta property="og:title" content="{{ title }} - つつじ行政書士事務所">
-    <meta property="og:description" content="{{ description }}">
-    <meta property="og:url" content="https://g222.tech{{ url }}">
-    <link rel="canonical" href="https://g222.tech{{ url }}">
+    <title>{{ page.title }} - つつじ行政書士事務所</title>
+    <meta name="description" content="{{ page.description }}" />
+    <meta property="og:title" content="{{ page.title }} - つつじ行政書士事務所" />
+    <meta property="og:description" content="{{ page.description }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{{ page.eyecatch.src }}" />
+    <meta property="og:site_name" content="つつじ行政書士事務所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://g222.tech{{ page.url }}" />
+    <link rel="canonical" href="https://g222.tech{{ page.url }}">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    {% block css%}
+    <link rel="stylesheet" href="/assets/bundle.css">
+    {% endblock %}
+    {% block js %}
+    <script defer src="/assets/function.js"></script>
+    {% endblock %}
 </head>
 <body>
-    <header id="header">
-        <h1>{{ frontmatter.title }}</h1>
+    <header>
+        <div class="office-name"><span>つ</span><span>つ</span><span>じ</span><span>行政書士事務所</span></div>
     </header>
-    <main id="main">
-    {% block main %}
-        {{ content|raw }}
-    {% endblock %}
+    <nav>
+        <ul>
+            <li><a href="/">ホーム</a></li>
+            <li><a href="/archives/">記事一覧</a></li>
+            <li><a href="/contact.html">お問い合わせ</a></li>
+            <li><a href="/about.html">もっと知る</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block main %}
+        <article>
+            <h1>{{ page.title }}</h1>
+            {{ page.content|raw }}
+        </article>
+        {% endblock %}
     </main>
-    <aside id="sidebar">
-        <nav>
-        </nav>
-    </aside>
-    <footer id="footer">
+    <footer>
+        {% block footer %}
+        <section class="footer-end">
+            <h2 class="footer-h2">つつじ行政書士事務所</h2>
+            <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
+            <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+        </section>
+        {% endblock %}
     </footer>
 </body>
 </html>
