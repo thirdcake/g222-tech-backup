@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} - つつじ行政書士事務所</title>
+    <title>{{ page.title }} - {{ site.site_name }}</title>
     <meta name="description" content="{{ page.description }}" />
-    <meta property="og:title" content="{{ page.title }} - つつじ行政書士事務所" />
+    <meta property="og:title" content="{{ page.title }} - {{ site.site_name }}" />
     <meta property="og:description" content="{{ page.description }}" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="{{ page.eyecatch.src }}" />
-    <meta property="og:site_name" content="つつじ行政書士事務所" />
+    <meta property="og:site_name" content="{{ site.site_name }}" />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:url" content="https://g222.tech{{ page.url }}" />
-    <link rel="canonical" href="https://g222.tech{{ page.url }}">
+    <meta property="og:url" content="{{ site.site_url }}/archives{{ page.url }}" />
+    <link rel="canonical" href="{{ site.site_url }}{{ page.url }}">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     {% block css%}
     <link rel="stylesheet" href="/assets/bundle.css">
@@ -37,7 +37,7 @@
         {% block main %}
         <article>
             <h1>{{ page.title }}</h1>
-            {{ page.content|raw }}
+            {{ content|raw }}
         </article>
         {% endblock %}
     </main>
