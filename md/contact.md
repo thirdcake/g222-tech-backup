@@ -1,6 +1,6 @@
 ---
 title: "お問い合わせ"
-description: "お問い合わせ方法を説明します"
+description: "つつじ行政書士事務所へのお問い合わせはこのページからお願いいたします"
 eyecatch: 
     - src: " "
     - alt: " "
