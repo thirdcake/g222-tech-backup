@@ -1,4 +1,26 @@
 {
     "site_name": "つつじ行政書士事務所",
-    "site_url": "https://g222.tech"
+    "site_url": "https://g222.tech",
+    "menu": [
+        {
+            "name": "ホーム",
+            "link": "/",
+            "svg": "/assets/icons.svg#home"
+        },
+        {
+            "name": "記事一覧",
+            "link": "/archives/",
+            "svg": "/assets/icons.svg#archives"
+        },
+        {
+            "name": "お問い合わせ",
+            "link": "/contact.html",
+            "svg": "/assets/icons.svg#contact"
+        },
+        {
+            "name": "もっと知る",
+            "link": "/about.html",
+            "svg": "/assets/icons.svg#about"
+        }
+    ]
 }

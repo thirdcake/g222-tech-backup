@@ -12,10 +12,10 @@
     <meta property="og:site_name" content="{{ site.site_name }}" />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:url" content="{{ site.site_url }}/archives{{ page.url }}" />
-    <link rel="canonical" href="{{ site.site_url }}{{ page.url }}">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    {% block css%}
-    <link rel="stylesheet" href="/assets/bundle.css">
+    <link rel="canonical" href="{{ site.site_url }}{{ page.url }}" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {% block css %}
+    <link rel="stylesheet" href="/assets/bundle.css" />
     {% endblock %}
     {% block js %}
     <script defer src="/assets/function.js"></script>
@@ -23,16 +23,23 @@
 </head>
 <body>
     <header>
-        <div class="office-name"><span>つ</span><span>つ</span><span>じ</span><span>行政書士事務所</span></div>
+        <div>
+            <div class="site-title">{{ site.site_name }}</div>
+            <button data-target="#menu-nav" data-onclick-class="open">
+                <svg height="24" width="24" viewBox="0 0 24 24">
+                    <use class="menu-icon" href="/assets/icons.svg#menu-open"></use>
+                    <use class="close-icon" href="/assets/icons.svg#menu-close"></use>
+                </svg>
+            </button>
+        </div>
+        <nav id="menu-nav">
+            <ul>
+                {%- for item in site.menu -%}
+                {%- include 'partials/menu-item.html.twig' -%}
+                {%- endfor -%}
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="/">ホーム</a></li>
-            <li><a href="/archives/">記事一覧</a></li>
-            <li><a href="/contact.html">お問い合わせ</a></li>
-            <li><a href="/about.html">もっと知る</a></li>
-        </ul>
-    </nav>
     <main>
         {% block main %}
         <article>
