@@ -36,43 +36,23 @@
 
     --animation-duration: .3s;
     --g222-accent-color: #e95295;
+    --g222-outer-padding: clamp(16px, calc(3vw + 5px), 40px);
+    --g222-inner-padding: clamp(8px, calc(2vw + 2px), 24px);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --text-body: #fff;
-        --text-desc: #b4b4b7;
-        --text-placeholder: #949497;
-        --text-link: #7096f8;
-        --text-visited: #9db7f9;
-        --text-disabled: #757578;
-        --background-primary: #1a1a1c;
-        --background-secondary: #626264;
-        --background-tertiary: #414143;
-        --border-divider: #626264;
-        --border-focused: #d18d0f;
-        --status-success: #259d63;
-        --status-alert: #ff4b36;
-        --status-warning: #d18d0f;
-    }
+* {
+    box-sizing: border-box;
 }
 
 body {
     font-family: sans-serif;
     line-height: 1.7;
     margin: 0;
-    padding: 8px;
+    padding: 0;
     word-break: break-all;
     color: var(--text-body);
-    background: var(--background-primary);
+    background: var(--background-secondary);
     text-rendering: optimizeLegibility;
-}
-
-p,
-ul,
-ol,
-time {
-    max-width: 36rem;
 }
 
 button,
