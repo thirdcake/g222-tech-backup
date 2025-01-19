@@ -22,15 +22,26 @@ body>header{
         margin: 0;
         padding: 0;
         list-style: none;
+        font-size: .95rem;
         display: flex;
-        gap: .5rem;
-        min-width: calc(20rem + 100px);
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0 24px;
+    }
+    >div>nav>ul>li {
+        list-style: none;
+        display: inline-block;
+        margin: 0;
+        border: 0;
     }
 
-    a>div.list-flex {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+    a svg {
+        display: inline-block;
+        vertical-align: -.2em;
+        fill: currentcolor;
+        width:1.2em;
+        height:1.2em;
+        margin:0 .3em 0 0;
     }
 
     @media screen and (min-width: 992px) {

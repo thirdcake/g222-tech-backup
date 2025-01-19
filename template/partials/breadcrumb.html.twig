@@ -1,0 +1,11 @@
+<aside class="breadcrumb">
+    <a href="/">ホーム</a>
+    {% for bread in page.breadcrumb %}
+        <span>&nbsp;&gt;&nbsp;</span>
+        {% if bread.href %}
+        <a href="{{ bread.href }}">{{ bread.text }}</a>
+        {% else %}
+        <span>{{ bread.text }}</span>
+        {% endif %}
+    {% endfor %}
+</aside>

@@ -1,8 +1,10 @@
 vendor/
+node_modules/
 composer.lock
+package-lock.json
 *.jpg
 *.webp
 *.png
-*.svg
 *.ico
 *.php
+*.db

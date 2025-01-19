@@ -43,24 +43,28 @@
     </header>
     <main>
         {% block main %}
-        <aside class="breadcrumb">home > pagenation</aside>
-        <aside class="eyecatch"><img src="#" alt="eyecatch"/></aside>
         <article>
             <h1>{{ page.title }}</h1>
+            {% block aftertitle %}
+            {% endblock %}
             <div class="content-wrap">
                 <div class="content">
                 {{ content|raw }}
                 </div>
-                <aside class="content-aside"><p>つつじ行政書士事務所</p></aside>
+                <aside class="content-aside">
+                    <h2>つつじ行政書士事務所</h2>
+                    <img src="/favicon.svg" width="60" height="60"
+                        style="width:60px;height:auto;display:block;margin:1rem auto;"
+                        alt="つつじ行政書士事務所アイコン" />
+                    <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
+                </aside>
             </div>
         </article>
-        <aside class="blog-pager"><p>次のブログ記事</p></aside>
-        <aside class="relation"><p>最近の記事</p></aside>
         {% endblock %}
     </main>
     <footer>
         {% block footer %}
-        <section>
+        <section class="footer-menu">
             <h2>メニュー</h2>
             <nav>
                 <ul>
@@ -70,7 +74,7 @@
                 </ul>
             </nav>
         </section>
-        <section>
+        <section class="footer-address">
             <h2>つつじ行政書士事務所</h2>
             <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
             <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>

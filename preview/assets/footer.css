@@ -17,4 +17,29 @@ body>footer {
         margin-top: 40px;
         line-height: 1.5;
     }
+
+    >section.footer-menu nav>ul {
+        margin: 0;
+        padding: .5rem 2rem;
+        list-style: none;
+        display: block;
+    }
+
+    >section.footer-menu nav>ul>li {
+        list-style: none;
+        display: block;
+        margin: 0;
+        padding: 0 .5rem .5rem;
+        border: 0;
+    }
+    
+    nav>ul>li a svg {
+        display: inline-block;
+        vertical-align: -.2em;
+        fill: currentcolor;
+        width:1.2em;
+        height:1.2em;
+        margin:0 .3em 0 0;
+    }
+
 }

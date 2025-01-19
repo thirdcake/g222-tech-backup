@@ -2,8 +2,8 @@
 title: "WordPressが6.5になりました"
 description: "WordPressが6.5になったので、さっそくアップデートしてみました。"
 eyecatch: 
-    - src: " "
-    - alt: "福岡県の北九州市立図書館のバラ窓"
+    src: "eyecatch.jpg"
+    alt: "福岡県の北九州市立図書館のバラ窓"
 create_at: "2024-04-03T12:02:31"
 update_at: "2024-04-11T10:51:09"
 ---

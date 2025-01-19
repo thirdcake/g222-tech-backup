@@ -5,22 +5,26 @@
         {
             "name": "ホーム",
             "link": "/",
-            "svg": "/assets/icons.svg#home"
+            "svg": "/assets/icons.svg#home",
+            "svg_fill": "/assets/icons.svg#home-fill"
         },
         {
             "name": "記事一覧",
             "link": "/archives/",
-            "svg": "/assets/icons.svg#archives"
+            "svg": "/assets/icons.svg#archives",
+            "svg_fill": "/assets/icons.svg#archives-fill"
         },
         {
             "name": "お問い合わせ",
             "link": "/contact.html",
-            "svg": "/assets/icons.svg#contact"
+            "svg": "/assets/icons.svg#contact",
+            "svg_fill": "/assets/icons.svg#contact-fill"
         },
         {
             "name": "もっと知る",
             "link": "/about.html",
-            "svg": "/assets/icons.svg#about"
+            "svg": "/assets/icons.svg#about",
+            "svg_fill": "/assets/icons.svg#about-fill"
         }
     ]
 }

@@ -1,1 +1,7 @@
-{% extends './partials/base.html.twig' %}
+{% extends 'partials/base.html.twig' %}
+
+{% block main %}
+{%- include 'partials/breadcrumb.html.twig' -%}
+{{ parent() }}
+{% endblock %}
+
