@@ -2,10 +2,9 @@
 title: "WordPressが6.6になりました"
 description: "WordPressが6.6になったので、バージョンアップしてみました。また、最近のホームページ編集などにも触れました。"
 eyecatch: 
-    - src: " "
-    - alt: " "
+    src: "/img/289/eyecatch.jpg"
+    alt: "北海道函館市にある五稜郭、雪の中"
 create_at: "2024-07-18T19:36:49"
-update_at: "2024-07-18T19:36:49"
 ---
 
 WordPressが、6.6になりました。

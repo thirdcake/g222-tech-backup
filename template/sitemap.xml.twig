@@ -1,2 +1,9 @@
-<xml>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="assets/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://g222.tech/</loc><lastmod>2024-02-17</lastmod><changefreq>yearly</changefreq><priority>1.0</priority></url>
+{% for post in page.posts %}
+<url><loc>https://g222.tech/archives/{{ post.id }}.html</loc><lastmod>{{ post.date }}</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+{% endfor %}
+</urlset>
 

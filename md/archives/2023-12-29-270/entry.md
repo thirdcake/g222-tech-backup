@@ -2,10 +2,9 @@
 title: "WSL2に、フラットファイルCMSを入れてみる"
 description: "windowsのlocal環境で、Gravや、Bluditなどのデータベース不要のCMSを入れてみました。"
 eyecatch: 
-    - src: " "
-    - alt: "大分県中津市の風の丘葬祭場"
+    src: "/img/270/eyecatch.jpg"
+    alt: "大分県中津市の風の丘葬祭場"
 create_at: "2023-12-29T11:48:12"
-update_at: "2023-12-29T11:48:12"
 ---
 
 ## やりたいこと

@@ -2,8 +2,8 @@
 title: "行政書士事務所のホームページ戦略（予算別・スキル別）"
 description: "行政書士事務所で、ホームページを作る時に利用するサービスを、予算別・ITスキル別で整理しました。"
 eyecatch: 
-    - src: " "
-    - alt: "香川県の直島小学校"
+    src: "/img/283/eyecatch.jpg"
+    alt: "香川県の直島小学校"
 create_at: "2024-02-17T16:05:18"
 update_at: "2024-02-17T19:05:22"
 scripts: ["calc.js"]

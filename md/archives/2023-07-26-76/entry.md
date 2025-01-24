@@ -2,8 +2,8 @@
 title: "10年前のノートPCをMX linuxにしました"
 description: "家で使っていなかったノートPCがあったので、軽量なlinuxを入れてみました。今のところ快適です。"
 eyecatch: 
-    - src: " "
-    - alt: "大阪なんばの新歌舞伎座の外観"
+    src: "/img/76/eyecatch.jpg"
+    alt: "大阪なんばの新歌舞伎座の外観"
 create_at: "2023-07-21T17:34:26"
 update_at: "2023-07-26T17:45:56"
 ---

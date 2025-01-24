@@ -1,6 +1,7 @@
 /* npx sass --style=compressed preview/assets/bundle.scss dist/assets/bundle.css */
 
-@use "./base";
-@use "./header";
-@use "./main";
-@use "./footer";
+@use "./css/base";
+@use "./css/header";
+@use "./css/main";
+@use "./css/footer";
+@use "./css/contact";

@@ -2,10 +2,9 @@
 title: "高良大社の紅葉"
 description: "2023年の高良大社の紅葉の様子を紹介します"
 eyecatch: 
-    - src: " "
-    - alt: " "
+    src: "/img/208/m2023-11-25-3.jpg"
+    alt: "11月25日時点の紅葉"
 create_at: "2023-12-02T18:33:38"
-update_at: "2023-12-02T18:33:38"
 ---
 
 2023年の高良大社の紅葉の様子を紹介します。  
@@ -27,6 +26,8 @@ update_at: "2023-12-02T18:33:38"
 今年は猛暑で、ほとんど秋が無いままに、いきなり冬になりそうな気候です。  
 1日の寒暖差が激しいので、体調にお気をつけください。
 
+<p><img src="/img/208/m2023-10-29-1.jpg" alt="2023年10月29日時点" decoding="async" width="16" height="9" style="width:100%;height:auto;" /></p>
+<p><img src="/img/208/m2023-10-29-2.jpg" alt="2023年10月29日時点" decoding="async" width="16" height="9" style="width:100%;height:auto;" /></p>
 
 10月29日時点では、まだまだ緑色でした。
 
@@ -34,37 +35,31 @@ update_at: "2023-12-02T18:33:38"
 
 ちょっと色づいているかもしれません（？）
 
-高良大社の紅葉2023年11月03日
-高良大社の紅葉2023年11月03日
+<p><img src="/img/208/m2023-11-03-1.jpg" alt="2023年11月3日時点" decoding="async" width="16" height="9" style="width:100%;height:auto;" /></p>
 
 ## 11月11日追記
 
 12日にもみじ狩りのイベントがあるようで、何やら準備をされていました。
 しかし、まだまだ緑多めです。
 
-高良大社の紅葉2023年11月11日
-高良大社の紅葉2023年11月11日
+<p><img src="/img/208/m2023-11-11-1.jpg" alt="2023年11月11日時点" decoding="async" width="16" height="9" style="width:100%;height:auto;" /></p>
 
 ## 11月18日追記
 
 だいぶ寒くなりました。半分弱くらいは赤くなってきました。
 
-高良大社の紅葉2023年11月18日
-高良大社の紅葉2023年11月18日
+<p><img src="/img/208/m2023-11-18-1.jpg" alt="2023年11月18日時点" decoding="async" width="16" height="9" style="width:100%;height:auto;" /></p>
 
 ## 11月25日追記
 
 だいぶ寒くなりました。  
 紅葉も、半分以上は赤くなってきました。
 
-高良大社の紅葉2023年11月25日
-高良大社の紅葉2023年11月25日
-高良大社の紅葉は、道路沿いはかなり赤くなっていました。
-高良大社の紅葉は、道路沿いはかなり赤くなっていました。
-日光の当たり方で、神々しい感じになっているところもありました。
+<p><img src="/img/208/m2023-11-25-1.jpg" alt="2023年11月25日時点" decoding="async" width="16" height="9" style="width:100%;height:auto;" /></p>
 
-ちょっと神々しい紅葉
-ちょっと神々しい紅葉
+<p><img src="/img/208/m2023-11-25-2.jpg" alt="高良大社の紅葉は、道路沿いはかなり赤くなっていました" decoding="async" width="16" height="9" style="width:100%;height:auto;" /></p>
+
+<p><img src="/img/208/m2023-11-25-3.jpg" alt="日光の当たり方で、神々しい感じになっているところもありました" decoding="async" width="16" height="9" style="width:100%;height:auto;" /></p>
 
 ## 12月2日追記
 
@@ -72,12 +67,9 @@ update_at: "2023-12-02T18:33:38"
 真っ赤な紅葉というよりは、淡い色の紅葉が多いようです。  
 登り道に、落ち葉もかなり増えました。
 
-高良大社の紅葉2023年12月2日
-高良大社の紅葉2023年12月2日
-高良大社の紅葉2023年12月2日
-高良大社の紅葉2023年12月2日
-高良大社の紅葉2023年12月2日
-高良大社の紅葉2023年12月2日
+<p><img src="/img/208/m2023-12-02-1.jpg" alt="2023年12月2日時点" decoding="async" width="16" height="9" style="width:100%;height:auto;" /></p>
+<p><img src="/img/208/m2023-12-02-2.jpg" alt="2023年12月2日時点" decoding="async" width="16" height="9" style="width:100%;height:auto;" /></p>
+<p><img src="/img/208/m2023-12-02-3.jpg" alt="2023年12月2日時点" decoding="async" width="16" height="9" style="width:100%;height:auto;" /></p>
 
 ## 高良大社へのアクセス
 

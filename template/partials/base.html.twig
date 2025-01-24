@@ -8,20 +8,21 @@
     <meta property="og:title" content="{{ page.title }} - {{ site.site_name }}" />
     <meta property="og:description" content="{{ page.description }}" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="{{ page.eyecatch.src }}" />
+    <meta property="og:image" content="{{ site.site_url }}{{ page.eyecatch.src }}" />
     <meta property="og:site_name" content="{{ site.site_name }}" />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:url" content="{{ site.site_url }}/archives{{ page.url }}" />
+    <meta property="og:url" content="{{ site.site_url }}{{ page.url }}" />
     <link rel="canonical" href="{{ site.site_url }}{{ page.url }}" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     {% block css %}
     {% if preview %}
-    <link rel="stylesheet" href="/assets/base.css" />
-    <link rel="stylesheet" href="/assets/header.css" />
-    <link rel="stylesheet" href="/assets/main.css" />
-    <link rel="stylesheet" href="/assets/footer.css" />
+        <link rel="stylesheet" href="/assets/css/base.css" />
+        <link rel="stylesheet" href="/assets/css/header.css" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
+        <link rel="stylesheet" href="/assets/css/footer.css" />
+        <link rel="stylesheet" href="/assets/css/contact.css" />
     {% else %}
-    <link rel="stylesheet" href="/assets/bundle.css" />
+        <link rel="stylesheet" href="/assets/bundle.css" />
     {% endif %}
     {% endblock %}
     {% block js %}
@@ -32,7 +33,7 @@
     <header>
         <div>
             <div class="site-title">{{ site.site_name }}</div>
-            <nav>
+            <nav aria-label="site menu">
                 <ul>
                     {%- for item in site.menu -%}
                     {%- include 'partials/menu-item.html.twig' -%}
@@ -45,19 +46,22 @@
         {% block main %}
         <article>
             <h1>{{ page.title }}</h1>
-            {% block aftertitle %}
-            {% endblock %}
+            {% block aftertitle %} {% endblock %}
             <div class="content-wrap">
-                <div class="content">
-                {{ content|raw }}
+                {% block main_content %}
+                <div>
+                    <div class="content">
+                    {{ content|raw }}
+                    </div>
                 </div>
-                <aside class="content-aside">
+                {% endblock %}
+                <section class="content-aside">
                     <h2>つつじ行政書士事務所</h2>
                     <img src="/favicon.svg" width="60" height="60"
                         style="width:60px;height:auto;display:block;margin:1rem auto;"
                         alt="つつじ行政書士事務所アイコン" />
                     <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
-                </aside>
+                </section>
             </div>
         </article>
         {% endblock %}
@@ -66,7 +70,7 @@
         {% block footer %}
         <section class="footer-menu">
             <h2>メニュー</h2>
-            <nav>
+            <nav aria-label="footer menu">
                 <ul>
                     {%- for item in site.menu -%}
                     {%- include 'partials/menu-item.html.twig' -%}

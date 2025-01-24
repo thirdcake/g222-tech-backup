@@ -2,10 +2,9 @@
 title: "pushStateでブラウザの状態を管理する"
 description: "ジンドゥーの記事をQiitaに書く際に、pushState()について調べたのでまとめます。"
 eyecatch: 
-    - src: " "
-    - alt: "石川県金沢市にあるレアンドロのスイミングプール"
+    src: "/img/257/eyecatch.jpg"
+    alt: "石川県金沢市にあるレアンドロのスイミングプール"
 create_at: "2023-12-11T19:45:50"
-update_at: "2023-12-11T19:45:50"
 ---
 
 ## きっかけ

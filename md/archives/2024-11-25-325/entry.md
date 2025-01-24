@@ -1,9 +1,9 @@
 ---
-title: "PHPで、Union Findをつくる"
+title: "PHPで Union Findをつくる"
 description: "競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。"
 eyecatch: 
-    - src: " "
-    - alt: " "
+    src: "/img/325/eyecatch.jpg"
+    alt: "富山県にあるオブジェ、アウトサイドライン"
 create_at: "2024-08-12T14:29:57"
 update_at: "2024-11-25T22:13:20"
 ---

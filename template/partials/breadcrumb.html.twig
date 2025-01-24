@@ -1,11 +1,24 @@
-<aside class="breadcrumb">
-    <a href="/">ホーム</a>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
     {% for bread in page.breadcrumb %}
         <span>&nbsp;&gt;&nbsp;</span>
         {% if bread.href %}
-        <a href="{{ bread.href }}">{{ bread.text }}</a>
+        <a href="{{ bread.href }}">
+            <svg height="16" width="16" viewBox="0 0 16 16">
+                <use x="0" y="0" href="{{ bread.svg }}"></use>
+            </svg>
+            <span>{{ bread.text }}</span>
+        </a>
         {% else %}
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="{{ bread.svg }}"></use>
+        </svg>
         <span>{{ bread.text }}</span>
         {% endif %}
     {% endfor %}
-</aside>
+</nav>

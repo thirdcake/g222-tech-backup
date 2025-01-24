@@ -2,8 +2,8 @@
 title: "テオヤンセン機構を描く"
 description: "テオヤンセン機構をcanvasで描いてみました。その作り方をまとめます。"
 eyecatch: 
-    - src: " "
-    - alt: " "
+    src: "/img/160/theo.jpg"
+    alt: "テオヤンセン機構のひとつに点を指定したもの"
 create_at: "2023-08-26T14:14:36"
 update_at: "2023-08-27T14:24:02"
 ---
@@ -51,7 +51,7 @@ canvasは、基本的には、紙芝居を作るような感覚です。
 
 テオヤンセン機構には、動かない点が2つあります。
 
-![テオヤンセン機構の交点に名前をつけた図]()
+<p><img src="/img/160/theo.jpg" alt="テオヤンセン機構の交点に名前をつけた図" decoding="async" width="16" height="9" style="display:block;width:300px;max-width:100%;height:auto;" /></p>
 
 便宜上、テオヤンセン機構の交点に、A0からM1までの名前をつけています。  
 上図でいうと、A0と、M0は固定されています。

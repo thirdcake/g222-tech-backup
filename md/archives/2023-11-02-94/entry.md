@@ -2,8 +2,8 @@
 title: "ministaがv3になりました"
 description: "当サイトでも利用させていただいている、オープンソースツールのministaが、バージョン3になりました。"
 eyecatch: 
-    - src: " "
-    - alt: "北海道立釧路湖陵高等学校にある船のような同窓会館"
+    src: "/img/94/eyecatch.jpg"
+    alt: "北海道立釧路湖陵高等学校にある船のような同窓会館"
 create_at: "2023-06-05T13:34:38"
 update_at: "2023-11-02T16:11:41"
 ---

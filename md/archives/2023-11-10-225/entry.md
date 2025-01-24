@@ -2,8 +2,8 @@
 title: "WordPress6.4が正式リリースされました"
 description: "WordPress6.4がリリースされ、TT4が使えるようになったので、少し試してみました。"
 eyecatch: 
-    - src: " "
-    - alt: "新潟市にある旧税関の庁舎"
+    src: "/img/225/eyecatch.jpg"
+    alt: "新潟市にある旧税関の庁舎"
 create_at: "2023-11-08T18:20:17"
 update_at: "2023-11-10T11:54:27"
 ---

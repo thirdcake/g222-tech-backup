@@ -1,5 +1,6 @@
 vendor/
 node_modules/
+preview/img
 composer.lock
 package-lock.json
 *.jpg

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPressで画像管理 - つつじ行政書士事務所</title>
+    <meta name="description" content="WordPressで画像管理をするときに問題になりがちな、保存先フォルダを変更する方法をまとめます。" />
+    <meta property="og:title" content="WordPressで画像管理 - つつじ行政書士事務所" />
+    <meta property="og:description" content="WordPressで画像管理をするときに問題になりがちな、保存先フォルダを変更する方法をまとめます。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://g222.tech/img/64/eyecatch.jpg" />
+    <meta property="og:site_name" content="つつじ行政書士事務所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://g222.tech/archives/64.html" />
+    <link rel="canonical" href="https://g222.tech/archives/64.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="stylesheet" href="/assets/bundle.css" />
+                <script defer src="/assets/function.js"></script>
+    </head>
+<body>
+    <header>
+        <div>
+            <div class="site-title">つつじ行政書士事務所</div>
+            <nav aria-label="site menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+            <span>&nbsp;&gt;&nbsp;</span>
+                <a href="/archives/">
+            <svg height="16" width="16" viewBox="0 0 16 16">
+                <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+            </svg>
+            <span>記事一覧</span>
+        </a>
+                    <span>&nbsp;&gt;&nbsp;</span>
+                <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
+        </svg>
+        <span>WordPressで画像管理</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/64/eyecatch.jpg');">
+    <details>
+        <summary>代替</summary>
+        <div>島根県の温泉津温泉にある薬師湯の外観</div>
+    </details>
+</div>
+        <article>
+            <h1>WordPressで画像管理</h1>
+            <p class="page-date">
+    <span>2023年04月29日作成</span>
+        <span>2023年05月25日更新</span>
+    </p>
+            <div class="content-wrap">
+                                <div>
+                    <div class="content">
+                    <p>当サイトでは、WordPressをヘッドレスで使っています。<br />
+今回は、ヘッドレスWordPressで問題になりがちな、画像管理の方法をまとめます。</p>
+<p>ヘッドレス利用でなくても、単に画像管理したい場合にも使える方法だと思います。</p>
+<p>なお、当サイトはプラグインを使わない方法を採用していますが、プラグインを使った場合についても、最後に少しだけ説明しています。</p>
+<h2>やりたいこと</h2>
+<p>WordPressに画像をアップロードするとき、初期設定では、 <code>https\://domain.com/サブディレクトリ/wp-content/uploads/年/月/ファイル名.webp</code> というような画像URLになると思います。</p>
+<p>しかし、これではWordPressの保存場所が分かってしまって、ヘッドレス化の恩恵が少なくなります。<br />
+そこで、このURLを、 <code>https\://domain.com/img/年/月/ファイル名.webp</code> にする方法を探しました。</p>
+<h2>方法1 wp-admin/options.php</h2>
+<p>2023年4月現在、検索した範囲では、この方法がもっとも利用されていると思います。</p>
+<p><code>wp-admin</code> 画面で、<code>options.php</code> をURLに追記すると、オプション画面が表示されます。<br />
+このオプションで、 <code>upload_path</code> と、 <code>upload_url_path</code> のところを編集すれば、アップロード先を変更できます。</p>
+<p>ただし、当サイトの環境だと、新しく「年/月フォルダー」を作成するときに、エラーが出ました。<br />
+わたしが利用しているレンタルサーバーのセキュリティ設定が、WordPressと相性が良くないのかもしれません。</p>
+<p>その場合、WordPressの左側のメニューから、「設定」の「メディア」を選択し、「アップロードしたファイルを年月ベースのフォルダーに整理」のチェックを外すと、うまくいくようです。</p>
+<p>とはいえ、わたしは「年/月フォルダー」を利用したかったので、別の方法を模索しました。</p>
+<h2>方法2 wp-admin/options.php &amp; .htaccess</h2>
+<p>そこで、 <code>upload_path</code> は空欄にして、 <code>upload_url_path</code> の方のみ、変更することを考えます。</p>
+<p>このとき、画像自体はあいかわらず「/サブディレクトリ/wp-content/uploads/年/月/フォルダー」に入ったままなので、URLでアクセスしたときに、リライトされるような設定が必要になります。</p>
+<p>当サイトで利用しているレンタルサーバーはアパッチサーバーで、<code>.htaccess</code> が使えますから、 <code>rewriteengine</code> を利用します。</p>
+<p>たとえば、 以下のような1行を記述すれば、uploads フォルダに自動的に移動してくれるはずです。</p>
+<pre><code>RewriteRule img/(.*) サブディレクトリ/wp-content/uploads/$1 [QSA]</code></pre>
+<p>当サイトは、この方法により「/img/年/月フォルダー」を利用することができました。</p>
+<h2>方法3 WP Original Media Pathプラグイン</h2>
+<p>サイトでは、上記の方法でうまくいきましたので、プラグインを使う必要がありませんでしたが、レンタルサーバーの相性次第では、プラグインを利用する方法も選択肢にあがります。</p>
+<p>わたしが検索した範囲では、「WP Original Media Path」というプラグインが、もっとも利用しやすそうでした。</p>
+<p>2023年4月時点で、メンテナンスがきちんと行われていることも確認できました。</p>
+<h2>まとめ</h2>
+<p>WordPressをヘッドレス化する場合の、画像問題について紹介しました。</p>
+<p>Jamstackなどを使って、画像をまるごとコピーするような力技もあるとは思います。<br />
+ですが、node.jsなどが動かない、普通のレンタルサーバーで作るなら、上記のような方法が簡単で良いのではないかと（今のところは）考えています。</p>
+<p>ただし、この方法は、WordPressの仕様が変われば、変更しなければならないものです。<br />
+多少のリスクがある方法だということは、ご理解いただければと思います。</p>
+                    </div>
+                </div>
+                                <section class="content-aside">
+                    <h2>つつじ行政書士事務所</h2>
+                    <img src="/favicon.svg" width="60" height="60"
+                        style="width:60px;height:auto;display:block;margin:1rem auto;"
+                        alt="つつじ行政書士事務所アイコン" />
+                    <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
+                </section>
+            </div>
+        </article>
+        
+<section class="blog-pager">
+                <h2>次の記事</h2>
+                
+<div class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/1/eyecatch.jpg);" >
+    <h3><a href="/archives/1.html">開業へ向けてやったこと</a></h3>
+    <p>行政書士事務所開業へ向けて、やったことを時系列でまとめています。</p>
+    <p><time datetime="2023-07-16">2023年07月16日</time></p>
+</div>
+    </section><section class="relation">
+    <h2>最近の記事</h2>
+</section>    </main>
+    <footer>
+        <section>
+    <p>最後までお読みいただきありがとうございました。<br>なにかお気づきの点がありましたら、<a href="/contact.html">お問い合わせ</a>ください。</p>
+    <p><img class="footer-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" decoding="async"
+        width="1" height="1" style="display:block;width:300px;height:auto;max-width:100%;" /></p>
+    <p>（日行連公式キャラクター「ユキマサくん」）</p>
+    <div class="footer-message-text"></div>
+</section>
+        <section class="footer-menu">
+            <h2>メニュー</h2>
+            <nav aria-label="footer menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </section>
+        <section class="footer-address">
+            <h2>つつじ行政書士事務所</h2>
+            <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
+            <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+        </section>
+        
+    </footer>
+</body>
+</html>

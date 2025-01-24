@@ -5,3 +5,8 @@
 {{ parent() }}
 {% endblock %}
 
+{% block aftertitle %}
+{% if page.after_title %}
+<p style="text-align:center;">{{ page.after_title|raw }}</p>
+{% endif %}
+{% endblock %}

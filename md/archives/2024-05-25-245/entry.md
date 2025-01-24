@@ -2,8 +2,8 @@
 title: "ConoHa WINGでSSHからログを読みたい"
 description: "レンタルサーバーのConoHa WINGで、アクセスログをSSH接続から見る方法をまとめました"
 eyecatch: 
-    - src: " "
-    - alt: "富山市の市街地から見る立山連峰"
+    src: "/img/245/eyecatch.jpg"
+    alt: "富山市の市街地から見る立山連峰"
 create_at: "2023-11-19T12:42:17"
 update_at: "2024-05-25T22:56:19"
 ---

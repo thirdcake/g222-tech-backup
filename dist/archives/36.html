@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デザインシステムを採用する理由 - つつじ行政書士事務所</title>
+    <meta name="description" content="当サイトのデザインについて、現時点の考え方や方向性、利用技術についてのまとめ。" />
+    <meta property="og:title" content="デザインシステムを採用する理由 - つつじ行政書士事務所" />
+    <meta property="og:description" content="当サイトのデザインについて、現時点の考え方や方向性、利用技術についてのまとめ。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://g222.tech/img/36/eyecatch.jpg" />
+    <meta property="og:site_name" content="つつじ行政書士事務所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://g222.tech/archives/36.html" />
+    <link rel="canonical" href="https://g222.tech/archives/36.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="stylesheet" href="/assets/bundle.css" />
+                <script defer src="/assets/function.js"></script>
+    </head>
+<body>
+    <header>
+        <div>
+            <div class="site-title">つつじ行政書士事務所</div>
+            <nav aria-label="site menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+            <span>&nbsp;&gt;&nbsp;</span>
+                <a href="/archives/">
+            <svg height="16" width="16" viewBox="0 0 16 16">
+                <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+            </svg>
+            <span>記事一覧</span>
+        </a>
+                    <span>&nbsp;&gt;&nbsp;</span>
+                <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
+        </svg>
+        <span>デザインシステムを採用する理由</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/36/eyecatch.jpg');">
+    <details>
+        <summary>代替</summary>
+        <div>静岡県の富士山世界遺産センターの正面</div>
+    </details>
+</div>
+        <article>
+            <h1>デザインシステムを採用する理由</h1>
+            <p class="page-date">
+    <span>2023年04月09日作成</span>
+        <span>2023年07月24日更新</span>
+    </p>
+            <div class="content-wrap">
+                                <div>
+                    <div class="content">
+                    <p>当サイトは、WordPressを使用して認証や投稿、画像の管理を行っていますが、見た目の部分は自作しています。<br />
+ヘッドレス運用を採用しているため、WordPressのテーマを使用する必要も、WordPress特有のテンプレート関数を使用する必要もありません。<br />
+そのため、デザインは自由度が高く、自分次第でなんでもできます。</p>
+<p>デザインにおいて、何を重視するかは難しい問題です。<br />
+たくさんの画像が並ぶサイトもありますし、動画が自動再生されるサイトもあります。<br />
+サイトごとに、伝えたいことが異なるので、デザインの要点も異なります。</p>
+<hr />
+<p>デザインシステムには、さまざまなものがあります。</p>
+<p>有名なところでは、以下のようなものがあります。</p>
+<ul>
+<li>googleの<a href="https://m2.material.io/design/guidelines-overview">マテリアルデザイン</a></li>
+<li>appleの<a href="https://developer.apple.com/design/human-interface-guidelines/">HIGガイドライン</a></li>
+<li>クックパッドの<a href="https://note.com/fjkn/n/nf73742ec925a">エプロン</a></li>
+</ul>
+<p>当サイトは、行政書士事務所の開業を予定しているため、たくさんの文章を投稿していくことになると思います。<br />
+そのため、多くの文章が並んでも読みやすく、シンプルなデザインを目指したいと思っています。</p>
+<p>2023年4月の時点では、以下の2つ採用しています</p>
+<ul>
+<li>クラスレスCSSの <a href="https://github.com/kognise/water.css">water.css</a></li>
+<li>デジタル庁の<a href="https://www.digital.go.jp/policies/servicedesign/designsystem/">デザインシステム</a></li>
+</ul>
+<p>どちらも、「文章が読みやすい」デザインに役立つと考えています。</p>
+<hr />
+<p>また、ウェブサイトのデザインを考えるときに、Webアクセシビリティは避けて通れないものになりつつあります。<br />
+今後、必要性が増していく分野です。</p>
+<p>いまはまだ、わたしに導入できるだけの知識がありませんが、少しずつ、このサイトでも採用していけたらと思っています。</p>
+<p>多様な方に情報を届けられるよう、順次改善していきたいです。</p>
+                    </div>
+                </div>
+                                <section class="content-aside">
+                    <h2>つつじ行政書士事務所</h2>
+                    <img src="/favicon.svg" width="60" height="60"
+                        style="width:60px;height:auto;display:block;margin:1rem auto;"
+                        alt="つつじ行政書士事務所アイコン" />
+                    <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
+                </section>
+            </div>
+        </article>
+        
+<section class="blog-pager">
+            <h2>前の記事</h2>
+                
+<div class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/107/eyecatch.jpg);" >
+    <h3><a href="/archives/107.html">法定相続情報証明制度について</a></h3>
+    <p>法務局が、民法に定められた相続人を証明してくれる制度です。</p>
+    <p><time datetime="2023-07-24">2023年07月24日</time></p>
+</div>
+                <h2>次の記事</h2>
+                
+<div class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/76/eyecatch.jpg);" >
+    <h3><a href="/archives/76.html">10年前のノートPCをMX linuxにしました</a></h3>
+    <p>家で使っていなかったノートPCがあったので、軽量なlinuxを入れてみました。今のところ快適です。</p>
+    <p><time datetime="2023-07-26">2023年07月26日</time></p>
+</div>
+    </section><section class="relation">
+    <h2>最近の記事</h2>
+</section>    </main>
+    <footer>
+        <section>
+    <p>最後までお読みいただきありがとうございました。<br>なにかお気づきの点がありましたら、<a href="/contact.html">お問い合わせ</a>ください。</p>
+    <p><img class="footer-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" decoding="async"
+        width="1" height="1" style="display:block;width:300px;height:auto;max-width:100%;" /></p>
+    <p>（日行連公式キャラクター「ユキマサくん」）</p>
+    <div class="footer-message-text"></div>
+</section>
+        <section class="footer-menu">
+            <h2>メニュー</h2>
+            <nav aria-label="footer menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </section>
+        <section class="footer-address">
+            <h2>つつじ行政書士事務所</h2>
+            <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
+            <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+        </section>
+        
+    </footer>
+</body>
+</html>

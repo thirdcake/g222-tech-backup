@@ -2,8 +2,8 @@
 title: "当事務所のスケジュール"
 description: "（毎日更新）今日から2週間分の業務状況を、スケジュールとして表示しています。"
 eyecatch: 
-    - src: " "
-    - alt: " "
+    src: "/img/137/eyecatch.jpg"
+    alt: "つつじ行政書士事務所のスケジュールです"
 create_at: "2023-08-03T21:45:22"
 update_at: "2024-03-20T14:13:07"
 scripts: ["schedule.js"]

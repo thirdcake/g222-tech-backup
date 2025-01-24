@@ -8,7 +8,11 @@ body>header{
         max-width: 1200px;
         margin: 0 auto;
         padding: 8px var(--g222-outer-padding);
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: .5rem 0;
     }
 
     >div>div.site-title {
@@ -16,13 +20,14 @@ body>header{
     }
 
     >div>nav {
+        max-width:100%;
         overflow-x: auto;
     }
     >div>nav>ul {
         margin: 0;
         padding: 0;
         list-style: none;
-        font-size: .95rem;
+        font-size: .875rem;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -46,8 +51,8 @@ body>header{
 
     @media screen and (min-width: 992px) {
         >div {
-            display: flex;
             flex-wrap: wrap;
+            flex-direction: row;
             justify-content: space-between;
             align-items: center;
         }

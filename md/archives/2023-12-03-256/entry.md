@@ -2,8 +2,8 @@
 title: "WordPressチームから脆弱性に関するメールが届いたら"
 description: "新しいタイプのフィッシング詐欺があったようなので、まとめました。"
 eyecatch: 
-    - src: " "
-    - alt: "青森県立美術館"
+    src: "/img/256/eyecatch.jpg"
+    alt: "青森県立美術館"
 create_at: "2023-12-02T21:26:01"
 update_at: "2023-12-03T15:28:39"
 ---

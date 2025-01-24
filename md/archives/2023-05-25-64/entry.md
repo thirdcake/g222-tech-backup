@@ -2,8 +2,8 @@
 title: "WordPressで画像管理"
 description: "WordPressで画像管理をするときに問題になりがちな、保存先フォルダを変更する方法をまとめます。"
 eyecatch: 
-    - src: " "
-    - alt: "島根県の温泉津温泉にある薬師湯の外観"
+    src: "/img/64/eyecatch.jpg"
+    alt: "島根県の温泉津温泉にある薬師湯の外観"
 create_at: "2023-04-29T09:33:03"
 update_at: "2023-05-25T13:26:07"
 ---

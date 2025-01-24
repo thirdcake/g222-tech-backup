@@ -3,23 +3,48 @@
 {% block main %}
 {%- include 'partials/breadcrumb.html.twig' -%}
 {% if page.eyecatch.src %}
-<aside class="eyecatch" style="background-image: url({{ page.eyecatch.src }});">
+<div class="eyecatch" style="background-image: url('{{ page.eyecatch.src }}');">
     <details>
-        <summary>ALT</summary>
+        <summary>代替</summary>
         <div>{{ page.eyecatch.alt }}</div>
     </details>
-</aside>
+</div>
 {% endif %}
 {{ parent() }}
-<aside class="blog-pager"><p>次のブログ記事</p></aside>
-{%- include 'partials/relations.html.twig' -%}
+<section class="blog-pager">
+    {% if page.prev %}
+        <h2>前の記事</h2>
+        {% set post = page.prev %}
+        {% include 'partials/post-list.html.twig' %}
+    {% endif %}
+    {% if page.next %}
+        <h2>次の記事</h2>
+        {% set post = page.next %}
+        {% include 'partials/post-list.html.twig' %}
+    {% endif %}
+</section>
+<section class="relation">
+    <h2>最近の記事</h2>
+    <div id="post-list-position"></div>
+</section>
 {% endblock %}
 
 {% block aftertitle %}
 <p class="page-date">
-    <span>作成日: {{ page.create_at|date("Y年m月d日") }}</span>
+    <span>{{ page.create_at|date("Y年m月d日") }}作成</span>
     {% if page.update_at %}
-    <span>更新日: {{ page.update_at|date("Y年m月d日") }}</span>
+    <span>{{ page.update_at|date("Y年m月d日") }}更新</span>
     {% endif %}
 </p>
+{% endblock %}
+
+{% block footer %}
+<section>
+    <p>最後までお読みいただきありがとうございました。<br>なにかお気づきの点がありましたら、<a href="/contact.html">お問い合わせ</a>ください。</p>
+    <p><img class="footer-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" decoding="async"
+        width="1" height="1" style="display:block;width:300px;height:auto;max-width:100%;" /></p>
+    <p>（日行連公式キャラクター「ユキマサくん」）</p>
+    <div class="footer-message-text"></div>
+</section>
+{{ parent() }}
 {% endblock %}

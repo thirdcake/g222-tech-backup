@@ -1,0 +1,12 @@
+{% extends './partials/base.html.twig' %}
+
+
+{% block main %}
+{%- include 'partials/breadcrumb.html.twig' -%}
+{{ parent() }}
+{% endblock %}
+
+{% block main_content %}
+    <div id="post-list-position" data-lastpage="3"></div>
+    {% include 'partials/post-frag.html.twig' %}
+{% endblock %}

@@ -2,8 +2,8 @@
 title: "開業へ向けてやったこと"
 description: "行政書士事務所開業へ向けて、やったことを時系列でまとめています。"
 eyecatch: 
-    - src: " "
-    - alt: "京都の無鄰菴で、和室から庭を眺めているところ"
+    src: "/img/1/eyecatch.jpg"
+    alt: "京都の無鄰菴で、和室から庭を眺めているところ"
 create_at: "2023-04-06T11:25:53"
 update_at: "2023-07-16T11:31:08"
 ---
@@ -31,7 +31,8 @@ update_at: "2023-07-16T11:31:08"
 家賃は固定費になるので、できるだけ安いところで探しました。  
 居住用途ではなく事務所用途だと、家賃に消費税がかかるなど、結構、出費は大きいです。
 
-![事務所外観]()
+<img src="/img/1/office.jpg" alt="事務所外観" decoding="async" width="16" height="9" style="display:block;width:100%;height:auto;">
+
 事務所の外観です
 
 ---

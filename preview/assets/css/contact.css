@@ -1,0 +1,20 @@
+/* contact.html */
+
+p.google-form-button {
+    display:block;
+    margin:1rem auto;
+    padding:.5rem 2rem;
+    background-color:var(--text-link);
+    width:fit-content;
+    border-radius:.3rem;
+}
+
+p.google-form-button:hover {
+    background-color:var(--text-visited);
+}
+
+p.google-form-button a {
+    color:var(--background-primary);
+    font-weight:bold;
+    text-decoration:none;
+}
