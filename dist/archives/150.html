@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPressのセキュリティで最低限やってほしい4つのこと - つつじ行政書士事務所</title>
+    <meta name="description" content="WordPressで、最低限確認してほしいセキュリティ設定についてまとめました。" />
+    <meta property="og:title" content="WordPressのセキュリティで最低限やってほしい4つのこと - つつじ行政書士事務所" />
+    <meta property="og:description" content="WordPressで、最低限確認してほしいセキュリティ設定についてまとめました。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://g222.tech/img/150/eyecatch.jpg" />
+    <meta property="og:site_name" content="つつじ行政書士事務所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://g222.tech/archives/150.html" />
+    <link rel="canonical" href="https://g222.tech/archives/150.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="stylesheet" href="/assets/bundle.css" />
+                <script defer src="/assets/function.js"></script>
+    </head>
+<body>
+    <header>
+        <div>
+            <div class="site-title">つつじ行政書士事務所</div>
+            <nav aria-label="site menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+            <span>&nbsp;&gt;&nbsp;</span>
+                <a href="/archives/">
+            <svg height="16" width="16" viewBox="0 0 16 16">
+                <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+            </svg>
+            <span>記事一覧</span>
+        </a>
+                    <span>&nbsp;&gt;&nbsp;</span>
+                <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
+        </svg>
+        <span>WordPressのセキュリティで...</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/150/eyecatch.jpg');">
+    <details>
+        <summary>代替</summary>
+        <div>岐阜県のぎふメディアコスモス外観</div>
+    </details>
+</div>
+        <article>
+            <h1>WordPressのセキュリティで最低限やってほしい4つのこと</h1>
+            <p class="page-date">
+    <span>2023年08月13日作成</span>
+        <span>2024年08月27日更新</span>
+    </p>
+            <div class="content-wrap">
+                                <div>
+                    <div class="content">
+                    <p>WordPressで自社ホームページを管理されている方、総務部や情シスの担当者の方に、最低限、確認しておいてほしいことをまとめます。</p>
+<p>（この記事は、2023年8月時点の情報です。この記事の最後にも書いてありますが、その時々の情報収集を必ずしてください）</p>
+<h2>1.まず、何よりもパスワード</h2>
+<p>WordPressのセキュリティ設定で、いちばん大事なのは、パスワードです。</p>
+<p>WordPressの<a href="https://wordpress.org/documentation/article/password-best-practices/">公式ドキュメント</a>では、以下の内容が推奨されています。</p>
+<ul>
+<li>パスワードの文字数は、少なくとも20文字以上（多いほど良い）</li>
+<li>大文字と、小文字を使う</li>
+<li>数字を含める</li>
+<li>特殊記号を加える（ <code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[]^_{}|~</code> ）</li>
+</ul>
+<p>WordPressで、自動生成してくれるパスワードを使っていれば、24文字のランダムな文字列になっているはずです。</p>
+<p>もし、会社名など、分かりやすい言葉になっている場合は、そのWordPressを制作した会社にパスワードを変更してもらってください。</p>
+<p>パスワード変更は、簡単にできます。</p>
+<h2>2.バージョンを最新にする</h2>
+<p>レンタルサーバーを利用している場合、PHPのバージョンを変更できる場合があります。<br />
+わたしの使っているサーバーの場合、PHP8.2を利用できます。</p>
+<p>PHPのバージョンは、できるだけ新しい（数字の大きい）方が良いです。<br />
+7よりも8が良く、8.1よりも8.2の方が良いです。<br />
+（レンタルサーバーのコントロールパネルのアクセス権限が無い場合は、権限のある方にPHPのバージョンを聞いてみてください）</p>
+<p>また、WordPressにもバージョンがあります。<br />
+2023年8月13日時点では、6.3が最新です。<br />
+可能な限り、バージョンを新しくしてください。</p>
+<p>さらに、WordPress使われているテーマやプラグインにも、バージョンがあります。<br />
+これも、新しいものが良いです。</p>
+<p>WordPressのダッシュボード画面で、更新 ボタンを押すと、バージョンアップできるかどうか分かるはずです。</p>
+<p>ただし、バージョンアップは、ときどき不具合を起こすこともあります。<br />
+web制作会社に、頼んでやってもらう方が安全です。</p>
+<p>プラグインの不具合でバージョンアップできない場合、そのサイトの寿命がきているのかもしれません。<br />
+そのときは、リニューアルなどを検討した方が良いです。</p>
+<h2>3.ログイン画面を隠す</h2>
+<p>バージョンアップできたら、次に、外部からのアクセスについて確認していきます。</p>
+<p>お使いのWordPressサイトで、URLの末尾に <code>wp-admin</code> と入力してください。</p>
+<p>たとえば、 <code>https\://domain.com/</code> というURLのサイトだった場合、<code>https\://domain.com/wp-admin</code> となるように、アクセスしてみてください。</p>
+<p>ログイン画面が出てしまったサイトは、おそらくセキュリティ設定が甘いです。<br />
+そのWordPressを作った方、もしくはWordPressを管理してくれる専門業者に、ログイン画面に遷移しない設定をしてもらってください。</p>
+<h2>4.ログインIDを隠す</h2>
+<p>次に、同じくURLの末尾に、<code>?author=1</code> と入力してください。</p>
+<p>たとえば、 <code>https\://domain.com/</code> の場合、 <code>https\://domain.com/?author=1</code> となるようにしてアクセスしてください。</p>
+<p>もし、<code>～/author/ログインID</code> というようなページになって、ご自身の記事が出てきた場合、セキュリティ設定が甘いかもしれません。<br />
+（複数人で管理しているサイトで、筆者が分かるようにする必要があるサイトの場合は、あえてIDが分かるようにしていることもあります。が、通常の企業サイトの場合、そのような設定はまれです）</p>
+<p>同じように、末尾に <code>wp-json/wp/v2/users/</code> をつけても良いです。<br />
+こちらのアドレスも、ログインIDが出てくる危険性があります。</p>
+<p>ログインIDが表示されてしまうのが嫌な場合は、web制作会社などに依頼して、表示されない設定にしてもらってください。</p>
+<h2>その他</h2>
+<p>とりあえず、上記4つをチェックしてもらえれば、そのサイトのセキュリティ状況は何となく分かると思います。</p>
+<p>その他の設定として、以下のようなこともチェックできたらしてみてください。</p>
+<ul>
+<li>XML-RPCが適切に設定されているか</li>
+<li>REST-APIが適切に設定されているか</li>
+<li>コメントやお問い合わせにスパム対策がされているか</li>
+<li>ログイン認証に画像認証などが入っているか</li>
+<li>ログイン認証が一定数失敗するとロックされるか</li>
+</ul>
+<p>今年の6月に、お料理系YouTuberとして有名なリュウジさんのWordPressサイトが、乗っ取り被害を受けて話題になりました。<br />
+（その後、リュウジさんはBASEというシステムに乗り換えました。無難な判断だと思います）</p>
+<p>WordPressは、導入が簡単なシステムですが、きちんと管理していくのは、実は難しいです。<br />
+管理者の方は、信頼できる管理会社を見つけるか、担当部署でのセキュリティ情報の収集をお願いします。</p>
+                    </div>
+                </div>
+                                <section class="content-aside">
+                    <h2>つつじ行政書士事務所</h2>
+                    <img src="/favicon.svg" width="60" height="60"
+                        style="width:60px;height:auto;display:block;margin:1rem auto;"
+                        alt="つつじ行政書士事務所アイコン" />
+                    <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
+                </section>
+            </div>
+        </article>
+        
+<section class="blog-pager">
+            <h2>前の記事</h2>
+                <div id="post-301" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/301/eyecatch.jpg);" >
+    <h2><a href="/archives/301.html">ネットを見ていて変な画面になってしまったら</a></h2>
+    <p>ネットの閲覧中に、変な広告が表示されることがあります。そんな時に使ってほしいショートカットをまとめています。</p>
+    <p><time datetime="2024-08-01">2024年08月01日</time></p>
+</div>
+                <h2>次の記事</h2>
+                <div id="post-339" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/339/eyecatch.jpg);" >
+    <h2><a href="/archives/339.html">地元行政書士が教える久留米市のクレープ屋さん</a></h2>
+    <p>地元の久留米市にあるクレープ屋さんをまとめました。</p>
+    <p><time datetime="2024-10-02">2024年10月02日</time></p>
+</div>
+    </section>
+<section class="relation">
+    <h2>最近の記事</h2>
+    <div id="post-list-position"></div>
+</section>
+    </main>
+    <footer>
+        <section>
+    <p>最後までお読みいただきありがとうございました。<br>なにかお気づきの点がありましたら、<a href="/contact.html">お問い合わせ</a>ください。</p>
+    <p><img class="footer-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" decoding="async"
+        width="1" height="1" style="display:block;width:300px;height:auto;max-width:100%;" /></p>
+    <p>（日行連公式キャラクター「ユキマサくん」）</p>
+    <div class="footer-message-text"></div>
+</section>
+        <section class="footer-menu">
+            <h2>メニュー</h2>
+            <nav aria-label="footer menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </section>
+        <section class="footer-address">
+            <h2>つつじ行政書士事務所</h2>
+            <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
+            <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+        </section>
+        
+    </footer>
+</body>
+</html>

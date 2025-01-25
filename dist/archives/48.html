@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHPで Union Findをつくる - つつじ行政書士事務所</title>
-    <meta name="description" content="競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。" />
-    <meta property="og:title" content="PHPで Union Findをつくる - つつじ行政書士事務所" />
-    <meta property="og:description" content="競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。" />
+    <title>よろず支援相談を知っていますか - つつじ行政書士事務所</title>
+    <meta name="description" content="よろず支援拠点の概要と利点、そして利用した感想についてのまとめ。" />
+    <meta property="og:title" content="よろず支援相談を知っていますか - つつじ行政書士事務所" />
+    <meta property="og:description" content="よろず支援拠点の概要と利点、そして利用した感想についてのまとめ。" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://g222.tech/img/325/eyecatch.jpg" />
+    <meta property="og:image" content="https://g222.tech/img/48/eyecatch.jpg" />
     <meta property="og:site_name" content="つつじ行政書士事務所" />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:url" content="https://g222.tech/archives/325.html" />
-    <link rel="canonical" href="https://g222.tech/archives/325.html" />
+    <meta property="og:url" content="https://g222.tech/archives/48.html" />
+    <link rel="canonical" href="https://g222.tech/archives/48.html" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
                 <link rel="stylesheet" href="/assets/bundle.css" />
                 <script defer src="/assets/function.js"></script>
@@ -77,65 +77,44 @@
                 <svg height="16" width="16" viewBox="0 0 16 16">
             <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
         </svg>
-        <span>PHPで Union Findをつ...</span>
-            </nav><div class="eyecatch" style="background-image: url('/img/325/eyecatch.jpg');">
+        <span>よろず支援相談を知っていますか</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/48/eyecatch.jpg');">
     <details>
         <summary>代替</summary>
-        <div>富山県にあるオブジェ、アウトサイドライン</div>
+        <div>北海道釧路市博物館の二重らせんの階段</div>
     </details>
 </div>
         <article>
-            <h1>PHPで Union Findをつくる</h1>
+            <h1>よろず支援相談を知っていますか</h1>
             <p class="page-date">
-    <span>2024年08月12日作成</span>
-        <span>2024年11月25日更新</span>
+    <span>2023年04月12日作成</span>
+        <span>2024年03月20日更新</span>
     </p>
             <div class="content-wrap">
                                 <div>
                     <div class="content">
-                    <p>Union Findというデータ構造をPHPでやる場合の備忘録を残しておきます。</p>
-<p><a href="https://note.nkmk.me/python-union-find/">Pythonの記事</a>を参考に作成しました。（サイズやランクは実装していないので、やや低速です）</p>
-<pre><code>&lt;?php
-class UnionFind {
-  public $parents;
-  public function __construct ($n) {
-    $this-&gt;parents = range(0, $n - 1);
-  }
-  public function find ($x) {
-    if ($this-&gt;parents[$x] === $x) {
-      return $x;
-    } else {
-      $this-&gt;parents[$x] = $this-&gt;find($this-&gt;parents[$x]);
-      return $this-&gt;parents[$x];
-    }
-  }
-  public function union ($x, $y) {
-    $px = $this-&gt;find($x);
-    $py = $this-&gt;find($y);
-    if ($px === $py) {
-      return;
-    }
-    $this-&gt;parents[$px] = $py;
-  }
-}
-
-// 使い方
-$li = [0, 1, 2, 3, 4];
-$uf = new UnionFind(count($li));
-var_dump($uf-&gt;parents);
-$uf-&gt;union(0, 3);
-var_dump($uf-&gt;parents);
-$uf-&gt;union(0, 1);
-var_dump($uf-&gt;parents);
-$uf-&gt;union(1, 2);
-var_dump($uf-&gt;parents);
-$uf-&gt;find(3);
-var_dump($uf-&gt;parents);</code></pre>
-<p>自分でこのようなデータ構造を思いつくことはできませんが、すでにあるものは、どんどん学習して利用していきたいと思います。</p>
+                    <p>「<a href="https://yorozu.smrj.go.jp/">よろず支援拠点</a>」をご存知でしょうか？<br />
+中小企業庁が設置する、経営相談の窓口です。</p>
+<p>福岡県久留米市にも、この相談窓口があります。<br />
+わたしは行政書士を開業するにあたり、ここの行政書士の先生の個別相談を利用しました。</p>
 <hr />
-<p>（追記）
-ちなみに、基本的にUnionFindは元に戻せませんが、Rollback機能付きのものもあるそうです。</p>
-<p><a href="https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html">参考URL</a></p>
+<p>相談先としてよろず支援拠点が良い理由は、3つあります。</p>
+<ul>
+<li>公的機関設置なので、安心感があること</li>
+<li>相談料が無料であること</li>
+<li>有資格者や現役経営者に相談できること</li>
+</ul>
+<p>また、相談するコーディネーターも、何年か周期で入れ替わっているようです。</p>
+<p>以前、久留米商工会議所に相談に行ったとき、ご対応いただいた中小企業診断士の中にも、数年前まで、よろず支援をしていたという方がいらっしゃいました。</p>
+<hr />
+<p>相談は3月に受けたのですが、今日、そのアフターフォローのお電話をいただきました。<br />
+いまの経過報告をしたところ、関係しそうな情報を、追加で教えていただきました。<br />
+開業段階ごとに、知りたい知識は変わっていきます。このような「伴走型支援」は、たいへん心強いです。</p>
+<p>将来、わたしが開業支援をする立場になったとき、アフターフォローまできちんとできる行政書士でありたいと思います。</p>
+<hr />
+<p>（2023年8月15日）</p>
+<p>開業後、ご挨拶に伺ったところ、また追加でアドバイスをいただきました。</p>
+<p>他士業との連携も、進めていきたいと思います。</p>
                     </div>
                 </div>
                                 <section class="content-aside">
@@ -150,12 +129,18 @@ var_dump($uf-&gt;parents);</code></pre>
         
 <section class="blog-pager">
             <h2>前の記事</h2>
-                <div id="post-339" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/339/eyecatch.jpg);" >
-    <h2><a href="/archives/339.html">地元行政書士が教える久留米市のクレープ屋さん</a></h2>
-    <p>地元の久留米市にあるクレープ屋さんをまとめました。</p>
-    <p><time datetime="2024-10-02">2024年10月02日</time></p>
+                <div id="post-223" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/223/eyecatch.jpg);" >
+    <h2><a href="/archives/223.html">通信の秘密の法律上の建てつけ</a></h2>
+    <p>憲法に規定された「通信の秘密」について、その違法性の判断がブログ記事になっていたので、紹介します。</p>
+    <p><time datetime="2024-03-20">2024年03月20日</time></p>
 </div>
-        </section>
+                <h2>次の記事</h2>
+                <div id="post-296" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/296/eyecatch.jpg);" >
+    <h2><a href="/archives/296.html">WordPressが6.5になりました</a></h2>
+    <p>WordPressが6.5になったので、さっそくアップデートしてみました。</p>
+    <p><time datetime="2024-04-11">2024年04月11日</time></p>
+</div>
+    </section>
 <section class="relation">
     <h2>最近の記事</h2>
     <div id="post-list-position"></div>

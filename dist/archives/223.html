@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHPで Union Findをつくる - つつじ行政書士事務所</title>
-    <meta name="description" content="競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。" />
-    <meta property="og:title" content="PHPで Union Findをつくる - つつじ行政書士事務所" />
-    <meta property="og:description" content="競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。" />
+    <title>通信の秘密の法律上の建てつけ - つつじ行政書士事務所</title>
+    <meta name="description" content="憲法に規定された「通信の秘密」について、その違法性の判断がブログ記事になっていたので、紹介します。" />
+    <meta property="og:title" content="通信の秘密の法律上の建てつけ - つつじ行政書士事務所" />
+    <meta property="og:description" content="憲法に規定された「通信の秘密」について、その違法性の判断がブログ記事になっていたので、紹介します。" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://g222.tech/img/325/eyecatch.jpg" />
+    <meta property="og:image" content="https://g222.tech/img/223/eyecatch.jpg" />
     <meta property="og:site_name" content="つつじ行政書士事務所" />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:url" content="https://g222.tech/archives/325.html" />
-    <link rel="canonical" href="https://g222.tech/archives/325.html" />
+    <meta property="og:url" content="https://g222.tech/archives/223.html" />
+    <link rel="canonical" href="https://g222.tech/archives/223.html" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
                 <link rel="stylesheet" href="/assets/bundle.css" />
                 <script defer src="/assets/function.js"></script>
@@ -77,65 +77,44 @@
                 <svg height="16" width="16" viewBox="0 0 16 16">
             <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
         </svg>
-        <span>PHPで Union Findをつ...</span>
-            </nav><div class="eyecatch" style="background-image: url('/img/325/eyecatch.jpg');">
+        <span>通信の秘密の法律上の建てつけ</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/223/eyecatch.jpg');">
     <details>
         <summary>代替</summary>
-        <div>富山県にあるオブジェ、アウトサイドライン</div>
+        <div>北海道釧路市にある毛綱さんのお母さんの住宅</div>
     </details>
 </div>
         <article>
-            <h1>PHPで Union Findをつくる</h1>
+            <h1>通信の秘密の法律上の建てつけ</h1>
             <p class="page-date">
-    <span>2024年08月12日作成</span>
-        <span>2024年11月25日更新</span>
+    <span>2023年11月04日作成</span>
+        <span>2024年03月20日更新</span>
     </p>
             <div class="content-wrap">
                                 <div>
                     <div class="content">
-                    <p>Union Findというデータ構造をPHPでやる場合の備忘録を残しておきます。</p>
-<p><a href="https://note.nkmk.me/python-union-find/">Pythonの記事</a>を参考に作成しました。（サイズやランクは実装していないので、やや低速です）</p>
-<pre><code>&lt;?php
-class UnionFind {
-  public $parents;
-  public function __construct ($n) {
-    $this-&gt;parents = range(0, $n - 1);
-  }
-  public function find ($x) {
-    if ($this-&gt;parents[$x] === $x) {
-      return $x;
-    } else {
-      $this-&gt;parents[$x] = $this-&gt;find($this-&gt;parents[$x]);
-      return $this-&gt;parents[$x];
-    }
-  }
-  public function union ($x, $y) {
-    $px = $this-&gt;find($x);
-    $py = $this-&gt;find($y);
-    if ($px === $py) {
-      return;
-    }
-    $this-&gt;parents[$px] = $py;
-  }
-}
-
-// 使い方
-$li = [0, 1, 2, 3, 4];
-$uf = new UnionFind(count($li));
-var_dump($uf-&gt;parents);
-$uf-&gt;union(0, 3);
-var_dump($uf-&gt;parents);
-$uf-&gt;union(0, 1);
-var_dump($uf-&gt;parents);
-$uf-&gt;union(1, 2);
-var_dump($uf-&gt;parents);
-$uf-&gt;find(3);
-var_dump($uf-&gt;parents);</code></pre>
-<p>自分でこのようなデータ構造を思いつくことはできませんが、すでにあるものは、どんどん学習して利用していきたいと思います。</p>
-<hr />
-<p>（追記）
-ちなみに、基本的にUnionFindは元に戻せませんが、Rollback機能付きのものもあるそうです。</p>
-<p><a href="https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html">参考URL</a></p>
+                    <h2>きっかけ</h2>
+<p>先週、あるIT系イベントをきっかけに、以下のような記事が話題になりました。</p>
+<p><a href="https://nukalumix.hateblo.jp/entry/tsuhi">電気通信における「通信の秘密」について解説します（追記あり）</a></p>
+<p>わたしは、一応、情報系の資格を持っているうえ、法律系のお仕事をさせていただいているのですが、恥ずかしながら、「通信の秘密」について、きちんと考えたことはありませんでした。</p>
+<h2>通信の秘密とは</h2>
+<p>通信の秘密というのは、憲法に保障された権利です。</p>
+<p>ざっくりいうと、ネットで何か情報知りたいと思ったとき、その人が知りたいと思ったことじたいは、国家や他人に知られずに済む、という権利です。</p>
+<p>憲法が保障するのだから、通信の秘密が侵害されることはないだろう、と思いがちですが、実際はそうではありません。<br />
+というのも、通信の秘密を守ったまま、ウェブサイトを利用することはできないからです。<br />
+クライアントとwebサーバーの間には、DNSサーバーと呼ばれる事業者がいて、交通整理してあげなければいけないのです。</p>
+<h2>ネットがつながる仕組み</h2>
+<p>たとえば、わたしが「Googleにアクセスしたい」と思ったとします。<br />
+その場合、Googleのwebサーバーの場所を、DNSサーバーに探してもらわなければいけません。<br />
+この時点で、DNSサーバーには、わたしがGoogleにアクセスしたがっているということを、知られてしまうことになります。</p>
+<p>つまり、わたしがGoogleにアクセスしたいという通信の秘密は、侵害されています。</p>
+<h2>侵害と違法性</h2>
+<p>では、DNSサーバーを運用している会社（たとえば、NTT系列のプロバイダ企業など）が、違法になるのかというと、もちろん、そんなことにはなりません。<br />
+この理屈づけが、法律のおもしろいところでもあります。</p>
+<p>上記のブログ記事では、「たとえば、患者の体にメスを入れる行為は、外形的には傷害罪を構成しますが、医師が医療行為として行う場合は正当業務行為として違法性が阻却されます。」と解説されています。</p>
+<p>つまり、通信の秘密は侵害しているものの、それが正当業務行為なので、違法ではないことになっている（違法性が阻却される）ということです。</p>
+<h2>まとめ</h2>
+<p>権利の侵害か、侵害でないかの判断と、その違法性が阻却されるか、されないかの判断という、2段階になっているところが、権利の保障と技術的な仕組みとの折衷案になっているのだなと思いました。</p>
                     </div>
                 </div>
                                 <section class="content-aside">
@@ -150,12 +129,18 @@ var_dump($uf-&gt;parents);</code></pre>
         
 <section class="blog-pager">
             <h2>前の記事</h2>
-                <div id="post-339" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/339/eyecatch.jpg);" >
-    <h2><a href="/archives/339.html">地元行政書士が教える久留米市のクレープ屋さん</a></h2>
-    <p>地元の久留米市にあるクレープ屋さんをまとめました。</p>
-    <p><time datetime="2024-10-02">2024年10月02日</time></p>
+                <div id="post-137" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/137/eyecatch.jpg);" >
+    <h2><a href="/archives/137.html">当事務所のスケジュール</a></h2>
+    <p>（毎日更新）今日から2週間分の業務状況を、スケジュールとして表示しています。</p>
+    <p><time datetime="2024-03-20">2024年03月20日</time></p>
 </div>
-        </section>
+                <h2>次の記事</h2>
+                <div id="post-48" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/48/eyecatch.jpg);" >
+    <h2><a href="/archives/48.html">よろず支援相談を知っていますか</a></h2>
+    <p>よろず支援拠点の概要と利点、そして利用した感想についてのまとめ。</p>
+    <p><time datetime="2024-03-20">2024年03月20日</time></p>
+</div>
+    </section>
 <section class="relation">
     <h2>最近の記事</h2>
     <div id="post-list-position"></div>

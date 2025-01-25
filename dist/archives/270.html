@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSL2に、フラットファイルCMSを入れてみる - つつじ行政書士事務所</title>
+    <meta name="description" content="windowsのlocal環境で、Gravや、Bluditなどのデータベース不要のCMSを入れてみました。" />
+    <meta property="og:title" content="WSL2に、フラットファイルCMSを入れてみる - つつじ行政書士事務所" />
+    <meta property="og:description" content="windowsのlocal環境で、Gravや、Bluditなどのデータベース不要のCMSを入れてみました。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://g222.tech/img/270/eyecatch.jpg" />
+    <meta property="og:site_name" content="つつじ行政書士事務所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://g222.tech/archives/270.html" />
+    <link rel="canonical" href="https://g222.tech/archives/270.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="stylesheet" href="/assets/bundle.css" />
+                <script defer src="/assets/function.js"></script>
+    </head>
+<body>
+    <header>
+        <div>
+            <div class="site-title">つつじ行政書士事務所</div>
+            <nav aria-label="site menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+            <span>&nbsp;&gt;&nbsp;</span>
+                <a href="/archives/">
+            <svg height="16" width="16" viewBox="0 0 16 16">
+                <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+            </svg>
+            <span>記事一覧</span>
+        </a>
+                    <span>&nbsp;&gt;&nbsp;</span>
+                <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
+        </svg>
+        <span>WSL2に、フラットファイルCMS...</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/270/eyecatch.jpg');">
+    <details>
+        <summary>代替</summary>
+        <div>大分県中津市の風の丘葬祭場</div>
+    </details>
+</div>
+        <article>
+            <h1>WSL2に、フラットファイルCMSを入れてみる</h1>
+            <p class="page-date">
+    <span>2023年12月29日作成</span>
+    </p>
+            <div class="content-wrap">
+                                <div>
+                    <div class="content">
+                    <h2>やりたいこと</h2>
+<p>Windows11のWSL2（ubuntu 22.04 LTS）に、PHPや、apache2などのウェブサーバーをインストールして、ローカル環境を作り、BluditやGravなどのフラットファイルCMSを入れたいです。</p>
+<h2>きっかけ</h2>
+<p>当サイトは、WordPressを利用して作成しています。<br />
+しかし、正直、個人事業主でWordPressは、ややオーバースペックのような気がしています。<br />
+そこで、ゆくゆくは何か別のCMSを使っていきたいのですが、いきなりインターネット環境で試すのは怖いので、とりあえずローカル環境で作ってみたいと思いました。</p>
+<p>windowsでローカル環境を構築するとき、以前ならば、xamppを使っていたのですが、今回はデータベースが不要なことと、windows11では、WSL2が使えるため、ubuntu上でやってみようと考えました。<br />
+（Dockerはいつか使ってみたいですが、今回はインストールしていません）</p>
+<p>※ ChatGPTに教えてもらえるようになって、環境構築は、かなり楽になりました。  </p>
+<h2>手順1 ubuntuにいろいろとインストール</h2>
+<p>やり方はいろいろあると思いますが、とりあえず一番スタンダードなコマンド入力でやります。</p>
+<pre><code>sudo apt update
+sudo apt install apache2
+sudo apt install php libapache2-mod-php
+sudo apt install php-gd</code></pre>
+<p>なお、phpのライブラリ（GDなど）は、このあとインストールするCMSごとに、必要なライブラリが違うので、エラーが出たらその都度インストールしてください。</p>
+<p>基本的には、sudo apt install に続けて、必要なライブラリ名を書くだけです。<br />
+ライブラリ名は、ChatGPTが教えてくれました。</p>
+<h2>手順2 apache2の設定</h2>
+<p>apache2の設定は、<code>/etc/apache2/apache2.conf</code> に書くようです。<br />
+<code>&lt;Directory&gt;&lt;/Directory&gt;</code> で挟まれているところを探して、<code>/var/www/</code> になっているところを探します。<br />
+そこで、AllowOverride All になるようにしてください。</p>
+<p>これをやっておかないと、<code>.htaccess</code>が効かないです。<br />
+（わたしはこの部分で1日詰まりました）</p>
+<p>また、apache2を起動させるコマンドは、<code>sudo service apache2 start</code> です。<br />
+終了するコマンドは、<code>sudo service apache2 stop</code> です。<br />
+再起動するコマンドは、<code>sudo service apache2 restart</code> です。</p>
+<p>この時点で、ブラウザからlocalhostに接続してみて、apache2の標準ページが表示されることを確認しておくとよいと思います。</p>
+<h2>手順3 Grav（もしくはBludit）をダウンロード、展開</h2>
+<p><a href="https://getgrav.org/">Grav</a>でも、<a href="https://www.bludit.com/">Bludit</a>でも、（もしくは、その他のフラットファイルCMSでも）zipファイルをダウンロードします。<br />
+フラットファイルCMSは、データベースを必要としないので、zipファイルを展開するだけで済むのがメリットです。</p>
+<p>ダウンロードは、windowsからすると思うので、これをubuntuのhomeディレクトリの、自分のユーザーディレクトリにzipのまま移動させます。</p>
+<p>その後、unzipコマンドで展開しつつ移動させます。<br />
+たとえば、以下のようなコマンドになると思います。</p>
+<pre><code>sudo unzip 【zipファイル名】 -d /var/www/html/</code></pre>
+<p>このとき、chownで、グループとユーザーをapache2のものに変更しておかないといけないようです。<br />
+たとえば、sudo chown -R www-data:www-data 【展開したディレクトリ】 のようにすればよいはずです。<br />
+（わたしは、この部分でも1日詰まりました）</p>
+<p>なお、www-dataというのは、環境によって違うのかもしれませんが、apache2が使うグループとユーザー名とのことです。</p>
+<p>その他、サブディレクトリにする場合は、それぞれの設定ファイルを変更する必要があるようです。<br />
+たとえば、Bluditであれば、<a href="https://docs.bludit.info/getting-started/installation-guide">インストールガイド -&gt; サブディレクトリへのインストール</a>を参照してください。</p>
+<h2>手順4 Grav（もしくはBludit）のインストール</h2>
+<p>あとは、Grav、Bludit、その他のcmsのインストール画面に従って、管理者アカウントなどを作成するだけです。</p>
+<p>もしかしたら、追加でphpのライブラリをインストールすることになるかもしれません。<br />
+その際は、ChatGPTに教えてもらいながら、<code>sudo apt install ???</code> でインストールしていきます。
+まとめ</p>
+<p>とりあえず、GravとBluditを入れられたので、これから少しずつ触っていきたいと思います。<br />
+もし使いやすければ、レンタルサーバーも安いプランに変えていけたら、固定費も抑えられて良いのではないかと思っています。</p>
+                    </div>
+                </div>
+                                <section class="content-aside">
+                    <h2>つつじ行政書士事務所</h2>
+                    <img src="/favicon.svg" width="60" height="60"
+                        style="width:60px;height:auto;display:block;margin:1rem auto;"
+                        alt="つつじ行政書士事務所アイコン" />
+                    <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
+                </section>
+            </div>
+        </article>
+        
+<section class="blog-pager">
+            <h2>前の記事</h2>
+                <div id="post-257" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/257/eyecatch.jpg);" >
+    <h2><a href="/archives/257.html">pushStateでブラウザの状態を管理する</a></h2>
+    <p>ジンドゥーの記事をQiitaに書く際に、pushState()について調べたのでまとめます。</p>
+    <p><time datetime="2025-01-25">2025年01月25日</time></p>
+</div>
+                <h2>次の記事</h2>
+                <div id="post-277" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/277/eyecatch.jpg);" >
+    <h2><a href="/archives/277.html">事業継続計画（BCP）の概要と参考リンク</a></h2>
+    <p>事業継続計画について、概要と各省庁の参考リンクをまとめました。</p>
+    <p><time datetime="2024-02-10">2024年02月10日</time></p>
+</div>
+    </section>
+<section class="relation">
+    <h2>最近の記事</h2>
+    <div id="post-list-position"></div>
+</section>
+    </main>
+    <footer>
+        <section>
+    <p>最後までお読みいただきありがとうございました。<br>なにかお気づきの点がありましたら、<a href="/contact.html">お問い合わせ</a>ください。</p>
+    <p><img class="footer-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" decoding="async"
+        width="1" height="1" style="display:block;width:300px;height:auto;max-width:100%;" /></p>
+    <p>（日行連公式キャラクター「ユキマサくん」）</p>
+    <div class="footer-message-text"></div>
+</section>
+        <section class="footer-menu">
+            <h2>メニュー</h2>
+            <nav aria-label="footer menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </section>
+        <section class="footer-address">
+            <h2>つつじ行政書士事務所</h2>
+            <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
+            <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+        </section>
+        
+    </footer>
+</body>
+</html>

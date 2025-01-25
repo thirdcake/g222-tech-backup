@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grav CMSの使いどころ - つつじ行政書士事務所</title>
+    <meta name="description" content="Gravについて、2週間ほど試してみた感想と、参考になるサイトをまとめました。" />
+    <meta property="og:title" content="Grav CMSの使いどころ - つつじ行政書士事務所" />
+    <meta property="og:description" content="Gravについて、2週間ほど試してみた感想と、参考になるサイトをまとめました。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://g222.tech/img/273/eyecatch.jpg" />
+    <meta property="og:site_name" content="つつじ行政書士事務所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://g222.tech/archives/273.html" />
+    <link rel="canonical" href="https://g222.tech/archives/273.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="stylesheet" href="/assets/bundle.css" />
+                <script defer src="/assets/function.js"></script>
+    </head>
+<body>
+    <header>
+        <div>
+            <div class="site-title">つつじ行政書士事務所</div>
+            <nav aria-label="site menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+            <span>&nbsp;&gt;&nbsp;</span>
+                <a href="/archives/">
+            <svg height="16" width="16" viewBox="0 0 16 16">
+                <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+            </svg>
+            <span>記事一覧</span>
+        </a>
+                    <span>&nbsp;&gt;&nbsp;</span>
+                <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
+        </svg>
+        <span>Grav CMSの使いどころ</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/273/eyecatch.jpg');">
+    <details>
+        <summary>代替</summary>
+        <div>新潟市の新潟県政記念館</div>
+    </details>
+</div>
+        <article>
+            <h1>Grav CMSの使いどころ</h1>
+            <p class="page-date">
+    <span>2024年01月08日作成</span>
+        <span>2024年06月18日更新</span>
+    </p>
+            <div class="content-wrap">
+                                <div>
+                    <div class="content">
+                    <p>昨年末から、GravというフラットファイルCMSを試しています。</p>
+<p>前回の記事では、<a href="/archives/270.html">ubuntu上でGravを動かすローカル環境を作りました</a>が、その後いろいろ試してみて、いまのところの感想をまとめておきたいと思います。</p>
+<h2>SSHはあった方が良い</h2>
+<p>Gravは、SSHからCLIで操作することを前提に作られているシステムです。</p>
+<p><a href="https://github.com/getgrav/grav-plugin-admin">管理画面（Github）</a>も、あるにはあるのですが、プラグインのひとつとしてのみ機能し、不具合もそれなりにあります。</p>
+<p>SSHの機能しない環境（たとえば、ロリポップなどの格安のプラン）を利用する場合、不具合が起こったら、その都度、再インストールが必要です。<br />
+（とはいえ、インストール自体は簡単なので、WordPressよりは手間がかからないかもしれませんが）</p>
+<p>できれば、SSHの使える環境（ロリポップなら、月額500円のプラン以上）を使うのが良いと思います。</p>
+<p>あるいは単純に、レンタルサーバー代を浮かす目的ならば、静的サイトジェネレータの方が、その目的に合致しそうです。</p>
+<h2>テーマを途中で変更するのは難しい</h2>
+<p>Gravのデザインテーマは、簡単に変更できます。</p>
+<p>プラグインの管理画面からもできますし、GPMというGravオリジナルのCLIからもできます。<br />
+また、system.yamlというテキストファイルを編集するだけでも変更できるので、どの方法であれ、やり方さえ覚えれば、難しくありません。</p>
+<p>ところが、Gravのテーマは作り方が独特で、テーマごとに対応できるテンプレートが決まっています。<br />
+固定ページだけに対応したテーマの場合、ブログとして運用してきたサイトを、そのままの形で適用させることができません。</p>
+<p>これをやろうとすると、テーマ内のtemplateフォルダに、そのブログ用のTwigファイルを新しく作成する必要があります。</p>
+<p>Twigファイルの作成は、基本的なテンプレート機能だけならば、それほど難しくありません。<br />
+しかし、macroなどを使って、ゴリゴリ編集したい場合、それなりに勉強が必要になり、PHPなどのプログラムに慣れていないと、行き詰まると思います。</p>
+<p>WordPressの場合、たとえばクラシックテーマなら、single.phpや、archive.phpなど、ファイル名が決まっていたので、テーマの途中変更が簡単です。<br />
+一方、Gravの場合、テンプレートの名前がテーマ制作者側で自由に決められるので、テーマの途中変更が難しいです。</p>
+<p>テーマ制作の自由度が低い分、運用中の変更が効くWordPressと、テーマ制作の自由度が高い分、運用中の変更が難しいGravと、それぞれ一長一短のようです。</p>
+<h2>オリジナルのテーマは作りやすい</h2>
+<p>テーマについては、上記のとおり、WordPressほど制約が無いので、一から作るオリジナルテーマは、作りやすいと思います。</p>
+<p>Twigの基本的な使い方さえ覚えれば、HTMLとCSSの使えるデザイナーなら、すぐに作り始められるはずです。</p>
+<p>インストールしたときに最初に入っているテーマ（quark）は、いろいろなことに対応させるために、複雑になっています。<br />
+まずは、いくつかテーマをダウンロードしてみて、そのフォルダを見てみながら、作っていくのが良さそうです。</p>
+<h2>管理権限の設定が簡単</h2>
+<p>Gravでは、管理画面から、ユーザーごとの管理権限の設定ができます。</p>
+<p>管理者（テーマの変更や、プラグインの設定などができる人）の権限の他に、特定の記事のみを編集できるユーザーなど、細かく設定することができます。</p>
+<p>これはつまり、共同作業でサイトを作成したい場合、プログラマの権限と、デザイナの権限、記事運用者の権限など、細かく設定できるということです。</p>
+<p>管理者権限（すべての権限を持っている）の管理画面は、変更できるボタンが多く、最初見たときは目がチカチカすると思います。<br />
+しかし、権限を絞ったユーザーとしてログインすれば、たとえば、記事を書くボタンだけを表示させることもできます。</p>
+<p>複数人で作成する場合、（そして特に、あまりプログラムに詳しくない人が関わる場合）には、権限の違いを上手に活用することで、効率的なサイト運営ができそうです。</p>
+<h2>参考資料</h2>
+<p>最後に、日本語で読めるGravのサイトをまとめておきます。<br />
+<a href="https://learn.getgrav.org/">公式サイトのドキュメント</a>も、充分読みやすいのですが、全部英語なので、理解が難しい部分があります。</p>
+<p>行き詰まったときは、以下のような日本語のサイトを参考にしながら、少しずつやっていくのが良いと思いました。</p>
+<ul>
+<li><a href="https://qiita.com/Chanmoro/items/46b496091082be45e44c">10分で理解する Grav</a></li>
+<li><a href="https://grav.maruyuki.org/">Grav でサイトを作ろう</a></li>
+<li><a href="https://grav.man29.net/">Gravドキュメント日本語訳（非公式・途中まで）</a></li>
+</ul>
+<p>わたしも、何か新しいサイトを作る必要がでてきたときは、Gravを使ってみようと思っています。</p>
+<hr />
+<p>2024年6月追記：</p>
+<p>Gravについて、Qiitaに記事を書きました。
+ちょっとマニアックな内容ですが、よかったら読んでください。</p>
+<p><a href="https://qiita.com/g222/items/b7c80e3b294dce85a330">Grav CMS の Flex Objects で、ミニブログを作る</a></p>
+                    </div>
+                </div>
+                                <section class="content-aside">
+                    <h2>つつじ行政書士事務所</h2>
+                    <img src="/favicon.svg" width="60" height="60"
+                        style="width:60px;height:auto;display:block;margin:1rem auto;"
+                        alt="つつじ行政書士事務所アイコン" />
+                    <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
+                </section>
+            </div>
+        </article>
+        
+<section class="blog-pager">
+            <h2>前の記事</h2>
+                <div id="post-245" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/245/eyecatch.jpg);" >
+    <h2><a href="/archives/245.html">ConoHa WINGでSSHからログを読みたい</a></h2>
+    <p>レンタルサーバーのConoHa WINGで、アクセスログをSSH接続から見る方法をまとめました</p>
+    <p><time datetime="2024-05-25">2024年05月25日</time></p>
+</div>
+                <h2>次の記事</h2>
+                <div id="post-312" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/312/eyecatch.jpg);" >
+    <h2><a href="/archives/312.html">（ほぼ）静的サイトになりました</a></h2>
+    <p>当事務所サイトの改修が終わり、ほぼ静的サイトにすることができました。</p>
+    <p><time datetime="2024-06-22">2024年06月22日</time></p>
+</div>
+    </section>
+<section class="relation">
+    <h2>最近の記事</h2>
+    <div id="post-list-position"></div>
+</section>
+    </main>
+    <footer>
+        <section>
+    <p>最後までお読みいただきありがとうございました。<br>なにかお気づきの点がありましたら、<a href="/contact.html">お問い合わせ</a>ください。</p>
+    <p><img class="footer-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" decoding="async"
+        width="1" height="1" style="display:block;width:300px;height:auto;max-width:100%;" /></p>
+    <p>（日行連公式キャラクター「ユキマサくん」）</p>
+    <div class="footer-message-text"></div>
+</section>
+        <section class="footer-menu">
+            <h2>メニュー</h2>
+            <nav aria-label="footer menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </section>
+        <section class="footer-address">
+            <h2>つつじ行政書士事務所</h2>
+            <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
+            <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+        </section>
+        
+    </footer>
+</body>
+</html>

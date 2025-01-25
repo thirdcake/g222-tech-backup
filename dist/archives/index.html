@@ -74,8 +74,8 @@
             </nav>        <article>
             <h1>記事一覧</h1>
                          <div class="content-wrap">
-                    <div id="post-list-position" data-lastpage="3"></div>
-    <template id="post-list-fragment">
+                    <div id="post-list-position">
+        <template id="post-list-fragment">
     <div id="post-325" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/325/eyecatch.jpg);" >
     <h2><a href="/archives/325.html">PHPで Union Findをつくる</a></h2>
     <p>競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。</p>
@@ -99,7 +99,7 @@
     <div id="post-289" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/289/eyecatch.jpg);" >
     <h2><a href="/archives/289.html">WordPressが6.6になりました</a></h2>
     <p>WordPressが6.6になったので、バージョンアップしてみました。また、最近のホームページ編集などにも触れました。</p>
-    <p><time datetime="2025-01-24">2025年01月24日</time></p>
+    <p><time datetime="2025-01-25">2025年01月25日</time></p>
 </div>
     <div id="post-312" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/312/eyecatch.jpg);" >
     <h2><a href="/archives/312.html">（ほぼ）静的サイトになりました</a></h2>
@@ -126,7 +126,35 @@
     <p>よろず支援拠点の概要と利点、そして利用した感想についてのまとめ。</p>
     <p><time datetime="2024-03-20">2024年03月20日</time></p>
 </div>
-</template>                <section class="content-aside">
+</template>        <div class="pager">
+            <a href="?">
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="first-page-link">
+                    <title id="first-page-link">最初のページ</title>
+                    <use x="0" y="0" href="/assets/icons.svg#chevron-bar-left"></use>
+                </svg>
+            </a>
+            <a href="?">
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="prev-page-link">
+                    <title id="prev-page-link">1つ前のページ</title>
+                    <use x="0" y="0" href="/assets/icons.svg#chevron-left"></use>
+                </svg>
+            </a>
+            <span id="current-page">0</span><span>/</span><span id="last-page">4</span>
+            <a href="?">
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="next-page-link">
+                    <title id="next-page-link">1つ次のページ</title>
+                    <use x="0" y="0" href="/assets/icons.svg#chevron-right"></use>
+                </svg>
+            </a>
+            <a href="?">
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="last-page-link">
+                    <title id="last-page-link">最後のページ</title>
+                    <use x="0" y="0" href="/assets/icons.svg#chevron-bar-right"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+                <section class="content-aside">
                     <h2>つつじ行政書士事務所</h2>
                     <img src="/favicon.svg" width="60" height="60"
                         style="width:60px;height:auto;display:block;margin:1rem auto;"

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConoHa WINGでSSHからログを読みたい - つつじ行政書士事務所</title>
+    <meta name="description" content="レンタルサーバーのConoHa WINGで、アクセスログをSSH接続から見る方法をまとめました" />
+    <meta property="og:title" content="ConoHa WINGでSSHからログを読みたい - つつじ行政書士事務所" />
+    <meta property="og:description" content="レンタルサーバーのConoHa WINGで、アクセスログをSSH接続から見る方法をまとめました" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://g222.tech/img/245/eyecatch.jpg" />
+    <meta property="og:site_name" content="つつじ行政書士事務所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://g222.tech/archives/245.html" />
+    <link rel="canonical" href="https://g222.tech/archives/245.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="stylesheet" href="/assets/bundle.css" />
+                <script defer src="/assets/function.js"></script>
+    </head>
+<body>
+    <header>
+        <div>
+            <div class="site-title">つつじ行政書士事務所</div>
+            <nav aria-label="site menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+            <span>&nbsp;&gt;&nbsp;</span>
+                <a href="/archives/">
+            <svg height="16" width="16" viewBox="0 0 16 16">
+                <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+            </svg>
+            <span>記事一覧</span>
+        </a>
+                    <span>&nbsp;&gt;&nbsp;</span>
+                <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
+        </svg>
+        <span>ConoHa WINGでSSHから...</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/245/eyecatch.jpg');">
+    <details>
+        <summary>代替</summary>
+        <div>富山市の市街地から見る立山連峰</div>
+    </details>
+</div>
+        <article>
+            <h1>ConoHa WINGでSSHからログを読みたい</h1>
+            <p class="page-date">
+    <span>2023年11月19日作成</span>
+        <span>2024年05月25日更新</span>
+    </p>
+            <div class="content-wrap">
+                                <div>
+                    <div class="content">
+                    <p>webサイトのセキュリティを考えるうえで、ログを定期的に読んでおくことは大事なことです。</p>
+<p>以前にも一度紹介したことがありますが、当サイトのようなアクセス数のそれほど多くないサイトでも、定期的に不審なアクセスが観測されています。<br />
+（とくに、WordPressのような動的サイトならなおさらです）</p>
+<p>今回は、ConoHa WINGというレンタルサーバーで、SSH接続でログを確認する手順をまとめました。</p>
+<h2>1.コントロールパネルから秘密鍵を作成する</h2>
+<p>SSH接続をする場合、パスワードで認証する方法もあるようですが、一般的には秘密鍵を生成します。<br />
+今回接続するレンタルサーバーのConoHa WINGは、コントロールパネルから秘密鍵を生成できます。</p>
+<p>詳しくは、<a href="https://support.conoha.jp/w/sshaccount/">ConoHaのヘルプ記事</a>をご覧ください。</p>
+<p>なお、秘密鍵（プライベートキー）は、絶対に流出させてはいけないものです。<br />
+また、誤って消してしまわないように、大切に保管できるディレクトリに移してください。</p>
+<h2>2.~/.ssh/configファイルを作成する</h2>
+<p>次に、<code>~/.ssh/</code> フォルダに、configファイルを作成します。</p>
+<p>configファイルについても、作り方がネットにはたくさん載っているのですが、たとえば以下のような記事が参考になるかもしれません。</p>
+<p><a href="https://qiita.com/passol78/items/2ad123e39efeb1a5286b">~/.ssh/configについて</a></p>
+<p>ConoHaで作る場合は、次のようなものになると思います。</p>
+<pre><code>Host 【覚えやすい名前】
+  HostName 【ConoHaのホスト名】
+  User 【ConoHaのユーザー名】
+  IdentityFile 【秘密鍵のディレクトリとファイル名】
+  Port 【ポート番号】</code></pre>
+<p>ホスト名やユーザー名、ポート番号などは、コントロールパネルに書いてあります。</p>
+<h2>3.ターミナルからSSH接続する</h2>
+<p>SSH接続のできるターミナルから、接続します。</p>
+<p>わたしの事務所PCはWindowsなので、Windowsターミナルを使っています。<br />
+（以前、PowerShellを使っていたこともあるのですが、文字色が読みにくく、やめました）</p>
+<p>ターミナルを立ち上げると、コマンドが打てるようになるので、以下を入力してエンターを押します。</p>
+<pre><code>ssh 【先ほど決めた覚えやすい名前】</code></pre>
+<p>ssh接続をするとき、最初の1回は「本当に接続して大丈夫？」というようなことが聞かれるので、yesを押します。</p>
+<p>無事、ConoHaアカウントに接続できれば成功です。</p>
+<h2>4.linuxコマンドでログを読む</h2>
+<p>ConoHa WINGの場合（もしかしたらほかのサーバーも同様なのかもしれませんが）、 <code>~/logs/【独自ドメイン】/accesslog.【日付】.gz</code> というファイルに、過去数日分のアクセスログが格納されています。</p>
+<p>（※ エラーログやPHPのログも、その周囲にありますので、lsコマンドなどで探してください。）</p>
+<p>gzファイルで、圧縮されているので、このままでは読みにくいです。<br />
+以下のような zcat コマンドで、展開してから使うと良いようです。</p>
+<pre><code>$ zcat ./logs/【独自ドメイン】/accesslog.【日付】.gz</code></pre>
+<p>わたしの場合は、<code>grep "404"</code> などで絞り込んでから、<code>wc -l</code> や、<code>less</code> コマンドで行数や一覧を表示させることが多いです。</p>
+<p>具体例：</p>
+<pre><code>$ zcat ./logs/【独自ドメイン】/accesslog.【日付】.gz | grep "404" | wc -l
+$ zcat ./logs/【独自ドメイン】/accesslog.【日付】.gz | grep "404" | less</code></pre>
+<p>定期的に知っておきたい情報は、cronで自動化して、抽出した情報を蓄積し、グラフにするようなこともできるかもしれません。（わたしはそこまではやっていません。）</p>
+<h2>まとめ</h2>
+<p>今回ご紹介した内容は、簡単なコマンドだけで利用できるので、おすすめです。</p>
+<p>「PCを立ち上げるのすら面倒」という方には、あまりおすすめできない方法かもしれませんが、毎日PCを使う方であれば、最初に秘密鍵とconfigファイルさえ作ってしまえば、次の日からの作業は、コマンドを打つだけで済みます。</p>
+<p>もちろん、コマンドを用いずに、ログを自動的に分析してくれるツールもあるとは思います。<br />
+けれども、だいたいの場合、お金もかかりますし、生のログ情報ではないので、見るときの切り口がある程度限られます。</p>
+<p>今回ご紹介した方法なら、いくつかのコマンドを覚えておけば、あとは自分の好みによって、いろいろと変えられるので自由度が高いです。</p>
+<p>お時間のある方は、お試しください。</p>
+                    </div>
+                </div>
+                                <section class="content-aside">
+                    <h2>つつじ行政書士事務所</h2>
+                    <img src="/favicon.svg" width="60" height="60"
+                        style="width:60px;height:auto;display:block;margin:1rem auto;"
+                        alt="つつじ行政書士事務所アイコン" />
+                    <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
+                </section>
+            </div>
+        </article>
+        
+<section class="blog-pager">
+            <h2>前の記事</h2>
+                <div id="post-296" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/296/eyecatch.jpg);" >
+    <h2><a href="/archives/296.html">WordPressが6.5になりました</a></h2>
+    <p>WordPressが6.5になったので、さっそくアップデートしてみました。</p>
+    <p><time datetime="2024-04-11">2024年04月11日</time></p>
+</div>
+                <h2>次の記事</h2>
+                <div id="post-273" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/273/eyecatch.jpg);" >
+    <h2><a href="/archives/273.html">Grav CMSの使いどころ</a></h2>
+    <p>Gravについて、2週間ほど試してみた感想と、参考になるサイトをまとめました。</p>
+    <p><time datetime="2024-06-18">2024年06月18日</time></p>
+</div>
+    </section>
+<section class="relation">
+    <h2>最近の記事</h2>
+    <div id="post-list-position"></div>
+</section>
+    </main>
+    <footer>
+        <section>
+    <p>最後までお読みいただきありがとうございました。<br>なにかお気づきの点がありましたら、<a href="/contact.html">お問い合わせ</a>ください。</p>
+    <p><img class="footer-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" decoding="async"
+        width="1" height="1" style="display:block;width:300px;height:auto;max-width:100%;" /></p>
+    <p>（日行連公式キャラクター「ユキマサくん」）</p>
+    <div class="footer-message-text"></div>
+</section>
+        <section class="footer-menu">
+            <h2>メニュー</h2>
+            <nav aria-label="footer menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </section>
+        <section class="footer-address">
+            <h2>つつじ行政書士事務所</h2>
+            <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
+            <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+        </section>
+        
+    </footer>
+</body>
+</html>

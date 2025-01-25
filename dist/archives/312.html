@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHPで Union Findをつくる - つつじ行政書士事務所</title>
-    <meta name="description" content="競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。" />
-    <meta property="og:title" content="PHPで Union Findをつくる - つつじ行政書士事務所" />
-    <meta property="og:description" content="競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。" />
+    <title>（ほぼ）静的サイトになりました - つつじ行政書士事務所</title>
+    <meta name="description" content="当事務所サイトの改修が終わり、ほぼ静的サイトにすることができました。" />
+    <meta property="og:title" content="（ほぼ）静的サイトになりました - つつじ行政書士事務所" />
+    <meta property="og:description" content="当事務所サイトの改修が終わり、ほぼ静的サイトにすることができました。" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://g222.tech/img/325/eyecatch.jpg" />
+    <meta property="og:image" content="https://g222.tech/img/312/eyecatch.jpg" />
     <meta property="og:site_name" content="つつじ行政書士事務所" />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:url" content="https://g222.tech/archives/325.html" />
-    <link rel="canonical" href="https://g222.tech/archives/325.html" />
+    <meta property="og:url" content="https://g222.tech/archives/312.html" />
+    <link rel="canonical" href="https://g222.tech/archives/312.html" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
                 <link rel="stylesheet" href="/assets/bundle.css" />
                 <script defer src="/assets/function.js"></script>
@@ -77,65 +77,30 @@
                 <svg height="16" width="16" viewBox="0 0 16 16">
             <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
         </svg>
-        <span>PHPで Union Findをつ...</span>
-            </nav><div class="eyecatch" style="background-image: url('/img/325/eyecatch.jpg');">
+        <span>（ほぼ）静的サイトになりました</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/312/eyecatch.jpg');">
     <details>
         <summary>代替</summary>
-        <div>富山県にあるオブジェ、アウトサイドライン</div>
+        <div>福岡市にある環境学習施設ぐりんぐりん</div>
     </details>
 </div>
         <article>
-            <h1>PHPで Union Findをつくる</h1>
+            <h1>（ほぼ）静的サイトになりました</h1>
             <p class="page-date">
-    <span>2024年08月12日作成</span>
-        <span>2024年11月25日更新</span>
+    <span>2024年06月22日作成</span>
+        <span>2024年06月22日更新</span>
     </p>
             <div class="content-wrap">
                                 <div>
                     <div class="content">
-                    <p>Union Findというデータ構造をPHPでやる場合の備忘録を残しておきます。</p>
-<p><a href="https://note.nkmk.me/python-union-find/">Pythonの記事</a>を参考に作成しました。（サイズやランクは実装していないので、やや低速です）</p>
-<pre><code>&lt;?php
-class UnionFind {
-  public $parents;
-  public function __construct ($n) {
-    $this-&gt;parents = range(0, $n - 1);
-  }
-  public function find ($x) {
-    if ($this-&gt;parents[$x] === $x) {
-      return $x;
-    } else {
-      $this-&gt;parents[$x] = $this-&gt;find($this-&gt;parents[$x]);
-      return $this-&gt;parents[$x];
-    }
-  }
-  public function union ($x, $y) {
-    $px = $this-&gt;find($x);
-    $py = $this-&gt;find($y);
-    if ($px === $py) {
-      return;
-    }
-    $this-&gt;parents[$px] = $py;
-  }
-}
-
-// 使い方
-$li = [0, 1, 2, 3, 4];
-$uf = new UnionFind(count($li));
-var_dump($uf-&gt;parents);
-$uf-&gt;union(0, 3);
-var_dump($uf-&gt;parents);
-$uf-&gt;union(0, 1);
-var_dump($uf-&gt;parents);
-$uf-&gt;union(1, 2);
-var_dump($uf-&gt;parents);
-$uf-&gt;find(3);
-var_dump($uf-&gt;parents);</code></pre>
-<p>自分でこのようなデータ構造を思いつくことはできませんが、すでにあるものは、どんどん学習して利用していきたいと思います。</p>
-<hr />
-<p>（追記）
-ちなみに、基本的にUnionFindは元に戻せませんが、Rollback機能付きのものもあるそうです。</p>
-<p><a href="https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html">参考URL</a></p>
+                    <p>先月より、表側に変更が無いようにしながら、少しずつサイト改修を進めてきました。</p>
+<p>そして、（ほぼ）静的サイトにすることができました。</p>
+<p>これまで通り、バックエンドではWordPressのままですが、各ページは、ほぼ静的なHTMLになっています。</p>
+<p>今回の改修により、表示速度が速くなったり、レンタルサーバへの負荷が少なくなるなどの利点があると思います。</p>
+<p>一方、いわゆる静的サイト生成（SSG）を使っているわけではないので、各ページの共通事項を一斉に変更するといったことができません。<br />
+（このあたりは、トレードオフかなと思っています）</p>
+<p>また、（ほぼ）静的サイトとかかれているとおり、一部動的な部分は残っています。</p>
+<p>この残った部分をどうやって改修していくか、もうしばらく考えたいです。</p>
                     </div>
                 </div>
                                 <section class="content-aside">
@@ -150,12 +115,18 @@ var_dump($uf-&gt;parents);</code></pre>
         
 <section class="blog-pager">
             <h2>前の記事</h2>
-                <div id="post-339" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/339/eyecatch.jpg);" >
-    <h2><a href="/archives/339.html">地元行政書士が教える久留米市のクレープ屋さん</a></h2>
-    <p>地元の久留米市にあるクレープ屋さんをまとめました。</p>
-    <p><time datetime="2024-10-02">2024年10月02日</time></p>
+                <div id="post-273" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/273/eyecatch.jpg);" >
+    <h2><a href="/archives/273.html">Grav CMSの使いどころ</a></h2>
+    <p>Gravについて、2週間ほど試してみた感想と、参考になるサイトをまとめました。</p>
+    <p><time datetime="2024-06-18">2024年06月18日</time></p>
 </div>
-        </section>
+                <h2>次の記事</h2>
+                <div id="post-289" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/289/eyecatch.jpg);" >
+    <h2><a href="/archives/289.html">WordPressが6.6になりました</a></h2>
+    <p>WordPressが6.6になったので、バージョンアップしてみました。また、最近のホームページ編集などにも触れました。</p>
+    <p><time datetime="2025-01-25">2025年01月25日</time></p>
+</div>
+    </section>
 <section class="relation">
     <h2>最近の記事</h2>
     <div id="post-list-position"></div>

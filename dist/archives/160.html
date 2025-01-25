@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テオヤンセン機構を描く - つつじ行政書士事務所</title>
+    <meta name="description" content="テオヤンセン機構をcanvasで描いてみました。その作り方をまとめます。" />
+    <meta property="og:title" content="テオヤンセン機構を描く - つつじ行政書士事務所" />
+    <meta property="og:description" content="テオヤンセン機構をcanvasで描いてみました。その作り方をまとめます。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://g222.tech/img/160/theo.jpg" />
+    <meta property="og:site_name" content="つつじ行政書士事務所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://g222.tech/archives/160.html" />
+    <link rel="canonical" href="https://g222.tech/archives/160.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="stylesheet" href="/assets/bundle.css" />
+                <script defer src="/assets/function.js"></script>
+    </head>
+<body>
+    <header>
+        <div>
+            <div class="site-title">つつじ行政書士事務所</div>
+            <nav aria-label="site menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+            <span>&nbsp;&gt;&nbsp;</span>
+                <a href="/archives/">
+            <svg height="16" width="16" viewBox="0 0 16 16">
+                <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+            </svg>
+            <span>記事一覧</span>
+        </a>
+                    <span>&nbsp;&gt;&nbsp;</span>
+                <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
+        </svg>
+        <span>テオヤンセン機構を描く</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/160/theo.jpg');">
+    <details>
+        <summary>代替</summary>
+        <div>テオヤンセン機構のひとつに点を指定したもの</div>
+    </details>
+</div>
+        <article>
+            <h1>テオヤンセン機構を描く</h1>
+            <p class="page-date">
+    <span>2023年08月26日作成</span>
+        <span>2023年08月27日更新</span>
+    </p>
+            <div class="content-wrap">
+                                <div>
+                    <div class="content">
+                    <p>先週、夏休みで山陰旅行に行ってきました。</p>
+<p>観光地をいくつか巡りましたが、中でも、<a href="https://www.shimane-art-museum.jp/">島根県立美術館</a>で、2023年8月28日まで開催中の展覧会、「テオ・ヤンセン展」が面白かったです。</p>
+<p>テオヤンセンさんは、物理学者で芸術家です。<br />
+代表作は、「ストランドビースト」という作品です。</p>
+<p>ストランドビーストを説明するのは難しいのですが、砂浜で、プラスチックチューブで作られた、風を食べて動く、大きな謎の生き物です。</p>
+<p>言葉ではなんとも説明できないので、とりあえず<a href="https://www.youtube.com/channel/UCw4BFxLFguznor-MnYNwGTg">YouTube</a>などを見ていただければと思います。</p>
+<p><a href="https://ja.wikipedia.org/wiki/%E3%83%86%E3%82%AA%E3%83%BB%E3%83%A4%E3%83%B3%E3%82%BB%E3%83%B3_(%E5%BD%AB%E5%88%BB%E5%AE%B6)">wikipedia</a>に、「ホーリーナンバー」という名称で、チューブの長さの比率があったので、これを参考に、JavaScriptとcanvasでアニメーションを作成してみました。<br />
+それが、この記事の最初にのせたアニメーションです。</p>
+<p><code>Start/Stop</code> ボタンを押していただければ、アニメーションが開始されたり、止まったりするはずです。</p>
+<hr />
+<p>1本足の場合も、<a href="https://thirdcake.github.io/tools_page/strandbeest.html">GitHub</a> にアップロードしています。<br />
+こちらは、アニメーションではなく、手動で動きます。</p>
+<p>このような、チューブの長さが固定で、単純な回転運動から足が動くかのような動きになる機構のことを、「テオヤンセン機構」とか「ビースト機構」というそうです。</p>
+<p>以下、このテオヤンセン機構について、JavaScriptでの作り方を解説します。<br />
+興味のある方は、ぜひ最後まで読んでください。</p>
+<h2>Canvasについて</h2>
+<p>HTML5以降、JavaScriptで絵を描く場合、たいていはsvgか、canvasになりました。<br />
+今回は、canvasで作りました。</p>
+<p>canvasの使い方は、<a href="https://developer.mozilla.org/ja/docs/Web/API/Canvas_API">MDNの解説</a>が役に立ちます。</p>
+<p>canvasは、基本的には、紙芝居を作るような感覚です。<br />
+<a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/clearRect">clearRect</a>で、前の描画を消し、<a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/lineTo">lineTo</a>で線を引いていきます。</p>
+<p>凝った作りにしようと思ったら、楕円やベジェ曲線なども作れます。<br />
+（今回は、そこまではチャレンジしていません）</p>
+<h2>固定点</h2>
+<p>テオヤンセン機構には、動かない点が2つあります。</p>
+<p><img src="/img/160/theo.jpg" alt="テオヤンセン機構の交点に名前をつけた図" decoding="async" width="16" height="9" style="display:block;width:300px;max-width:100%;height:auto;" /></p>
+<p>便宜上、テオヤンセン機構の交点に、A0からM1までの名前をつけています。<br />
+上図でいうと、A0と、M0は固定されています。</p>
+<p>今回作成したプログラムでは、<code>points</code> という連想配列を用意して、そこにA0, M0を用意しています。</p>
+<h2>三角形の交点を求める</h2>
+<p>テオヤンセン機構を計算するとき、三角形ABCにおいて、</p>
+<ul>
+<li>3辺の長さが決まっている（辺AB, BC, CAが決まっている）</li>
+<li>2点の座標が決まっている（たとえば、点AとBのx, y座標が決まっている）</li>
+<li>回転の方向が決まっている（たとえば、点Cは、辺ABから反時計回りに最初の点）</li>
+</ul>
+<p>という、3つの条件が決まった場合に、点Cが求まるという計算が多用されます。</p>
+<p>この計算は、最初はchatGPTにお願いしたいのですが、思うような計算結果が出てこなかったので、高校時代の幾何の知識を調べながら作りました。<br />
+（もし、うまくいくプロンプトをご存じの方は教えてください）</p>
+<p>さしあたり、triangleという関数を以下のとおり定義しました。</p>
+<pre><code>function triangle (pointA, pointB, AC, BC) {
+  const dx = pointB.x - pointA.x,
+  dy = pointB.y - pointA.y,
+  AB = Math.sqrt(dx ** 2 + dy ** 2);
+
+  const cosA = (AB ** 2 + AC ** 2 - BC ** 2) / (2 * AC * AB),
+  sinA = Math.sqrt(1 - cosA ** 2);
+
+  const pointC = {
+    x: (cosA * dx - sinA * dy) * AC / AB + pointA.x,
+    y: (sinA * dx + cosA * dy) * AC / AB + pointA.y,
+  }
+  return pointC;
+}</code></pre>
+<p>pointA.x, pointA.y に、点Aのx, y 座標があり、pointBについても同様です。<br />
+また、AC, BCは、線分の長さです。</p>
+<p>やっていることは単純です。</p>
+<ul>
+<li>まずピタゴラスの定理で、線分ABの長さを求めます。</li>
+<li>次に、余弦定理で、コサインとサインを求めます。</li>
+<li>最後に、座標の回転の計算で、点Cの座標を求めます。（<a href="https://mathwords.net/heimenkaiten">このサイト</a>が参考になりました）</li>
+</ul>
+<p>もしかすると、もっとうまいやり方があるかもしれませんが、とりあえずこれで正しく計算できます。<br />
+計算量も大したことありません。</p>
+<h2>三角形の計算をつなげていく</h2>
+<p>上記の三角形の計算が分かれば、あとは単純に、それをつなげていくだけです。</p>
+<p>固定点M0と、回転角から、点M1が求まります。<br />
+次に、A0とM1から、三角形の計算で、点B1, C1が求まります。<br />
+以下同様に、A0とB1からD1が、D1とC1からF1が、F1とC1からH1が求まります。</p>
+<p>それぞれの求まった点を、線分で結んでいけば、機構を描けることになります。</p>
+<p>ここまでが足が1本の説明です。</p>
+<hr />
+<p>4本足にするには、それぞれ三角形の点Cの求める角度の方向を逆にしたり、回転運動の回転角をずらしたりして、できるだけ同じ関数が使えるように工夫しました。</p>
+<p>4本足のscriptも、<a href="https://github.com/thirdcake/tools_page/blob/main/strandbeest2.html">GitHub</a> に乗せていますので、気になる方は見てみてください。</p>
+                    </div>
+                </div>
+                                <section class="content-aside">
+                    <h2>つつじ行政書士事務所</h2>
+                    <img src="/favicon.svg" width="60" height="60"
+                        style="width:60px;height:auto;display:block;margin:1rem auto;"
+                        alt="つつじ行政書士事務所アイコン" />
+                    <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
+                </section>
+            </div>
+        </article>
+        
+<section class="blog-pager">
+            <h2>前の記事</h2>
+                <div id="post-69" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/69/eyecatch.jpg);" >
+    <h2><a href="/archives/69.html">プライバシーポリシーの検討</a></h2>
+    <p>プライバシーポリシーを作りながら、セキュリティについて検討したことをまとめています。</p>
+    <p><time datetime="2023-08-16">2023年08月16日</time></p>
+</div>
+                <h2>次の記事</h2>
+                <div id="post-176" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/176/eyecatch.jpg);" >
+    <h2><a href="/archives/176.html">不審なアクセス</a></h2>
+    <p>当サイトへの、不審なアクセスについて、紹介します。</p>
+    <p><time datetime="2023-09-22">2023年09月22日</time></p>
+</div>
+    </section>
+<section class="relation">
+    <h2>最近の記事</h2>
+    <div id="post-list-position"></div>
+</section>
+    </main>
+    <footer>
+        <section>
+    <p>最後までお読みいただきありがとうございました。<br>なにかお気づきの点がありましたら、<a href="/contact.html">お問い合わせ</a>ください。</p>
+    <p><img class="footer-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" decoding="async"
+        width="1" height="1" style="display:block;width:300px;height:auto;max-width:100%;" /></p>
+    <p>（日行連公式キャラクター「ユキマサくん」）</p>
+    <div class="footer-message-text"></div>
+</section>
+        <section class="footer-menu">
+            <h2>メニュー</h2>
+            <nav aria-label="footer menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </section>
+        <section class="footer-address">
+            <h2>つつじ行政書士事務所</h2>
+            <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
+            <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+        </section>
+        
+    </footer>
+</body>
+</html>

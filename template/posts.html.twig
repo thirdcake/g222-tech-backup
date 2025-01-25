@@ -7,6 +7,34 @@
 {% endblock %}
 
 {% block main_content %}
-    <div id="post-list-position" data-lastpage="3"></div>
-    {% include 'partials/post-frag.html.twig' %}
+    <div id="post-list-position">
+        {% include 'partials/post-frag.html.twig' %}
+        <div class="pager">
+            <a href="?">
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="first-page-link">
+                    <title id="first-page-link">最初のページ</title>
+                    <use x="0" y="0" href="/assets/icons.svg#chevron-bar-left"></use>
+                </svg>
+            </a>
+            <a href="?">
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="prev-page-link">
+                    <title id="prev-page-link">1つ前のページ</title>
+                    <use x="0" y="0" href="/assets/icons.svg#chevron-left"></use>
+                </svg>
+            </a>
+            <span id="current-page">0</span><span>/</span><span id="last-page">{{ page.lastPage }}</span>
+            <a href="?">
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="next-page-link">
+                    <title id="next-page-link">1つ次のページ</title>
+                    <use x="0" y="0" href="/assets/icons.svg#chevron-right"></use>
+                </svg>
+            </a>
+            <a href="?">
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="last-page-link">
+                    <title id="last-page-link">最後のページ</title>
+                    <use x="0" y="0" href="/assets/icons.svg#chevron-bar-right"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
 {% endblock %}

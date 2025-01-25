@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHPで Union Findをつくる - つつじ行政書士事務所</title>
-    <meta name="description" content="競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。" />
-    <meta property="og:title" content="PHPで Union Findをつくる - つつじ行政書士事務所" />
-    <meta property="og:description" content="競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。" />
+    <title>WordPressが6.5になりました - つつじ行政書士事務所</title>
+    <meta name="description" content="WordPressが6.5になったので、さっそくアップデートしてみました。" />
+    <meta property="og:title" content="WordPressが6.5になりました - つつじ行政書士事務所" />
+    <meta property="og:description" content="WordPressが6.5になったので、さっそくアップデートしてみました。" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://g222.tech/img/325/eyecatch.jpg" />
+    <meta property="og:image" content="https://g222.tech/img/296/eyecatch.jpg" />
     <meta property="og:site_name" content="つつじ行政書士事務所" />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:url" content="https://g222.tech/archives/325.html" />
-    <link rel="canonical" href="https://g222.tech/archives/325.html" />
+    <meta property="og:url" content="https://g222.tech/archives/296.html" />
+    <link rel="canonical" href="https://g222.tech/archives/296.html" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
                 <link rel="stylesheet" href="/assets/bundle.css" />
                 <script defer src="/assets/function.js"></script>
@@ -77,65 +77,44 @@
                 <svg height="16" width="16" viewBox="0 0 16 16">
             <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
         </svg>
-        <span>PHPで Union Findをつ...</span>
-            </nav><div class="eyecatch" style="background-image: url('/img/325/eyecatch.jpg');">
+        <span>WordPressが6.5になりま...</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/296/eyecatch.jpg');">
     <details>
         <summary>代替</summary>
-        <div>富山県にあるオブジェ、アウトサイドライン</div>
+        <div>福岡県の北九州市立図書館のバラ窓</div>
     </details>
 </div>
         <article>
-            <h1>PHPで Union Findをつくる</h1>
+            <h1>WordPressが6.5になりました</h1>
             <p class="page-date">
-    <span>2024年08月12日作成</span>
-        <span>2024年11月25日更新</span>
+    <span>2024年04月03日作成</span>
+        <span>2024年04月11日更新</span>
     </p>
             <div class="content-wrap">
                                 <div>
                     <div class="content">
-                    <p>Union Findというデータ構造をPHPでやる場合の備忘録を残しておきます。</p>
-<p><a href="https://note.nkmk.me/python-union-find/">Pythonの記事</a>を参考に作成しました。（サイズやランクは実装していないので、やや低速です）</p>
-<pre><code>&lt;?php
-class UnionFind {
-  public $parents;
-  public function __construct ($n) {
-    $this-&gt;parents = range(0, $n - 1);
-  }
-  public function find ($x) {
-    if ($this-&gt;parents[$x] === $x) {
-      return $x;
-    } else {
-      $this-&gt;parents[$x] = $this-&gt;find($this-&gt;parents[$x]);
-      return $this-&gt;parents[$x];
-    }
-  }
-  public function union ($x, $y) {
-    $px = $this-&gt;find($x);
-    $py = $this-&gt;find($y);
-    if ($px === $py) {
-      return;
-    }
-    $this-&gt;parents[$px] = $py;
-  }
-}
-
-// 使い方
-$li = [0, 1, 2, 3, 4];
-$uf = new UnionFind(count($li));
-var_dump($uf-&gt;parents);
-$uf-&gt;union(0, 3);
-var_dump($uf-&gt;parents);
-$uf-&gt;union(0, 1);
-var_dump($uf-&gt;parents);
-$uf-&gt;union(1, 2);
-var_dump($uf-&gt;parents);
-$uf-&gt;find(3);
-var_dump($uf-&gt;parents);</code></pre>
-<p>自分でこのようなデータ構造を思いつくことはできませんが、すでにあるものは、どんどん学習して利用していきたいと思います。</p>
+                    <p>WordPressが、6.5になりました。</p>
+<p>本当は、先週の予定でしたが、諸事情から1週間延期になっていたようです。</p>
+<p>早速アップデートしてみました。<br />
+また、ついでにPHPも8.3にアップデートしました。</p>
+<p>当サイトでは、ヘッドレスでWordPressを利用しているのですが、とくに問題なく動くようです。</p>
+<p>かつてのWordPressは、アップデートのたびに不具合がありましたが、近年は安定しています。<br />
+（それでも、前回の6.4のときは、直後にパッチが出たりもしました）</p>
+<p>WordPressは、さまざまな機能が追加できるところがメリットではあるものの、できるだけ必要な機能を絞って利用しないと、アップデートのとき不具合がたくさん出てきてしまいます。</p>
+<p>機能を追加すればするほど、不具合のリスクが高まるという構造は、ある意味では仕方ないことなのでしょう。</p>
+<p>重要なのは、そのバランスです。<br />
+バランス感覚は、経験的な知識になってしまうので、WordPressを日常的に扱っている事業者でないと、なかなか判断が難しいところではないかと思います。<br />
+わたしも、自分が使っていない機能については、まったく経験がないので分かりません。</p>
+<p>WordPressは、現在はシェアも高く、また、多くの日本語の解説書、解説記事がありますが、もっと軽量のCMSが出てくれば、利用者のシェアも変わっていくものと思います。</p>
+<p>個人的には、データベースの不要なGrav CMSを応援したいところですが、残念ながら天下を取ることはないでしょう。</p>
+<p>実際上は、JimdoやWixのようなサイトビルダー系のサービスが再興するかもしれませんし、もしくは、ヘッドレスCMSが値下げしたり、ロリポップあたりと提携したりして、シェアを伸ばしていくのかなと感じます。</p>
 <hr />
-<p>（追記）
-ちなみに、基本的にUnionFindは元に戻せませんが、Rollback機能付きのものもあるそうです。</p>
-<p><a href="https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html">参考URL</a></p>
+<p>（4月4日追記）</p>
+<p>WordPressの不具合対処は、経験によるしかないと思っていましたが、最近、エックスサーバーが「<a href="https://www.xserver.ne.jp/manual/man_server_wprecovery.php">WordPressリカバリー</a>」というサービスを始めたそうです。</p>
+<p>もし、AIで不具合対応が完全にできるようになるなら、WordPressでも良いかなと思います。</p>
+<p>とはいえ、今のAIの能力では、正直心許ないので、実用性という意味では、もう少し発達してきてからではないかとも思います。</p>
+<p>エックスサーバーのリカバリーが、どの程度の範囲で有効かは少々疑問ではあるものの、使用者が不具合を感じたときに、リカバリーを利用することで、同時にエックスサーバー側も検知できるようになるため、不具合の知見がエックスサーバー社に集まりやすくはなります。</p>
+<p>その意味で、このサービスは良いサービスだなと思いました。</p>
                     </div>
                 </div>
                                 <section class="content-aside">
@@ -150,12 +129,18 @@ var_dump($uf-&gt;parents);</code></pre>
         
 <section class="blog-pager">
             <h2>前の記事</h2>
-                <div id="post-339" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/339/eyecatch.jpg);" >
-    <h2><a href="/archives/339.html">地元行政書士が教える久留米市のクレープ屋さん</a></h2>
-    <p>地元の久留米市にあるクレープ屋さんをまとめました。</p>
-    <p><time datetime="2024-10-02">2024年10月02日</time></p>
+                <div id="post-48" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/48/eyecatch.jpg);" >
+    <h2><a href="/archives/48.html">よろず支援相談を知っていますか</a></h2>
+    <p>よろず支援拠点の概要と利点、そして利用した感想についてのまとめ。</p>
+    <p><time datetime="2024-03-20">2024年03月20日</time></p>
 </div>
-        </section>
+                <h2>次の記事</h2>
+                <div id="post-245" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/245/eyecatch.jpg);" >
+    <h2><a href="/archives/245.html">ConoHa WINGでSSHからログを読みたい</a></h2>
+    <p>レンタルサーバーのConoHa WINGで、アクセスログをSSH接続から見る方法をまとめました</p>
+    <p><time datetime="2024-05-25">2024年05月25日</time></p>
+</div>
+    </section>
 <section class="relation">
     <h2>最近の記事</h2>
     <div id="post-list-position"></div>

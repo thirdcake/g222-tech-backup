@@ -1,0 +1,24 @@
+div.pager {
+    width: 100%;
+    font-size: 1rem;
+    display: flex;
+    gap: .7rem;
+    justify-content: center;
+    align-items: center;
+    margin-block: 3rem;
+}
+
+div.pager a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--border-divider);
+    background-color: var(--background-primary);
+    width: clamp(36px, calc(3vw + 27px), 48px);
+    height: clamp(36px, calc(3vw + 27px), 48px);
+    border-radius: 50%;
+}
+
+div.pager a:hover {
+    background-color: var(--background-secondary);
+}

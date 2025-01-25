@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHPで Union Findをつくる - つつじ行政書士事務所</title>
-    <meta name="description" content="競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。" />
-    <meta property="og:title" content="PHPで Union Findをつくる - つつじ行政書士事務所" />
-    <meta property="og:description" content="競技プログラミング等でときどき出てくる、Union Findというデータ構造について、PHPでやった場合の事例を書いてみました。" />
+    <title>外国人を雇用する企業向けセミナー - つつじ行政書士事務所</title>
+    <meta name="description" content="2023年度の「福岡県外国人材受入企業講習会」についてのお知らせです。久留米市で開催される無料のセミナーです。" />
+    <meta property="og:title" content="外国人を雇用する企業向けセミナー - つつじ行政書士事務所" />
+    <meta property="og:description" content="2023年度の「福岡県外国人材受入企業講習会」についてのお知らせです。久留米市で開催される無料のセミナーです。" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://g222.tech/img/325/eyecatch.jpg" />
+    <meta property="og:image" content="https://g222.tech/img/182/eyecatch.jpg" />
     <meta property="og:site_name" content="つつじ行政書士事務所" />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:url" content="https://g222.tech/archives/325.html" />
-    <link rel="canonical" href="https://g222.tech/archives/325.html" />
+    <meta property="og:url" content="https://g222.tech/archives/182.html" />
+    <link rel="canonical" href="https://g222.tech/archives/182.html" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
                 <link rel="stylesheet" href="/assets/bundle.css" />
                 <script defer src="/assets/function.js"></script>
@@ -77,65 +77,38 @@
                 <svg height="16" width="16" viewBox="0 0 16 16">
             <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
         </svg>
-        <span>PHPで Union Findをつ...</span>
-            </nav><div class="eyecatch" style="background-image: url('/img/325/eyecatch.jpg');">
+        <span>外国人を雇用する企業向けセミナー</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/182/eyecatch.jpg');">
     <details>
         <summary>代替</summary>
-        <div>富山県にあるオブジェ、アウトサイドライン</div>
+        <div>久留米市で開催される無料のセミナーのお知らせです</div>
     </details>
 </div>
         <article>
-            <h1>PHPで Union Findをつくる</h1>
+            <h1>外国人を雇用する企業向けセミナー</h1>
             <p class="page-date">
-    <span>2024年08月12日作成</span>
-        <span>2024年11月25日更新</span>
+    <span>2023年09月25日作成</span>
+        <span>2023年10月11日更新</span>
     </p>
             <div class="content-wrap">
                                 <div>
                     <div class="content">
-                    <p>Union Findというデータ構造をPHPでやる場合の備忘録を残しておきます。</p>
-<p><a href="https://note.nkmk.me/python-union-find/">Pythonの記事</a>を参考に作成しました。（サイズやランクは実装していないので、やや低速です）</p>
-<pre><code>&lt;?php
-class UnionFind {
-  public $parents;
-  public function __construct ($n) {
-    $this-&gt;parents = range(0, $n - 1);
-  }
-  public function find ($x) {
-    if ($this-&gt;parents[$x] === $x) {
-      return $x;
-    } else {
-      $this-&gt;parents[$x] = $this-&gt;find($this-&gt;parents[$x]);
-      return $this-&gt;parents[$x];
-    }
-  }
-  public function union ($x, $y) {
-    $px = $this-&gt;find($x);
-    $py = $this-&gt;find($y);
-    if ($px === $py) {
-      return;
-    }
-    $this-&gt;parents[$px] = $py;
-  }
-}
-
-// 使い方
-$li = [0, 1, 2, 3, 4];
-$uf = new UnionFind(count($li));
-var_dump($uf-&gt;parents);
-$uf-&gt;union(0, 3);
-var_dump($uf-&gt;parents);
-$uf-&gt;union(0, 1);
-var_dump($uf-&gt;parents);
-$uf-&gt;union(1, 2);
-var_dump($uf-&gt;parents);
-$uf-&gt;find(3);
-var_dump($uf-&gt;parents);</code></pre>
-<p>自分でこのようなデータ構造を思いつくことはできませんが、すでにあるものは、どんどん学習して利用していきたいと思います。</p>
-<hr />
-<p>（追記）
-ちなみに、基本的にUnionFindは元に戻せませんが、Rollback機能付きのものもあるそうです。</p>
-<p><a href="https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html">参考URL</a></p>
+                    <p>福岡県外国人材受入企業講習会のお知らせです。</p>
+<p>入管法が改正されて数年が経ち、外国人の雇用を検討している企業が増えてきています。<br />
+外国人を雇用する場合には、就労資格などの手続きを受けるなど、適切な対応が必要になります。</p>
+<p>しかし、関係法令を順番に読み解いていくのは、たいへんな手間です。</p>
+<p>そこで、福岡県庁が主催で、外国人材を受け入れたい企業向けに、セミナーを開催しています。<br />
+県内4か所（福岡市、北九州市、久留米市、飯塚市）で対面のセミナーを開催しており、遠方の場合はzoomのウェビナーもあります。</p>
+<p>福岡県行政書士会が受託し、セミナーの講師や、セミナー後の個別相談も、就労ビザに詳しい行政書士が行います。<br />
+次回、10月21日（土）の久留米市開催回では、わたしも司会としてお手伝いします。</p>
+<h2>第2回 福岡県外国人材受入企業講習会</h2>
+<p>内容：「技能実習・特定技能等の就労資格」<br />
+日時：2023年10月21日（土）10:30から12:00（終了後、個別相談もあります）<br />
+場所：久留米市 くるめりあ六ツ門6階<br />
+参加費：無料</p>
+<p>事前に、メールもしくはファックスでの予約が必要です。<br />
+詳しい予約方法は、<a href="https://www.pref.fukuoka.lg.jp/contents/gaikokujin01.html">福岡県庁のお知らせページ</a>をご覧ください。</p>
+<p>外国人の雇用を検討されている企業のご担当者さまは、ぜひご参加ください。</p>
                     </div>
                 </div>
                                 <section class="content-aside">
@@ -150,12 +123,18 @@ var_dump($uf-&gt;parents);</code></pre>
         
 <section class="blog-pager">
             <h2>前の記事</h2>
-                <div id="post-339" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/339/eyecatch.jpg);" >
-    <h2><a href="/archives/339.html">地元行政書士が教える久留米市のクレープ屋さん</a></h2>
-    <p>地元の久留米市にあるクレープ屋さんをまとめました。</p>
-    <p><time datetime="2024-10-02">2024年10月02日</time></p>
+                <div id="post-74" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/74/eyecatch.jpg);" >
+    <h2><a href="/archives/74.html">久留米市に行政書士は多いのか、少ないのか？</a></h2>
+    <p>久留米市の行政書士の多寡を、他の市区町村と比較してみました。</p>
+    <p><time datetime="2023-09-30">2023年09月30日</time></p>
 </div>
-        </section>
+                <h2>次の記事</h2>
+                <div id="post-191" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/191/eyecatch.jpg);" >
+    <h2><a href="/archives/191.html">事務所名をつけるときに考えたこと</a></h2>
+    <p>当事務所が、「つつじ行政書士事務所」という名前になった理由をまとめました。</p>
+    <p><time datetime="2023-10-11">2023年10月11日</time></p>
+</div>
+    </section>
 <section class="relation">
     <h2>最近の記事</h2>
     <div id="post-list-position"></div>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pushStateでブラウザの状態を管理する - つつじ行政書士事務所</title>
+    <meta name="description" content="ジンドゥーの記事をQiitaに書く際に、pushState()について調べたのでまとめます。" />
+    <meta property="og:title" content="pushStateでブラウザの状態を管理する - つつじ行政書士事務所" />
+    <meta property="og:description" content="ジンドゥーの記事をQiitaに書く際に、pushState()について調べたのでまとめます。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://g222.tech/img/257/eyecatch.jpg" />
+    <meta property="og:site_name" content="つつじ行政書士事務所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://g222.tech/archives/257.html" />
+    <link rel="canonical" href="https://g222.tech/archives/257.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="stylesheet" href="/assets/bundle.css" />
+                <script defer src="/assets/function.js"></script>
+    </head>
+<body>
+    <header>
+        <div>
+            <div class="site-title">つつじ行政書士事務所</div>
+            <nav aria-label="site menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+            <span>&nbsp;&gt;&nbsp;</span>
+                <a href="/archives/">
+            <svg height="16" width="16" viewBox="0 0 16 16">
+                <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+            </svg>
+            <span>記事一覧</span>
+        </a>
+                    <span>&nbsp;&gt;&nbsp;</span>
+                <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#page-fill"></use>
+        </svg>
+        <span>pushStateでブラウザの状態...</span>
+            </nav><div class="eyecatch" style="background-image: url('/img/257/eyecatch.jpg');">
+    <details>
+        <summary>代替</summary>
+        <div>石川県金沢市にあるレアンドロのスイミングプール</div>
+    </details>
+</div>
+        <article>
+            <h1>pushStateでブラウザの状態を管理する</h1>
+            <p class="page-date">
+    <span>2023年12月11日作成</span>
+    </p>
+            <div class="content-wrap">
+                                <div>
+                    <div class="content">
+                    <h2>きっかけ</h2>
+<p>先日、Qiitaに記事を書きました。</p>
+<p><a href="https://qiita.com/g222/items/1cef4743c591019a4304">ジンドゥーで鍵付きブログができないから、microCMSで近いものを作ってみたい</a></p>
+<p>ざっくりいうと、SPA（シングルページアプリケーション）を作りたいという話です。<br />
+SPAを作る場合、通常は、react.jsやvue.js（もしくは、それらを使ったNext.jsやNuxt.jsなど）を利用すると思うのですが、ジンドゥーの中に入れ込むという性質上、あまり大きなjsファイルは読み込めません。<br />
+※特に、ジンドゥーはそれほど表示速度が速くないので。。。</p>
+<p>そこで、簡易的なSPA（のようなもの）を作りました。<br />
+<a href="https://github.com/thirdcake/microcms-into-jimdo/">GitHub</a>に置いてあります。</p>
+<p>その際、historyAPIのpushStateについて調べることになったので、その調べた内容をここに整理しておきたいと思います。<br />
+（なお、普通に作るなら、react-routerなどを使うはずなので、以下の知識はなくても困らないはずです）</p>
+<p>仕様などについては、MDNにある<a href="https://developer.mozilla.org/ja/docs/Web/API/History/pushState">History.pushState</a>の記事を参照してください。</p>
+<h2>検討すべきイベント</h2>
+<p>JavaScriptは、イベント駆動なので、イベントごとに考えると整理しやすかったです。</p>
+<p>以下の、3つのイベントを考えます。</p>
+<ol>
+<li>最初に読み込まれたとき</li>
+<li>リンクがクリックされたとき</li>
+<li>戻る・進むボタンが押されたとき</li>
+</ol>
+<p>順番にまとめます。</p>
+<h2>最初に読み込まれたとき</h2>
+<p>最初に読み込まれたときというのは、いわゆる、 DOMContentLoaded や、load イベントのことです。</p>
+<p>最初の画面を表示する関数が必要になります。</p>
+<p>いろいろ試行錯誤した結果、URLSearchParamsに、テンプレートのタイプ（archive画面か、post画面かなど）や、ページIDなどを入れ込んでしまうのが良さそうです。</p>
+<p>特にこだわりがなければ、画面表示は、window.locationのsearch部分さえあればできるように作成することをおすすめします。</p>
+<pre><code>// 例
+function display(){
+    const state = new URLSearchParams(window.location.search)
+    // stateのパラメータで分岐させて、表示処理を書く
+}
+document.addEventListener('DOMContentLoaded', display, false);</code></pre>
+<p>このように、最初の画面表示だけなら、pushState()は使わなくて良いです。</p>
+<h2>リンクが押されたとき</h2>
+<p>リンクが押されたときは、 click イベントが発火します。</p>
+<p>以下のような、clickHandler関数を用意しておくと良いと思います。</p>
+<pre><code>// 例
+function clickHandler(ev){
+    const url = new URL();
+    // url.searchに、クリックされた次のページの情報を入力する
+    history.pushState({}, '', url.toString());
+    display();  // pushState後、クリック先の画面を表示する
+}
+spaDOM.addEventListener('click', clickHandler, false);</code></pre>
+<p>クリックしたとき、そのクリック先の情報をURLに入れて、urlをpushStateで変更します。<br />
+その変更後に、その変更されたURLを読み取って、画面表示しなおせば良い、ということです。</p>
+<p>ただし、そのクリックされた内容が、SPA内部のリンクなのか、それとも外部のリンクなのかで、分岐させる必要があります。（内部リンクであれば、 preventDefault が必要になるからです。なお、その分岐部分は、上記のスクリプトでは書いていません）</p>
+<p>わたしなりの書き方は、Githubに書いたとおりなのですが、まだ不十分な部分があるようなので、もう少し改善していきたいと思っています。</p>
+<h2>戻る・進むボタンが押されたとき</h2>
+<p>多くのブラウザには、戻る・進むボタンがあります。 popstate イベントを利用すれば、これも発火させることができます。</p>
+<pre><code>// 例
+window.addEventListener('popstate', display, false);</code></pre>
+<p>この場合は、戻るボタンが押された時点で、 location.href も変更されているため、そのイベントのときだけ作業するということはありません。</p>
+<p>ただ単純に、画面表示の関数を呼び出せば良いです。</p>
+<h2>まとめ</h2>
+<p>以上のように、URLの管理だけなら、clickイベント時のpushState()を利用するだけでも、十分に機能します。</p>
+<p>もちろん、react-routerなどが使えるなら、それにこしたことはないのですが、表示速度が厳しい場合などは、上記のようなやり方を検討してみても良いかもしれません。</p>
+                    </div>
+                </div>
+                                <section class="content-aside">
+                    <h2>つつじ行政書士事務所</h2>
+                    <img src="/favicon.svg" width="60" height="60"
+                        style="width:60px;height:auto;display:block;margin:1rem auto;"
+                        alt="つつじ行政書士事務所アイコン" />
+                    <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
+                </section>
+            </div>
+        </article>
+        
+<section class="blog-pager">
+            <h2>前の記事</h2>
+                <div id="post-256" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/256/eyecatch.jpg);" >
+    <h2><a href="/archives/256.html">WordPressチームから脆弱性に関するメールが届いたら</a></h2>
+    <p>新しいタイプのフィッシング詐欺があったようなので、まとめました。</p>
+    <p><time datetime="2023-12-03">2023年12月03日</time></p>
+</div>
+                <h2>次の記事</h2>
+                <div id="post-270" class="content entry-list" style="background-image: linear-gradient(to right, #fff, #fff 50%, rgb(255 255 255 / .7) ), url(/img/270/eyecatch.jpg);" >
+    <h2><a href="/archives/270.html">WSL2に、フラットファイルCMSを入れてみる</a></h2>
+    <p>windowsのlocal環境で、Gravや、Bluditなどのデータベース不要のCMSを入れてみました。</p>
+    <p><time datetime="2025-01-25">2025年01月25日</time></p>
+</div>
+    </section>
+<section class="relation">
+    <h2>最近の記事</h2>
+    <div id="post-list-position"></div>
+</section>
+    </main>
+    <footer>
+        <section>
+    <p>最後までお読みいただきありがとうございました。<br>なにかお気づきの点がありましたら、<a href="/contact.html">お問い合わせ</a>ください。</p>
+    <p><img class="footer-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" decoding="async"
+        width="1" height="1" style="display:block;width:300px;height:auto;max-width:100%;" /></p>
+    <p>（日行連公式キャラクター「ユキマサくん」）</p>
+    <div class="footer-message-text"></div>
+</section>
+        <section class="footer-menu">
+            <h2>メニュー</h2>
+            <nav aria-label="footer menu">
+                <ul><li>
+    <a href="/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#home"></use>
+        </svg>
+        <span>ホーム</span>
+    </a>
+</li>
+<li>
+    <a href="/archives/">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#archives"></use>
+        </svg>
+        <span>記事一覧</span>
+    </a>
+</li>
+<li>
+    <a href="/contact.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#contact"></use>
+        </svg>
+        <span>お問い合わせ</span>
+    </a>
+</li>
+<li>
+    <a href="/about.html">
+        <svg height="16" width="16" viewBox="0 0 16 16">
+            <use x="0" y="0" href="/assets/icons.svg#about"></use>
+        </svg>
+        <span>もっと知る</span>
+    </a>
+</li>
+</ul>
+            </nav>
+        </section>
+        <section class="footer-address">
+            <h2>つつじ行政書士事務所</h2>
+            <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
+            <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+        </section>
+        
+    </footer>
+</body>
+</html>
