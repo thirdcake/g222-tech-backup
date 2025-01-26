@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', ()=>{
     const tbody = document.getElementById('calendar');
     const youbi = ['日','月','火','水','木','金','土'];
     fetch('/calendar.json').then(res=>res.json()).then(data=>{
-      document.getElementById('calendar1stDay').textContent = data.busy[0].day;
       const frag = data.busy.reduce((p,c)=>{
         const tr = document.createElement('tr');
         const date = new Date(c.day);

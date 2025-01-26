@@ -6,6 +6,7 @@ eyecatch:
     alt: "テオヤンセン機構のひとつに点を指定したもの"
 create_at: "2023-08-26T14:14:36"
 update_at: "2023-08-27T14:24:02"
+scripts: ["/img/160/strandbeest2.js"]
 ---
 
 先週、夏休みで山陰旅行に行ってきました。
@@ -20,7 +21,10 @@ update_at: "2023-08-27T14:24:02"
 言葉ではなんとも説明できないので、とりあえず[YouTube](https://www.youtube.com/channel/UCw4BFxLFguznor-MnYNwGTg)などを見ていただければと思います。
 
 [wikipedia](https://ja.wikipedia.org/wiki/%E3%83%86%E3%82%AA%E3%83%BB%E3%83%A4%E3%83%B3%E3%82%BB%E3%83%B3_(%E5%BD%AB%E5%88%BB%E5%AE%B6))に、「ホーリーナンバー」という名称で、チューブの長さの比率があったので、これを参考に、JavaScriptとcanvasでアニメーションを作成してみました。  
-それが、この記事の最初にのせたアニメーションです。
+
+<canvas id="myCanvas" width="300" height="150" style="width:100%;height:auto;max-width:500px;"></canvas>
+
+<p><button id="myButton">Start / Stop</button></p>
 
 `Start/Stop` ボタンを押していただければ、アニメーションが開始されたり、止まったりするはずです。
 

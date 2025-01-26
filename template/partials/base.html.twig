@@ -25,9 +25,15 @@
     {% else %}
         <link rel="stylesheet" href="/assets/bundle.css" />
     {% endif %}
+    {% if page.styles %}{% for style in page.styles %}
+        <link rel="stylesheet" href="{{ style }}" />
+    {% endfor %}{% endif %}
     {% endblock %}
     {% block js %}
     <script defer src="/assets/function.js"></script>
+    {% if page.scripts %}{% for script in page.scripts %}
+        <script defer src="{{script}}"></script>
+    {% endfor %}{% endif %}
     {% endblock %}
 </head>
 <body>

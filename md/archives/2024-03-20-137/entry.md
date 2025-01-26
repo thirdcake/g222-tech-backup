@@ -6,14 +6,14 @@ eyecatch:
     alt: "つつじ行政書士事務所のスケジュールです"
 create_at: "2023-08-03T21:45:22"
 update_at: "2024-03-20T14:13:07"
-scripts: ["schedule.js"]
+scripts: ["/img/137/schedule.js"]
 ---
 
 今日（<span id="today">0000年00月00日</span>）から2週間分の業務状況をお知らせします。
 
 ## 業務状況
 
-<table><caption>〇は新規のご相談可能です。×は対応不可です。</caption><thead><tr><th>日付</th><th>午前</th><th>午後</th></tr></thead><tbody id="calendar"><tr><td>xx日（）</td><td>×</td><td>×</td></tr></tbody></table>
+<table><caption>〇は新規のご相談可能です。×は対応不可です。</caption><thead><tr><th>日付</th><th>午前</th><th>午後</th></tr></thead><tbody id="calendar"></tbody></table>
 
 
 ## このスケジュールについて
