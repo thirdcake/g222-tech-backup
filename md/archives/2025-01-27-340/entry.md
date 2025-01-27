@@ -3,7 +3,7 @@ title: "JavaScriptのES Moduleについて調べました"
 description: "Qiitaに記事を書いたときに使ったES Moduleについてまとめています。"
 eyecatch: 
     src: "/img/340/eyecatch.jpg"
-    alt: "富山県の国東半島にある熊野摩崖仏"
+    alt: "大分県の国東半島にある熊野摩崖仏"
 create_at: "2025-01-27T11:31:13"
 ---
 
