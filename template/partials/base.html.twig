@@ -13,6 +13,7 @@
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:url" content="{{ site.site_url }}{{ page.url }}" />
     <link rel="canonical" href="{{ site.site_url }}{{ page.url }}" />
+    {%- include 'partials/ldjson.json.twig' -%}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     {% block css %}
     {% if preview %}
