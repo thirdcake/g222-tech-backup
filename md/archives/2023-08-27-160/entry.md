@@ -122,4 +122,4 @@ pointA.x, pointA.y に、点Aのx, y 座標があり、pointBについても同�
 
 4本足にするには、それぞれ三角形の点Cの求める角度の方向を逆にしたり、回転運動の回転角をずらしたりして、できるだけ同じ関数が使えるように工夫しました。
 
-4本足のscriptも、[GitHub](https://github.com/thirdcake/tools_page/blob/main/strandbeest2.html) に乗せていますので、気になる方は見てみてください。
+4本足のscriptも、[GitHub](https://github.com/thirdcake/tools_page/blob/main/docs/strandbeest2.html) に乗せていますので、気になる方は見てみてください。
