@@ -1,7 +1,56 @@
+{#- need properties 
+    page: 
+        pageType: G222\PageType::name;
+        create_at: string(datetime);
+        update_at: string(datetime)|undefined;
+        title: string;
+        eyecatch.src: string|undefined;
+-#}
 {% if page.pageType == 'Home' %}
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "つつじ行政書士事務所", "url": "http://g222.tech/"}</script>
-{% elseif page.pageType == 'ArchivesIndex' %}
+{% elseif page.pageType == 'Posts' %}
 <script type="application/ld+json">{ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://g222.tech/" },{ "@type": "ListItem", "position": 2, "name": "記事一覧" }]}</script>
-{% elseif page.pageType == 'ArchivesPost' %}
-<script type="application/ld+json">[ { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://g222.tech/" },{ "@type": "ListItem", "position": 2, "name": "記事一覧", "item": "https://g222.tech/archives/" },{ "@type": "ListItem", "position": 3, "name": "{{ page.title }}" }] }, { "@context": "https://schema.org", "@type": "BlogPosting", "author": [ { "@type":"Organization", "name": "つつじ行政書士事務所", "url": "https://g222.tech/" } ], "datePublished": "{{ page.create_at }}+09:00", {% if page.update_at %}"dateModified": "{{ page.update_at }}+09:00",{% endif %} "headline": "{{ page.title }}", "image": "https://g222.tech{{ page.eyecatch.src }}" } ]</script>
+{% elseif page.pageType == 'Post' %}
+<script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "ホーム",
+                    "item": "https://g222.tech/"
+                }, {
+                    "@type": "ListItem", 
+                    "position": 2, 
+                    "name": "記事一覧", 
+                    "item": "https://g222.tech/archives/" 
+                }, { 
+                    "@type": "ListItem", 
+                    "position": 3, 
+                    "name": "{{ page.title }}" 
+                }
+            ]
+        }, { 
+            "@context": "https://schema.org", 
+            "@type": "BlogPosting", 
+            "author": [
+                { 
+                    "@type":"Organization", 
+                    "name": "つつじ行政書士事務所", 
+                    "url": "https://g222.tech/" 
+                } 
+            ], 
+            "datePublished": "{{ page.create_at }}+09:00",
+            {%- if page.update_at is defined -%}"dateModified": "{{ page.update_at }}+09:00",
+            {%- endif -%}
+            {%- if page.eyecatch is defined -%}
+            "image": "https://g222.tech{{ page.eyecatch.src }}",
+            {%- endif -%} 
+            "headline": "{{ page.title }}" 
+        } 
+    ]
+</script>
 {% endif %}

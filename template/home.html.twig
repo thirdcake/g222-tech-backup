@@ -1,5 +1,33 @@
+{#- need properties:
+    page:
+        title: string;
+        after_title: string|undefined;
+
+    将来的には、Gravのmoduleみたいにしたい。
+-#}
 {% extends './partials/base.html.twig' %}
 
-{% block aftertitle %}
-<p style="padding:0 1.5rem 3rem;text-align:center;">つつじ行政書士事務所は、企業経営を支援する行政書士事務所です。<br>応用情報技術者でもありますので、IT関係のご相談にも応じています。<br><a href="/contact.html">お問い合わせはこちらからどうぞ。</a></p>
+{% block main %}
+<article>
+    <h1>{{ page.title }}</h1>
+    {% if page.after_title is defined %}
+    <p style="text-align:center;">{{ page.after_title|raw }}</p>
+    {% endif %}
+    <div class="content-wrap">
+        {% block main_content %}
+        <div>
+            <div class="content">
+            {{ content|raw }}
+            </div>
+        </div>
+        {% endblock %}
+        <section class="content-aside">
+            <h2>つつじ行政書士事務所</h2>
+            <img src="/favicon.svg" width="60" height="60"
+                style="width:60px;height:auto;display:block;margin:1rem auto;"
+                alt="つつじ行政書士事務所アイコン" />
+            <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
+        </section>
+    </div>
+</article>
 {% endblock %}

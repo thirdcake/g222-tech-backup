@@ -1,3 +1,7 @@
+{#- 
+    'posts.html.twig' から呼び出される。
+    もしくは、'/bin/create_page.php' で直接書き出し対象になる。
+-#}
 <template id="post-list-fragment">
 {% for post in page.posts %}
     {% include 'partials/post-list.html.twig' %}

@@ -1,5 +1,8 @@
+{#- need properties:
+    page:
+        lastPage: int;
+-#}
 {% extends './partials/base.html.twig' %}
-
 
 {% block main %}
 {%- include 'partials/breadcrumb.html.twig' -%}
@@ -8,6 +11,7 @@
 
 {% block main_content %}
     <div id="post-list-position">
+        <p>{{ content|raw }}</p>
         {% include 'partials/post-frag.html.twig' %}
         <div class="pager">
             <a href="?">

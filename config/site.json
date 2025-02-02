@@ -28,5 +28,32 @@
             "svg_fill": "/assets/icons.svg#about-fill"
         }
     ],
-    "posts_db": "posts.db"
+    "per_page": 10,
+    "sidebar_description": "応用情報技術者の行政書士です。<br>ご依頼等は<a href=\"/contact.html\">お問い合わせ</a>からお願いします。",
+    "sns": [
+        {
+            "name": "GitHub",
+            "link": "https://thirdcake.github.io/tools_page/",
+            "icon": "/assets/github-mark.svg"
+        },
+        {
+            "name": "AtCoder",
+            "link": "https://atcoder.jp/users/g222"
+        },
+        {
+            "name": "Qiita",
+            "link": "https://qiita.com/g222",
+            "icon": "/assets/qiita-icon.png"
+        },
+        {
+            "name": "Mastodon",
+            "link": "https://mastodon-japan.net/@g222",
+            "icon": "/assets/mastodon-logo-purple.svg"
+        },
+        {
+            "name": "Twitter(X)",
+            "link": "https://x.com/g222tech",
+            "icon": "/assets/twitter-logo.svg"
+        }
+    ]
 }

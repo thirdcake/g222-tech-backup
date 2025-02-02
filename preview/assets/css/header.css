@@ -1,61 +1,61 @@
-body>header{
+body>header {
     background-color: var(--background-primary);
     margin: 0;
-    padding: 0;
+    padding:1rem var(--g222-base-padding);
     border-bottom: thin solid var(--border-divider);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem 0;
+}
 
-    >div {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 8px var(--g222-outer-padding);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: .5rem 0;
-    }
+body>header>* {
+    flex-shrink: 0;
+    flex-basis: auto;
+}
 
-    >div>div.site-title {
-        font-weight: bold;
-    }
+body>header>div.site-title {
+    font-weight: bold;
+}
 
-    >div>nav {
-        max-width:100%;
-        overflow-x: auto;
-    }
-    >div>nav>ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        font-size: .875rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 0 24px;
-    }
-    >div>nav>ul>li {
-        list-style: none;
-        display: inline-block;
-        margin: 0;
-        border: 0;
-    }
+body>header>nav {
+    width: 100%;
+    overflow-x: auto;
+}
 
-    a svg {
-        display: inline-block;
-        vertical-align: -.2em;
-        fill: currentcolor;
-        width:1.2em;
-        height:1.2em;
-        margin:0 .3em 0 0;
-    }
+body>header>nav>ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: .875rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0 24px;
+}
 
-    @media screen and (min-width: 992px) {
-        >div {
-            flex-wrap: wrap;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-        }
-    }
+body>header>nav>ul>li {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    border: 0;
+}
 
+body>header a svg {
+    display: inline-block;
+    vertical-align: -.2em;
+    fill: currentcolor;
+    width: 1.2em;
+    height: 1.2em;
+    margin: 0 .3em 0 0;
+}
+
+@media screen and (min-width: 992px) {
+    body>header>nav {
+        width: fit-content;
+        overflow-x: unset;
+    }
 }

@@ -1,3 +1,19 @@
+{#- need properties:
+    preview: bool;
+    site: /config/site.json => json.encode();
+    page:
+        title: string;
+        description: string;
+        url: string;
+        styles: string|undefined;
+        scripts: string|undefined;
+    contents: string (HTML string);
+ -#}
+{%- if page.eyecatch is defined -%}
+    {%- set eyecatch_src = page.eyecatch.src -%}
+{%- else -%}
+    {%- set eyecatch_src = '/assets/eyecatch.jpg' -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,7 +24,7 @@
     <meta property="og:title" content="{{ page.title }} - {{ site.site_name }}" />
     <meta property="og:description" content="{{ page.description }}" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="{{ site.site_url }}{{ page.eyecatch.src }}" />
+    <meta property="og:image" content="{{ site.site_url }}{{ eyecatch_src }}" />
     <meta property="og:site_name" content="{{ site.site_name }}" />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:url" content="{{ site.site_url }}{{ page.url }}" />
@@ -24,31 +40,33 @@
         <link rel="stylesheet" href="/assets/css/contact.css" />
         <link rel="stylesheet" href="/assets/css/posts.css" />
     {% else %}
-        <link rel="stylesheet" href="/assets/bundle.css" />
+        <link rel="stylesheet" href="/assets/bundle.css?d=202501" />
     {% endif %}
-    {% if page.styles %}{% for style in page.styles %}
+    {% if page.styles is defined %}{% for style in page.styles %}
         <link rel="stylesheet" href="{{ style }}" />
     {% endfor %}{% endif %}
     {% endblock %}
     {% block js %}
-    <script defer src="/assets/function.js"></script>
-    {% if page.scripts %}{% for script in page.scripts %}
+    {% if preview -%}
+    <script defer type="module" src="/assets/function.js"></script>
+    {% else -%}
+    <script defer type="text/javascript" src="/assets/function.js"></script>
+    {% endif -%}
+    {% if page.scripts is defined %}{% for script in page.scripts %}
         <script defer src="{{script}}"></script>
     {% endfor %}{% endif %}
     {% endblock %}
 </head>
 <body>
     <header>
-        <div>
-            <div class="site-title">{{ site.site_name }}</div>
-            <nav aria-label="site menu">
-                <ul>
-                    {%- for item in site.menu -%}
-                    {%- include 'partials/menu-item.html.twig' -%}
-                    {%- endfor -%}
-                </ul>
-            </nav>
-        </div>
+        <div class="site-title">{{ site.site_name }}</div>
+        <nav aria-label="site menu">
+            <ul>
+                {%- for item in site.menu -%}
+                {%- include 'partials/menu-item.html.twig' -%}
+                {%- endfor -%}
+            </ul>
+        </nav>
     </header>
     <main>
         {% block main %}

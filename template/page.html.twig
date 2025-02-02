@@ -1,3 +1,7 @@
+{#- need properties:
+    page:
+        after_title: string|undefined;
+-#}
 {% extends 'partials/base.html.twig' %}
 
 {% block main %}
@@ -6,7 +10,7 @@
 {% endblock %}
 
 {% block aftertitle %}
-{% if page.after_title %}
+{% if page.after_title is defined %}
 <p style="text-align:center;">{{ page.after_title|raw }}</p>
 {% endif %}
 {% endblock %}

@@ -1,146 +1,144 @@
-body>main{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 8px 0;
+main{
+    margin: 0;
+    padding: 0;
+}
+
+main nav.breadcrumb {
+    font-size: .875rem;
+    padding: .5rem var(--g222-base-padding);
+}
+
+main nav.breadcrumb svg {
+    display: inline-block;
+    vertical-align: -.2em;
+    fill: currentcolor;
+    width: 1.2em;
+    height: 1.2em;
+    margin: 0 .3em 0 0;
+}
+
+main article>h1 {
+    text-align: center;
+    padding: .5rem var(--g222-base-padding);
+}
+
+main article>div.content-wrap{
+    padding: .5rem var(--g222-outer-padding);
     display: block;
+    align-items: unset;
+    justify-content: unset;
+    gap: unset;
+}
 
-    article, section.blog-pager {
-        padding:0;
+main div.content {
+    margin: 0 0 3rem;
+    padding: 3rem var(--g222-inner-padding);
+    background-color: var(--background-primary);
+    font-size: clamp(1rem, calc(2vw + 4px), 1.125rem);
+    border-top: thin solid var(--border-divider);
+    border-right: none;
+    border-bottom: thin solid var(--border-divider);
+    border-left: none;
+    border-radius: unset;
+}
+
+main section.content-aside {
+    margin: 0 0 30px;
+    padding: 3rem var(--g222-inner-padding);
+    background-color: var(--background-primary);
+    border-top: thin solid var(--border-divider);
+    border-right: none;
+    border-bottom: thin solid var(--border-divider);
+    border-left: none;
+    border-radius: unset;
+}
+
+main section.blog-pager,
+main section.relation {
+    padding: .5rem var(--g222-outer-padding);
+}
+
+main section.blog-pager>h2,
+main section.relation>h2 {
+    padding: .5rem var(--g222-inner-padding);
+}
+
+main section h2 {
+    font-size: 1.5rem;
+    margin: 40px 0 24px;
+    line-height: 1.5;
+}
+
+main div.eyecatch {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 480px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+}
+
+main div.eyecatch>details {
+    background-color: transparent;
+    padding: 0.3rem;
+    margin: 0;
+    border-radius: unset;
+    overflow: hidden;
+    gap: .3rem;
+}
+
+main div.eyecatch>details>summary, main div.eyecatch>details>div {
+    width: fit-content;
+    padding: .3rem .5rem;
+    margin: 0;
+    font-size: .875rem;
+    background-color: var(--text-desc);
+    color: var(--background-primary);
+    border: 2px solid var(--border-divider);
+    border-radius: .3rem;
+}
+
+main p.page-date {
+    text-align: center;
+    padding: 0 var(--g222-base-padding) 3em;
+}
+
+main p.page-date>span{
+    display: inline-block;
+    margin-inline: 1rem;
+}
+
+main section.blog-pager h2 {
+    margin-bottom: .3rem;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    main div.content,
+    main section.content-aside {
+        border-right: thin solid var(--border-divider);
+        border-left: thin solid var(--border-divider);
+        border-radius: var(--g222-border-radius);
     }
 
-    article>h1, section.blog-pager h2,
-    nav.breadcrumb, div.eyecatch, section.content-aside, section.relation {
-        padding: .5rem var(--g222-outer-padding);
-    }
+}
 
-    nav.breadcrumb {
-        font-size:.9rem;
-    }
-    nav.breadcrumb svg {
-        display: inline-block;
-        vertical-align: -.2em;
-        fill: currentcolor;
-        width: 1.2em;
-        height: 1.2em;
-        margin: 0 .3em 0 0;
-    }
+@media screen and (min-width: 992px) {
     
-    article>h1 {
-        text-align: center;
+    main article>div.content-wrap{
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 30px;
     }
 
-    article>div.content-wrap{
-        display: block;
+    main article>div.content-wrap>div:has(.content) {
+        width: calc(100% - 330px);
     }
 
-    div.content {
-        background-color: var(--background-primary);
-        font-size: clamp(1rem, calc(2vw + 4px), 1.125rem);
-        padding: 3rem var(--g222-outer-padding);
-        margin: 0 0 30px;
-    }
-
-    section.content-aside {
-        background-color: var(--background-primary);
-    }
-
-    section h2 {
-        font-size: 1.5rem;
-        margin-bottom: 24px;
-        margin-top: 40px;
-        line-height: 1.5;
-    }
-
-    div.eyecatch {
-        margin: 0 auto;
-        padding:0;
-        max-width: 480px;
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        background-size: cover;
-    }
-    
-    div.eyecatch>details {
-        margin: 0;
-        padding: .2rem;
-        background-color: transparent;
-    }
-    
-    div.eyecatch>details>summary, div.eyecatch>details>div {
-        background-color: var(--text-desc);
-        color: var(--background-primary);
-        font-size: .875rem;
-        border: 2px solid var(--border-divider);
-        border-radius: 8px;
-        margin: .3rem;
-        padding: .2rem .5rem;
-    }
-
-    p.page-date {
-        text-align: center;
-        padding: 0 var(--g222-outer-padding) 3em;
-    }
-
-    p.page-date>span{
-        display: inline-block;
-        margin-inline: 1rem;
-    }
-    
-    section.blog-pager h2 {
-        margin-bottom: .3rem;
-    }
-    
-    div.entry-list {
-        background-size: cover;
-        background-position: center;
-    }
-    
-    div.entry-list h2 {
-        margin:0;
-        padding:0;
-        font-size: 1.2rem;
-    }
-
-    div.entry-list p {
-        margin:0;
-        padding:1rem 0 0;
-        font-size: 1rem;
-    }
-
-    @media screen and (min-width: 768px) {
-        padding-inline: var(--g222-outer-padding);
-
-        article>h1, section.blog-pager h2,
-        nav.breadcrumb, div.eyecatch, section.content-aside, section.blog-pager, section.relation {
-            padding-inline: 0;
-        }
-
-        div.content {
-            padding-inline: var(--g222-inner-padding);
-        }
-
-        section.content-aside {
-            padding-inline: var(--g222-inner-padding);
-        }
-    }
-
-    @media screen and (min-width: 992px) {
-        
-        article>div.content-wrap{
-            display: flex;
-            align-items: start;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        article>div.content-wrap>div:has(.content) {
-            width: calc(100% - 330px);
-        }
-
-        section.content-aside {
-            width: 300px;
-        }
-
+    main section.content-aside {
+        width: 300px;
     }
 
 }

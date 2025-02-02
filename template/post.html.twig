@@ -1,8 +1,18 @@
+{#- need properties:
+    page:
+        eyecatch: 
+            src: string|undefined;
+            alt: string|undefined;
+        prev: (ポストタイプ、できればエンティティかDTOにしたい); 
+        next: (ポストタイプ、できればエンティティかDTOにしたい);
+        create_at: string(datetime);
+        update_at: string(datetime)|undefined;
+-#}
 {% extends './partials/base.html.twig' %}
 
 {% block main %}
 {%- include 'partials/breadcrumb.html.twig' -%}
-{% if page.eyecatch.src %}
+{% if page.eyecatch.src is defined %}
 <div class="eyecatch" style="background-image: url('{{ page.eyecatch.src }}');">
     <details>
         <summary>代替</summary>
@@ -12,12 +22,12 @@
 {% endif %}
 {{ parent() }}
 <section class="blog-pager">
-    {% if page.prev %}
+    {% if page.prev is not null %}
         <h2>前の記事</h2>
         {% set post = page.prev %}
         {% include 'partials/post-list.html.twig' %}
     {% endif %}
-    {% if page.next %}
+    {% if page.next is not null %}
         <h2>次の記事</h2>
         {% set post = page.next %}
         {% include 'partials/post-list.html.twig' %}
@@ -32,9 +42,9 @@
 {% block aftertitle %}
 <p class="page-date">
     <span>{{ page.create_at|date("Y年m月d日") }}作成</span>
-    {% if page.update_at %}
+    {%- if page.update_at is defined -%}
     <span>{{ page.update_at|date("Y年m月d日") }}更新</span>
-    {% endif %}
+    {%- endif %}
 </p>
 {% endblock %}
 

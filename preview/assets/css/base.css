@@ -36,8 +36,13 @@
 
     --animation-duration: .3s;
     --g222-accent-color: #e95295;
-    --g222-outer-padding: clamp(16px, calc(4vw + 4px), 40px);
-    --g222-inner-padding: clamp(8px, calc(3vw + 1px), 32px);
+    --g222-base-padding: calc(clamp(16px, calc(4vw + 4px), 40px) + max(0px, calc(50vw - 600px)));
+    /* 画面幅100vw=300px以下で16px, 900px以上で40px, 1200px以上でそれ以上広がらないように */
+    --g222-outer-padding: calc(clamp(0px, 40 * max(0px, (100vw - 768px)), min(calc(4vw + 4px), 40px)) + max(0px, calc(50vw - 600px)));
+    /* 画面幅100vw=768px以下で0px, 900px以上で40px, 1200px以上でそれ以上広がらないように */
+    --g222-inner-padding: clamp(16px, calc(4vw + 4px), 40px);
+    /* 画面幅100vw=300px以下で16px, 900px以上で40px */
+    --g222-border-radius: 6px;
 }
 
 * {
