@@ -1,0 +1,12 @@
+{#- need properties 
+    page.eyecatch:
+        src: string;
+        alt: string;
+-#}
+<div class="eyecatch">
+    <img width="16" height="9" src="{{ page.eyecatch.src }}" alt="{{ page.eyecatch.alt }}" />
+    <details>
+        <summary>代替</summary>
+        <div>{{ page.eyecatch.alt }}</div>
+    </details>
+</div>

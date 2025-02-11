@@ -1,0 +1,20 @@
+
+<header class="global-header">
+    <div class="site-title">
+        <svg height="18" width="18" viewBox="0 0 18 18">
+            <circle cx="9" cy="9" r="8" fill="#E95295" />
+        </svg>
+        {{ site.site_name }}
+    </div>
+    <nav aria-label="site menu">
+        <ul>
+            {%- for item in site.menu -%}
+            <li>
+                <a href="{{ item.link }}">
+                    {{ include('components/nav-item.html.twig', {svg: item.svg, spantext: item.name}) }}
+                </a>
+            </li>
+            {%- endfor -%}
+        </ul>
+    </nav>
+</header>

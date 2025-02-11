@@ -30,30 +30,31 @@
     ],
     "per_page": 10,
     "sidebar_description": "応用情報技術者の行政書士です。<br>ご依頼等は<a href=\"/contact.html\">お問い合わせ</a>からお願いします。",
-    "sns": [
+    "qiita_description": "※ この記事は、外部サイト（Qiita）に書いたものです。qiita.com のドメインにリンクしています。",
+    "snss": [
         {
             "name": "GitHub",
-            "link": "https://thirdcake.github.io/tools_page/",
-            "icon": "/assets/github-mark.svg"
+            "href": "https://thirdcake.github.io/tools_page/",
+            "src": "/assets/sns/github-mark.svg"
         },
         {
             "name": "AtCoder",
-            "link": "https://atcoder.jp/users/g222"
+            "href": "https://atcoder.jp/users/g222"
         },
         {
             "name": "Qiita",
-            "link": "https://qiita.com/g222",
-            "icon": "/assets/qiita-icon.png"
+            "href": "https://qiita.com/g222",
+            "src": "/assets/sns/qiita-icon.png"
         },
         {
             "name": "Mastodon",
-            "link": "https://mastodon-japan.net/@g222",
-            "icon": "/assets/mastodon-logo-purple.svg"
+            "href": "https://mastodon-japan.net/@g222",
+            "src": "/assets/sns/mastodon-logo-purple.svg"
         },
         {
             "name": "Twitter(X)",
-            "link": "https://x.com/g222tech",
-            "icon": "/assets/twitter-logo.svg"
+            "href": "https://x.com/g222tech",
+            "src": "/assets/sns/twitter-logo.svg"
         }
     ]
 }

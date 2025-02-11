@@ -32,84 +32,67 @@
     {%- include 'partials/ldjson.json.twig' -%}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     {% block css %}
-    {% if preview %}
-        <link rel="stylesheet" href="/assets/css/base.css" />
-        <link rel="stylesheet" href="/assets/css/header.css" />
-        <link rel="stylesheet" href="/assets/css/main.css" />
-        <link rel="stylesheet" href="/assets/css/footer.css" />
-        <link rel="stylesheet" href="/assets/css/contact.css" />
-        <link rel="stylesheet" href="/assets/css/posts.css" />
-    {% else %}
-        <link rel="stylesheet" href="/assets/bundle.css?d=202501" />
-    {% endif %}
+    <link rel="stylesheet" href="/assets/bundle.css?d=202502" />
     {% if page.styles is defined %}{% for style in page.styles %}
         <link rel="stylesheet" href="{{ style }}" />
     {% endfor %}{% endif %}
     {% endblock %}
     {% block js %}
     {% if preview -%}
-    <script defer type="module" src="/assets/function.js"></script>
+        <script defer type="module" src="/assets/function.js"></script>
     {% else -%}
-    <script defer type="text/javascript" src="/assets/function.js"></script>
+        <script defer type="text/javascript" src="/assets/function.js?d=202502"></script>
     {% endif -%}
     {% if page.scripts is defined %}{% for script in page.scripts %}
-        <script defer src="{{script}}"></script>
+        <script defer type="text/javascript" src="{{script}}"></script>
     {% endfor %}{% endif %}
     {% endblock %}
 </head>
 <body>
-    <header>
-        <div class="site-title">{{ site.site_name }}</div>
-        <nav aria-label="site menu">
-            <ul>
-                {%- for item in site.menu -%}
-                {%- include 'partials/menu-item.html.twig' -%}
-                {%- endfor -%}
-            </ul>
-        </nav>
-    </header>
+    {{ include('components/header.html.twig') }}
     <main>
         {% block main %}
         <article>
-            <h1>{{ page.title }}</h1>
-            {% block aftertitle %} {% endblock %}
+            <div class="page-title-wrap">
+                <h1 class="page-title">{{ page.title }}</h1>
+                {% block aftertitle %} {% endblock %}
+            </div>
             <div class="content-wrap">
+                <div class="content-outer">
                 {% block main_content %}
-                <div>
-                    <div class="content">
+                    <div class="content-inner">
                     {{ content|raw }}
                     </div>
-                </div>
                 {% endblock %}
+                </div>
                 <section class="content-aside">
-                    <h2>つつじ行政書士事務所</h2>
-                    <img src="/favicon.svg" width="60" height="60"
-                        style="width:60px;height:auto;display:block;margin:1rem auto;"
-                        alt="つつじ行政書士事務所アイコン" />
-                    <p>応用情報技術者の行政書士です。<br>ご依頼等は<a href="/contact.html">お問い合わせ</a>からお願いします。</p>
+                    <div style="display:flex;justify-content: flex-start;align-items:flex-start;">
+                        <img src="/favicon.svg" width="60" height="60"
+                            style="width:60px;height:auto;display:block;margin:0 1rem 0 0;
+                            border-radius:var(--g222-border-radius);flex-shrink:0;flex-basis:60px;"
+                            alt="{{ site.site_name }}アイコン" />
+                        <h2 style="margin:0;">{{ site.site_name }}</h2>
+                    </div>
+                    <p>{{ site.sidebar_description|raw }}</p>
+                    <h3>SNS等</h3>
+                    <ul class="sns-icons">
+                    {% for sns in site.snss %}
+                        <li>
+                            {% if sns.src is defined %}
+                            <img src="{{ sns.src }}" alt="{{ sns.name }}" width="18" height="18" />
+                            {% else %}
+                            <svg height="18" width="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#E95295" /></svg>
+                            {% endif %}
+                            <a href="{{ sns.href }}">{{ sns.name }}</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 </section>
             </div>
+
         </article>
         {% endblock %}
     </main>
-    <footer>
-        {% block footer %}
-        <section class="footer-menu">
-            <h2>メニュー</h2>
-            <nav aria-label="footer menu">
-                <ul>
-                    {%- for item in site.menu -%}
-                    {%- include 'partials/menu-item.html.twig' -%}
-                    {%- endfor -%}
-                </ul>
-            </nav>
-        </section>
-        <section class="footer-address">
-            <h2>つつじ行政書士事務所</h2>
-            <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
-            <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
-        </section>
-        {% endblock %}
-    </footer>
+    {{ include('components/footer.html.twig') }}
 </body>
 </html>

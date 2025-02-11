@@ -1,0 +1,13 @@
+
+svg.bs-icon {
+    display: inline-block;
+    vertical-align: -.2em;
+    fill: currentcolor;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0 .3em 0 0;
+}
+
+span.nav-text {
+    font-size: .875rem;
+}

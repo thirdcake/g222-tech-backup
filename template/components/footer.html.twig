@@ -1,0 +1,23 @@
+<footer class="global-footer">
+    {% block footer %}
+    <section class="footer-menu">
+        <h2>メニュー</h2>
+        <nav aria-label="footer menu">
+            <ul>
+                {%- for item in site.menu -%}
+                <li>
+                    <a href="{{ item.link }}">
+                        {{ include('components/nav-item.html.twig', {svg: item.svg, spantext: item.name}) }}
+                    </a>
+                </li>
+                {%- endfor -%}
+            </ul>
+        </nav>
+    </section>
+    <section class="footer-address">
+        <h2>つつじ行政書士事務所</h2>
+        <address>〒830-0044<br>福岡県久留米市本町233-2-502</address>
+        <p style="font-size:.9rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+    </section>
+    {% endblock %}
+</footer>

@@ -1,0 +1,21 @@
+
+.after-content-message {
+    margin: 3rem 0;
+    padding: 0 var(--g222-p3);
+}
+
+.after-content-message-img {
+    display:block;
+    width:300px;
+    height:auto;
+    max-width:100%;
+}
+
+.after-content-message-text {
+    max-width: 300px;
+    margin: 1rem 0;
+    padding:.5rem 1rem;
+    background-color: var(--background-primary);
+    border: 1px solid var(--border-divider);
+    border-radius: 5px;
+}

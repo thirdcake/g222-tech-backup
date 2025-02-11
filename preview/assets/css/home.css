@@ -1,0 +1,79 @@
+.home {
+    font-size: clamp(1rem, 2vw + 4px, 1.125rem);
+}
+
+.home .home-module {
+    margin: 30px 0;
+    padding: 3rem var(--g222-container-outer);
+}
+
+.home .home-module >* {
+    padding-inline: var(--g222-p3);
+}
+
+.home .home-module>.home-module-content {
+    margin:0;
+    padding: var(--g222-p3);
+    background-color: #fff;
+    border: thin solid var(--border-divider);
+    border-left: none;
+    border-right: none;
+    border-radius: none;
+}
+
+@media screen and (min-width: 768px) {
+    .home .home-module h2 {
+        padding-inline: 0;
+    }
+    .home .home-module>.after-home-title {
+        padding-left: 30%;
+    }
+
+    .home .home-module>.home-module-content {
+        padding-left: 30%;
+        border-left: thin solid var(--border-divider);
+        border-right: thin solid var(--border-divider);
+        border-radius: var(--g222-border-radius);
+    }
+    
+}
+
+.home .home-module h1 span{
+    display: block;
+}
+
+.home p:has(a.button) {
+    margin: 2rem 0 1rem;
+}
+
+.home a.button {
+    transition: background-color var(--animation-duration) linear, border-color var(--animation-duration) linear, color var(--animation-duration) linear, box-shadow var(--animation-duration) linear, transform var(--animation-duration) ease;
+    cursor: pointer;
+    color: var(--text-link);
+    background-color: var(--background-primary);
+    border: 2px solid var(--text-link);
+    font-family: inherit;
+    font-size: inherit;
+    margin: 2rem 6px 1rem;
+    padding: 10px 30px;
+    border-radius: var(--g222-border-radius);
+    text-decoration: none;
+}
+
+.home a.button:visited {
+    color: var(--text-link);
+    background-color: var(--background-primary);
+}
+
+.home a.button:hover {
+    color: #fff;
+    background: var(--text-link)
+}
+
+.home a.button:focus {
+    outline: solid 2px var(--border-focused);
+}
+
+.home a.button:active {
+    transform: translateY(2px)
+}

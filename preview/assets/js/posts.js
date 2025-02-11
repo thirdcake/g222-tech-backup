@@ -1,21 +1,6 @@
 "use strict";
 
 /**
- * archives/[数字].html かどうか判定
- * @return bool
- */
-function isPost() {
-    return (/\/archives\/(\d+)\.html/.test(location.pathname));
-}
-
-/**
- * archives/(index.html)? かどうか判定
- */
-function isPosts() {
-    return (/\/archives\/(index\.html)?/.test(location.pathname));
-}
-
-/**
  * 最近の記事
  */
 function setPostList() {
@@ -23,16 +8,17 @@ function setPostList() {
     if(! position) return;
     const pathname = location.pathname;
     if(/\/archives\/(\d+)\.html/.test(pathname)) {
+        const thisId = pathname.split('/').at(-1).replace('.html', '');
         fetch('/archives/index/1.html')
         .then((response) => response.text())
         .then((text) => {
             const parser = new DOMParser();
             const parsedHtml = parser.parseFromString(text, 'text/html');
             const template = parsedHtml.querySelector('#post-list-fragment');
-            const posts = [...template.content.querySelectorAll('div.entry-list')];
+            const posts = [...template.content.querySelectorAll('div.content-inner')];
             const frag = posts.filter(post => {
                 if (document.getElementById(post.id)) return false;
-                if (post.id === 'post-${thisid}') return false;
+                if (post.id === `post-${thisId}`) return false;
                 return true;
             })
             .reduce((frag, post, idx) => {
@@ -56,7 +42,7 @@ function setPostList() {
                 const parser = new DOMParser();
                 const parsedHtml = parser.parseFromString(text, 'text/html');
                 const template = parsedHtml.querySelector('#post-list-fragment');
-                const posts = [...template.content.querySelectorAll('div.entry-list')];
+                const posts = [...template.content.querySelectorAll('div.content-inner')];
                 const frag = posts.reduce((frag, post) => {
                     frag.appendChild(post);
                     return frag;
@@ -68,12 +54,7 @@ function setPostList() {
             });
         } else {
             const template = document.querySelector('#post-list-fragment');
-            const posts = [...template.content.querySelectorAll('.content.entry-list')];
-            const frag = posts.reduce((frag, post) => {
-                frag.appendChild(post);
-                return frag;
-            }, document.createDocumentFragment());
-            position.insertBefore(frag, document.querySelector('#post-list-position>.pager'));
+            position.insertBefore(template.content, document.querySelector('#post-list-position>.pager'));
         }
 
     }

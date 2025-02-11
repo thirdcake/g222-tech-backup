@@ -1,6 +1,7 @@
 vendor/
 node_modules/
 preview/img
+config/tokens.json
 composer.lock
 package-lock.json
 *.jpg
@@ -8,4 +9,4 @@ package-lock.json
 *.png
 *.ico
 *.php
-*.db
+*.svg

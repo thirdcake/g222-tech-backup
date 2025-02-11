@@ -1,13 +1,12 @@
-body>footer {
+footer.global-footer {
     background-color: var(--background-primary);
     margin: 30px 0 0;
-    padding: 0;
+    padding: 8px var(--g222-container-md);
     border-top: thin solid var(--border-divider);
 }
 
 body>footer>section {
     margin: 0;
-    padding: 8px var(--g222-base-padding);
 }
 
 body>footer>section>h2 {
@@ -30,22 +29,4 @@ body>footer>section.footer-menu nav>ul>li {
     margin: 0;
     padding: 0 .5rem .5rem;
     border: 0;
-}
-
-nav>ul>li a svg {
-    display: inline-block;
-    vertical-align: -.2em;
-    fill: currentcolor;
-    width:1.2em;
-    height:1.2em;
-    margin:0 .3em 0 0;
-}
-
-.footer-message-text {
-    max-width: 300px;
-    margin: 1rem 0;
-    padding:.5rem 1rem;
-    background-color: var(--background-secondary);
-    border: 1px solid var(--border-divider);
-    border-radius: 5px;
 }

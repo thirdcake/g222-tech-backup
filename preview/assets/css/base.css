@@ -36,13 +36,31 @@
 
     --animation-duration: .3s;
     --g222-accent-color: #e95295;
-    --g222-base-padding: calc(clamp(16px, calc(4vw + 4px), 40px) + max(0px, calc(50vw - 600px)));
-    /* 画面幅100vw=300px以下で16px, 900px以上で40px, 1200px以上でそれ以上広がらないように */
-    --g222-outer-padding: calc(clamp(0px, 40 * max(0px, (100vw - 768px)), min(calc(4vw + 4px), 40px)) + max(0px, calc(50vw - 600px)));
-    /* 画面幅100vw=768px以下で0px, 900px以上で40px, 1200px以上でそれ以上広がらないように */
-    --g222-inner-padding: clamp(16px, calc(4vw + 4px), 40px);
-    /* 画面幅100vw=300px以下で16px, 900px以上で40px */
+    --g222-p3: clamp(8px, 3vw, 30px);
+    --g222-container-md: var(--g222-p3);
+    --g222-container-outer: 0;
     --g222-border-radius: 6px;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --g222-container-md: calc(50% - 360px);
+        --g222-container-outer: calc(50% - 360px);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    :root {
+        --g222-container-md: calc(50% - 480px);
+        --g222-container-outer: calc(50% - 480px);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    :root {
+        --g222-container-md: calc(50% - 570px);
+        --g222-container-outer: calc(50% - 570px);
+    }
 }
 
 * {

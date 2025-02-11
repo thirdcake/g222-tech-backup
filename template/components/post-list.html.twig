@@ -1,0 +1,22 @@
+{#-
+    'post.html.twig' or 'partials/post-frag.html.twig' から呼び出される
+    need properties:
+    post:
+        post_id: string;  // 'post-1', 'post-qiita-1'
+        title: string;
+        description: string;
+        eyecatch: 
+            src: string|undefined;
+        href: string;
+        latest_date: string(datetime);
+-#}
+<div id="{{ post.post_id }}" class="content-inner">
+    <a href="{{ post.href }}" class="entry-list">
+        <div>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.description }}</p>
+            <p><time datetime="{{ post.latest_date|date("Y-m-d") }}">{{ post.latest_date|date("Y年m月d日") }}</time></p>
+            <div class="entry-list-img" style="background-image: url('{{ post.eyecatch.src }}');"></div>
+        </div>
+    </a>
+</div>

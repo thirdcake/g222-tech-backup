@@ -1,0 +1,35 @@
+
+div.eyecatch {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 480px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap:0;
+    background-color: var(--text-desc);
+    color: var(--background-primary);
+    border-bottom-right-radius: var(--g222-border-radius);
+    border-bottom-left-radius: var(--g222-border-radius);
+}
+
+div.eyecatch img {
+    width: 100%;
+    height: auto;
+}
+
+div.eyecatch details {
+    margin: 0;
+    padding: 0.3rem var(--g222-p3);
+    background-color: var(--text-desc);
+    color: var(--background-primary);
+}
+
+div.eyecatch details>summary {
+    background-color: var(--text-desc);
+    color: var(--background-primary);
+    margin: 0;
+    padding: 0;
+}

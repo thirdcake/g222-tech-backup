@@ -5,14 +5,17 @@
 {% extends './partials/base.html.twig' %}
 
 {% block main %}
-{%- include 'partials/breadcrumb.html.twig' -%}
-{{ parent() }}
+    {%- include 'components/breadcrumb.html.twig' -%}
+    {{ parent() }}
+{% endblock %}
+
+{% block aftertitle %}
+<p style="text-align:center;">{{ content|raw }}</p>
 {% endblock %}
 
 {% block main_content %}
     <div id="post-list-position">
-        <p>{{ content|raw }}</p>
-        {% include 'partials/post-frag.html.twig' %}
+        {% include 'components/post-frag.html.twig' %}
         <div class="pager">
             <a href="?">
                 <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="first-page-link">

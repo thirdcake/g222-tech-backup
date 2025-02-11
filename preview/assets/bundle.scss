@@ -1,8 +1,18 @@
-/* npx sass --style=compressed preview/assets/bundle.scss dist/assets/bundle.css */
+/**
+    npm run csswatch
+    npm run cssbuild
+*/
 
 @use "./css/base";
-@use "./css/header";
-@use "./css/main";
-@use "./css/footer";
 @use "./css/contact";
-@use "./css/posts";
+@use "./css/home";
+@use "./css/main";
+@use "./css/post";
+@use "./css/components/breadcrumb";
+@use "./css/components/content-wrap";
+@use "./css/components/eyecatch";
+@use "./css/components/footer";
+@use "./css/components/header";
+@use "./css/components/nav-item";
+@use "./css/components/post-list";
+

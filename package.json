@@ -6,6 +6,8 @@
     "esbuild": "^0.24.2"
   },
   "scripts": {
-    "build": "esbuild preview/assets/function.js --bundle --minify --sourcemap --outfile=dist/assets/function.js"
+    "jsbuild": "esbuild preview/assets/function.js --bundle --minify --outfile=dist/assets/function.js",
+    "cssbuild": "sass --style=compressed --no-source-map preview/assets/bundle.scss dist/assets/bundle.css",
+    "csswatch": "sass --watch preview/assets/bundle.scss preview/assets/bundle.css"
   }
 }

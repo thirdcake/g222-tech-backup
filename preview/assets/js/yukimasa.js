@@ -2,9 +2,9 @@
 /**
  * ユキマサくんの画像と言葉
  */
-function footerYukimasa() {
-    const imgDom = document.querySelector(".footer-message-img");
-    const msgDom = document.querySelector(".footer-message-text");
+function yukimasa() {
+    const imgDom = document.querySelector(".after-content-message-img");
+    const msgDom = document.querySelector(".after-content-message-text");
     if (!(imgDom && msgDom)) return;
     
     const data = {
@@ -21,4 +21,4 @@ function footerYukimasa() {
     const msg = data.msgs[dayNum][(Math.random()*data.msgs[dayNum].length)|0];
     msgDom.textContent = `${hello} 今日は${day}曜日です。 ${msg}`;
 }
-export {footerYukimasa};
+export {yukimasa};

@@ -1,0 +1,7 @@
+{
+    "token": "/config/tokens.json",
+    "qiita": {
+        "url": "https://qiita.com/api/v2/authenticated_user/items",
+        "filePath": "/md/archives/index/qiita.json"
+    }
+}
