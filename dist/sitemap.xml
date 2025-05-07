@@ -2,6 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="assets/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://g222.tech/</loc><lastmod>2024-02-17</lastmod><changefreq>yearly</changefreq><priority>1.0</priority></url>
+<url><loc>https://g222.tech/archives/273.html</loc><lastmod>2025-05-07</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
 <url><loc>https://g222.tech/archives/339.html</loc><lastmod>2025-04-05</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
 <url><loc>https://g222.tech/archives/150.html</loc><lastmod>2025-03-24</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
 <url><loc>https://g222.tech/archives/341.html</loc><lastmod>2025-03-02</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
@@ -10,7 +11,6 @@
 <url><loc>https://g222.tech/archives/301.html</loc><lastmod>2024-08-01</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
 <url><loc>https://g222.tech/archives/289.html</loc><lastmod>2024-07-18</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
 <url><loc>https://g222.tech/archives/312.html</loc><lastmod>2024-06-22</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
-<url><loc>https://g222.tech/archives/273.html</loc><lastmod>2024-06-18</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
 <url><loc>https://g222.tech/archives/245.html</loc><lastmod>2024-05-25</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
 <url><loc>https://g222.tech/archives/296.html</loc><lastmod>2024-04-11</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
 <url><loc>https://g222.tech/archives/48.html</loc><lastmod>2024-03-20</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>

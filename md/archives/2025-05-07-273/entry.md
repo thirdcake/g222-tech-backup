@@ -5,7 +5,7 @@ eyecatch:
     src: "/img/273/eyecatch.jpg"
     alt: "新潟市の新潟県政記念館"
 create_at: "2024-01-08T10:47:15"
-update_at: "2024-06-18T18:43:45"
+update_at: "2025-05-07T10:51:12+09:00"
 ---
 
 昨年末から、GravというフラットファイルCMSを試しています。
@@ -76,7 +76,6 @@ Gravでは、管理画面から、ユーザーごとの管理権限の設定が�
 
 - [10分で理解する Grav](https://qiita.com/Chanmoro/items/46b496091082be45e44c)
 - [Grav でサイトを作ろう](https://grav.maruyuki.org/)
-- [Gravドキュメント日本語訳（非公式・途中まで）](https://grav.man29.net/)
 
 わたしも、何か新しいサイトを作る必要がでてきたときは、Gravを使ってみようと思っています。
 
@@ -84,7 +83,18 @@ Gravでは、管理画面から、ユーザーごとの管理権限の設定が�
 
 2024年6月追記：
 
-Gravについて、Qiitaに記事を書きました。
+Gravについて、Qiitaに記事を書きました。  
 ちょっとマニアックな内容ですが、よかったら読んでください。
 
 [Grav CMS の Flex Objects で、ミニブログを作る](https://qiita.com/g222/items/b7c80e3b294dce85a330)
+
+---
+
+2025年5月追記：
+
+Grav のドキュメントを個人的に和訳しています。  
+まだ未完成ですが、GW 中にかなり書き進めたので、良かったら読んでみてください。
+
+[Grav CMS の私的和訳](https://thirdcake.github.io/learn-grav-ja/01.basics/)
+
+※ GitHub Pages で公開したかったので、内部的には Astro.js ですが、内容は Grav です。
