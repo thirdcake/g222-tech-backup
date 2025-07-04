@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grav CMSの使いどころ - つつじ行政書士事務所</title>
-    <meta name="description" content="Gravについて、2週間ほど試してみた感想と、参考になるサイトをまとめました。" />
-    <meta property="og:title" content="Grav CMSの使いどころ - つつじ行政書士事務所" />
-    <meta property="og:description" content="Gravについて、2週間ほど試してみた感想と、参考になるサイトをまとめました。" />
+    <title>ITストラテジスト試験 - つつじ行政書士事務所</title>
+    <meta name="description" content="ITストラテジスト試験に合格した行政書士が、試験概要、業務との関係、勉強方法など合格体験談をまとめました。" />
+    <meta property="og:title" content="ITストラテジスト試験 - つつじ行政書士事務所" />
+    <meta property="og:description" content="ITストラテジスト試験に合格した行政書士が、試験概要、業務との関係、勉強方法など合格体験談をまとめました。" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://g222.tech/img/273/eyecatch.jpg" />
+    <meta property="og:image" content="https://g222.tech/img/342/eyecatch.webp" />
     <meta property="og:site_name" content="つつじ行政書士事務所" />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:url" content="https://g222.tech/archives/273.html" />
-    <link rel="canonical" href="https://g222.tech/archives/273.html" /><script type="application/ld+json">
+    <meta property="og:url" content="https://g222.tech/archives/342.html" />
+    <link rel="canonical" href="https://g222.tech/archives/342.html" /><script type="application/ld+json">
     [
         {
             "@context": "https://schema.org",
@@ -31,7 +31,7 @@
                 }, { 
                     "@type": "ListItem", 
                     "position": 3, 
-                    "name": "Grav CMSの使いどころ" 
+                    "name": "ITストラテジスト試験" 
                 }
             ]
         }, { 
@@ -44,7 +44,7 @@
                     "url": "https://g222.tech/" 
                 } 
             ], 
-            "datePublished": "2024-01-08T10:47:15+09:00","dateModified": "2025-05-07T10:51:12+09:00+09:00","image": "https://g222.tech/img/273/eyecatch.jpg","headline": "Grav CMSの使いどころ" 
+            "datePublished": "2025-07-04T09:55:17+09:00+09:00","image": "https://g222.tech/img/342/eyecatch.webp","headline": "ITストラテジスト試験" 
         } 
     ]
 </script>
@@ -119,78 +119,102 @@
                     <svg class="bs-icon" height="16" width="16" viewBox="0 0 16 16">
     <use x="0" y="0" height="16" width="16" href="/assets/icons.svg#page-fill"></use>
 </svg>
-<span class="nav-text">Grav CMSの使いどころ</span>
+<span class="nav-text">ITストラテジスト試験</span>
 
             </nav><div class="eyecatch">
-    <img width="16" height="9" src="/img/273/eyecatch.jpg" alt="新潟市の新潟県政記念館" />
+    <img width="16" height="9" src="/img/342/eyecatch.webp" alt="愛知県犬山市にある織田信長の弟が作った茶室" />
     <details>
         <summary>代替</summary>
-        <div>新潟市の新潟県政記念館</div>
+        <div>愛知県犬山市にある織田信長の弟が作った茶室</div>
     </details>
 </div>
 
         <article>
             <div class="page-title-wrap">
-                <h1 class="page-title">Grav CMSの使いどころ</h1>
+                <h1 class="page-title">ITストラテジスト試験</h1>
                 <p class="page-date">
-    <span>2024年01月08日作成</span><span>2025年05月07日更新</span></p>
+    <span>2025年07月04日作成</span></p>
             </div>
             <div class="content-wrap">
                 <div class="content-outer">
                                         <div class="content-inner">
-                    <p>昨年末から、GravというフラットファイルCMSを試しています。</p>
-<p>前回の記事では、<a href="/archives/270.html">ubuntu上でGravを動かすローカル環境を作りました</a>が、その後いろいろ試してみて、いまのところの感想をまとめておきたいと思います。</p>
-<h2>SSHはあった方が良い</h2>
-<p>Gravは、SSHからCLIで簡単に操作することを前提に作られているシステムです。</p>
-<p><a href="https://github.com/getgrav/grav-plugin-admin">管理画面（Github）</a>も、あるにはあるのですが、プラグインのひとつとしてのみ機能し、多機能であるために使い方を覚えるのも大変です。</p>
-<p>SSHの機能しない環境（たとえば、ロリポップなどの格安のプラン）を利用する場合、不具合が起こったら、その都度、再インストールが必要です。<br />
-（とはいえ、インストール自体は簡単なので、WordPressよりは手間がかからないかもしれませんが）</p>
-<p>できれば、SSHの使える環境（ロリポップなら、月額500円のプラン以上）を使うのが良いと思います。</p>
-<p>あるいは単純に、レンタルサーバー代を浮かす目的ならば、静的サイトジェネレータの方が、その目的に合致しそうです。</p>
-<h2>テーマを途中で変更するのは難しい</h2>
-<p>Gravのデザインテーマは、簡単に変更できます。</p>
-<p>プラグインの管理画面からもできますし、GPMというGravオリジナルのCLIからもできます。<br />
-また、system.yamlというテキストファイルを編集するだけでも変更できるので、どの方法であれ、やり方さえ覚えれば、難しくありません。</p>
-<p>ところが、Gravのテーマは作り方が独特で、テーマごとに対応できるテンプレートが決まっています。<br />
-固定ページだけに対応したテーマの場合、ブログとして運用してきたサイトを、そのままの形で適用させることができません。</p>
-<p>これをやろうとすると、テーマ内のtemplateフォルダに、そのブログ用のTwigファイルを新しく作成する必要があります。</p>
-<p>Twigファイルの作成は、基本的なテンプレート機能だけならば、それほど難しくありません。<br />
-しかし、macroなどを使って、ゴリゴリ編集したい場合、それなりに勉強が必要になり、PHPなどのプログラムに慣れていないと、行き詰まると思います。</p>
-<p>WordPressの場合、たとえばクラシックテーマなら、single.phpや、archive.phpなど、ファイル名が決まっていたので、テーマの途中変更が簡単です。<br />
-一方、Gravの場合、テンプレートの名前がテーマ制作者側で自由に決められるので、テーマの途中変更が難しいです。</p>
-<p>テーマ制作の自由度が低い分、運用中の変更が効くWordPressと、テーマ制作の自由度が高い分、運用中の変更が難しいGravと、それぞれ一長一短のようです。</p>
-<h2>オリジナルのテーマは作りやすい</h2>
-<p>テーマについては、上記のとおり、WordPressほど制約が無いので、一から作るオリジナルテーマは、作りやすいと思います。</p>
-<p>Twigの基本的な使い方さえ覚えれば、HTMLとCSSの使えるデザイナーなら、すぐに作り始められるはずです。</p>
-<p>インストールしたときに最初に入っているテーマ（quark）は、いろいろなことに対応させるために、複雑になっています。<br />
-まずは、いくつかテーマをダウンロードしてみて、そのフォルダを見てみながら、作っていくのが良さそうです。</p>
-<h2>管理権限の設定が簡単</h2>
-<p>Gravでは、管理画面から、ユーザーごとの管理権限の設定ができます。</p>
-<p>管理者（テーマの変更や、プラグインの設定などができる人）の権限の他に、特定の記事のみを編集できるユーザーなど、細かく設定することができます。</p>
-<p>これはつまり、共同作業でサイトを作成したい場合、プログラマの権限と、デザイナの権限、記事運用者の権限など、細かく設定できるということです。</p>
-<p>管理者権限（すべての権限を持っている）の管理画面は、変更できるボタンが多く、最初見たときは目がチカチカすると思います。<br />
-しかし、権限を絞ったユーザーとしてログインすれば、たとえば、記事を書くボタンだけを表示させることもできます。</p>
-<p>複数人で作成する場合、（そして特に、あまりプログラムに詳しくない人が関わる場合）には、権限の違いを上手に活用することで、効率的なサイト運営ができそうです。</p>
-<h2>参考資料</h2>
-<p>最後に、日本語で読めるGravのサイトをまとめておきます。<br />
-<a href="https://learn.getgrav.org/">公式サイトのドキュメント</a>も、充分読みやすいのですが、全部英語なので、理解が難しい部分があります。</p>
-<p>行き詰まったときは、以下のような日本語のサイトを参考にしながら、少しずつやっていくのが良いと思いました。</p>
+                    <p>2025年春季のITストラテジスト試験に合格しました。</p>
+<p>私は行政書士であり、どちらかというと文系職種です。職業としてのプログラマーやシステムエンジニア等の経験はありません。<br />
+IT系の国家試験としては、 <a href="/archives/54.html">2023年春に、応用情報技術者試験に合格</a>しており、ITストラテジスト試験には、2024年春に一度挑戦して不合格になりましたが、今年の春試験で無事合格することができました。</p>
+<p>この記事では、ITストラテジスト試験の概要、行政書士業務との関わり、試験対策や勉強方法についてまとめます。</p>
+<h2>ITストラテジスト試験とは</h2>
+<p>ITストラテジスト試験は、経済産業省が所管する情報処理技術者試験のひとつで、「経営戦略に基づいてIT戦略を策定し、ITを高度に活用した事業革新、業務改革、及び競争優位を獲得する製品・サービスの創出を企画・推進して、ビジネスを成功に導くCIOやCTO、ITコンサルタントを目指す」試験です。</p>
+<p>詳しくは、 <a href="https://www.ipa.go.jp/shiken/kubun/st.html">IPAの試験情報ページ</a> を参照してください。</p>
+<hr />
+<p>試験は、以下の4つで構成されています。</p>
 <ul>
-<li><a href="https://qiita.com/Chanmoro/items/46b496091082be45e44c">10分で理解する Grav</a></li>
-<li><a href="https://grav.maruyuki.org/">Grav でサイトを作ろう</a></li>
+<li>
+<h3>午前I試験</h3>
+<p>一定の基準で試験免除があります。<br />
+わたしの場合、2年前に応用情報技術者試験に合格していたので、免除となりました。</p>
+</li>
+<li>
+<h3>午前II試験</h3>
+<p>多肢選択式の試験で、経営戦略や事業企画に関する知識問題です。<br />
+全25問を40分で解くので、短文を読んで、すぐに引き出せる知識力が求められます。<br />
+専門用語や経営知識の適切な理解が必要です。</p>
+</li>
+<li>
+<h3>午後I試験</h3>
+<p>4ページ程度の長文を読み、それをもとに文章で回答する記述式問題です。<br />
+3問の大問のうち2つを選択します。各大問は、7個程度の小問があり、各小問は30文字程度でまとめます。<br />
+業種ごとの事業特性や経営課題が長文で提示されるので、それらを適切に読み取って、要約していく力が求められます。</p>
+</li>
+<li>
+<h3>午後II試験</h3>
+<p>基本的なコンセプトに沿って作文する問題です。<br />
+問題の基本的な構成は、毎年ほぼ変わらず、1問目が400から800文字、2問目が800から1600文字、3問目が600から1200文字で作文します。<br />
+自由度が高く、模範解答も公表されないので、自分で骨子を作るところから始める必要があります。</p>
+</li>
 </ul>
-<p>わたしも、何か新しいサイトを作る必要がでてきたときは、Gravを使ってみようと思っています。</p>
-<hr />
-<p>2024年6月追記：</p>
-<p>Gravについて、Qiitaに記事を書きました。<br />
-ちょっとマニアックな内容ですが、よかったら読んでください。</p>
-<p><a href="https://qiita.com/g222/items/b7c80e3b294dce85a330">Grav CMS の Flex Objects で、ミニブログを作る</a></p>
-<hr />
-<p>2025年5月追記：</p>
-<p>Grav のドキュメントを個人的に和訳しています。<br />
-まだ未完成ですが、GW 中にかなり書き進めたので、良かったら読んでみてください。</p>
-<p><a href="https://thirdcake.github.io/learn-grav-ja/01.basics/">Grav CMS の私的和訳</a></p>
-<p>※ GitHub Pages で公開したかったので、内部的には Astro.js ですが、内容は Grav です。</p>
+<h3>試験結果</h3>
+<p>合格基準は、以下の通りです。</p>
+<ul>
+<li>午前I、II、午後I試験：60%以上</li>
+<li>午後II試験：A判定（B,C,D判定は不合格）</li>
+</ul>
+<p>2024年春試験での結果は、以下の通りで不合格でした。</p>
+<ul>
+<li>午前I試験：免除</li>
+<li>午前II試験：64.00点</li>
+<li>午後I試験：80点</li>
+<li>午後II試験：C判定</li>
+</ul>
+<p>2025年春試験での結果は、以下の通りで合格した。</p>
+<ul>
+<li>午前I試験：免除</li>
+<li>午前II試験：84.00点</li>
+<li>午後I試験：70点</li>
+<li>午後II試験：A判定</li>
+</ul>
+<h3>ITストラテジスト試験と行政書士業務</h3>
+<p>行政書士業務においては、中小企業の経営者と会話をする機会も多いです。</p>
+<p>許認可や補助金、各種契約など、手続きの種類を問わず、経営者と経営的な会話ができることは、行政書士として重要だと感じます。<br />
+もちろん、行政法をベースとする行政手続きの専門知識こそが、行政書士の本分ではあるのですが、その申請と経営の接点を理解し、説明するには、全体的な視野の広さが必要になります。</p>
+<p>また、副次的な効果として、基本的な経営知識があると、初対面の経営者とも、話題に困らないという面もありました。</p>
+<p>逆に、行政書士として、多様な業種・事業に接してきた経験は、ITストラテジスト試験の午後IIの事例選択に大いに役立ちました。<br />
+防犯カメラやドローンなどの技術革新や、経理・財務・基幹システムの契約や解約など、身近で見聞きしてきた事例は、私にとっての財産です。</p>
+<h2>試験対策・勉強方法</h2>
+<p>最後に、各試験ごとの私なりの対策をまとめます。</p>
+<h3>午前II試験</h3>
+<p>過去に出題された問題が、繰り返し出題されることがあります。<br />
+そのため、過去5年分を解きました。<br />
+これで十分に基本知識を習得できました。</p>
+<h3>午後I試験</h3>
+<p>午後I試験も、過去問を5年分解きました。<br />
+5年分で、各年3問程度あるので、15の長文を読んだことになります。</p>
+<p>過去問を読むときは、解答に関連する部分だけでなく、事業特性や経営課題、改善のボトルネックになっている場所なども読み取っていきます。<br />
+15事業も読めば、読みなれてくるものです。</p>
+<h3>午後II試験</h3>
+<p>午後II試験は、自分では対策のやり方が分からなかったので、試験対策用の書籍を購入しました。</p>
+<p>試験対策本はいくつか出ていますが、立ち読みする限りでは、各社それほど変わらないようでした。<br />
+私が買ったのは、広田航二さんという方の試験対策本でした。</p>
+<p>この本に書かれている通り、あらかじめ作文用「モジュール」を作っておき、試験時間中に使いまわしできるように準備しました。</p>
                     </div>
                 
     <section class="after-content-message">
@@ -241,29 +265,18 @@
 <section class="content-wrap">
     <div class="content-outer">
             <h2>前の記事</h2>
-        <div id="post-339" class="content-inner">
-    <a href="/archives/339.html" class="entry-list">
+        <div id="post-273" class="content-inner">
+    <a href="/archives/273.html" class="entry-list">
         <div>
-            <h2>地元行政書士が教える久留米市のクレープ屋さん</h2>
-            <p>地元の久留米市にあるクレープ屋さんをまとめました。</p>
-            <p><time datetime="2025-04-05">2025年04月05日</time></p>
-            <div class="entry-list-img" style="background-image: url('/img/339/eyecatch.jpg');"></div>
+            <h2>Grav CMSの使いどころ</h2>
+            <p>Gravについて、2週間ほど試してみた感想と、参考になるサイトをまとめました。</p>
+            <p><time datetime="2025-05-07">2025年05月07日</time></p>
+            <div class="entry-list-img" style="background-image: url('/img/273/eyecatch.jpg');"></div>
         </div>
     </a>
 </div>
 
-                <h2>次の記事</h2>
-                <div id="post-342" class="content-inner">
-    <a href="/archives/342.html" class="entry-list">
-        <div>
-            <h2>ITストラテジスト試験</h2>
-            <p>ITストラテジスト試験に合格した行政書士が、試験概要、業務との関係、勉強方法など合格体験談をまとめました。</p>
-            <p><time datetime="2025-07-04">2025年07月04日</time></p>
-            <div class="entry-list-img" style="background-image: url('/img/342/eyecatch.webp');"></div>
-        </div>
-    </a>
-</div>
-            <h2>最近の記事</h2>
+                <h2>最近の記事</h2>
         <div id="post-list-position"></div>
     </div>
 </section>
