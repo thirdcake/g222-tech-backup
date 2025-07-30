@@ -6,30 +6,30 @@
         {
             "name": "ホーム",
             "link": "/",
-            "svg": "/assets/icons.svg#home",
-            "svg_fill": "/assets/icons.svg#home-fill"
+            "svg": "#home",
+            "svg_fill": "#home-fill"
         },
         {
             "name": "記事一覧",
             "link": "/archives/",
-            "svg": "/assets/icons.svg#archives",
-            "svg_fill": "/assets/icons.svg#archives-fill"
+            "svg": "#archives",
+            "svg_fill": "#archives-fill"
         },
         {
             "name": "お問い合わせ",
             "link": "/contact.html",
-            "svg": "/assets/icons.svg#contact",
-            "svg_fill": "/assets/icons.svg#contact-fill"
+            "svg": "#contact",
+            "svg_fill": "#contact-fill"
         },
         {
             "name": "もっと知る",
             "link": "/about.html",
-            "svg": "/assets/icons.svg#about",
-            "svg_fill": "/assets/icons.svg#about-fill"
+            "svg": "#about",
+            "svg_fill": "#about-fill"
         }
     ],
     "per_page": 10,
-    "sidebar_description": "応用情報技術者の行政書士です。<br>ご依頼等は<a href=\"/contact.html\">お問い合わせ</a>からお願いします。",
+    "sidebar_description": "ITストラテジストの行政書士です。<br>ご依頼等は、お問い合わせからお願いします。",
     "qiita_description": "※ この記事は、外部サイト（Qiita）に書いたものです。qiita.com のドメインにリンクしています。",
     "snss": [
         {
@@ -39,7 +39,8 @@
         },
         {
             "name": "AtCoder",
-            "href": "https://atcoder.jp/users/g222"
+            "href": "https://atcoder.jp/users/g222",
+            "src": "/assets/sns/atcoder-icon.webp"
         },
         {
             "name": "Qiita",

@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block aftertitle %}
-{% if page.after_title is defined %}
-<p style="text-align:center;">{{ page.after_title|raw }}</p>
-{% endif %}
+    {% if page.after_title is defined %}
+    <p>{{ page.after_title|raw }}</p>
+    {% endif %}
 {% endblock %}

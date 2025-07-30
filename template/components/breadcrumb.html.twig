@@ -4,6 +4,7 @@
         svg: string;
         text: string;
 -#}
+{#
 <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="/">
         {{ include('components/nav-item.html.twig', {svg: '/assets/icons.svg#home', spantext: 'ホーム'}) }}
@@ -19,3 +20,4 @@
         {% endif %}
     {% endfor %}
 </nav>
+#}

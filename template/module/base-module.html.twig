@@ -1,6 +1,8 @@
-<div class="home-module">
-    <h2>{{ module.front_matter.title }}</h2>
-    <div class="home-module-content">
-    {{ module.content|raw }}
+<article class="border white padding margin">
+    <header class="padding">
+        <h2 class="g222-h2">{{ module.front_matter.title }}</h2>
+    </header>
+    <div class="padding g222-content">
+        {{ module.content|raw }}
     </div>
-</div>
+</article>

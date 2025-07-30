@@ -16,21 +16,67 @@
 {{ include('components/eyecatch.html.twig') }}
 {% endif %}
 {{ parent() }}
-<section class="content-wrap">
-    <div class="content-outer">
-    {% if page.prev is not null %}
-        <h2>前の記事</h2>
-        {{ include('components/post-list.html.twig', { post: page.prev }) }}
-    {% endif %}
-    {% if page.next is not null %}
-        <h2>次の記事</h2>
-        {% set post = page.next %}
-        {% include 'components/post-list.html.twig' %}
-    {% endif %}
-        <h2>最近の記事</h2>
-        <div id="post-list-position"></div>
-    </div>
+
+<section class="padding">
+    <p>最後までお読みいただきありがとうございました。<br>
+    なにかお気づきの点がありましたら、<a href="/contact.html" class="button small border">お問い合わせ</a>ください。
+    </p>
+    <p>
+        <img class="after-content-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" 
+        decoding="async" width="1" height="1" />
+    </p>
+    <p>（日行連公式キャラクター「ユキマサくん」）</p>
+    <div class="after-content-message-text"></div>
 </section>
+
+<article class="border">
+    <ul class="list border">
+        <li>
+            {% if page.prev is not null %}
+            <a class="link" href="{{ page.prev.href }}">
+                <div>
+                    <h3 class="small" style="font-size:1.125rem;">前の記事</h3>
+                    <div class="">{{ page.prev.title }}</div>
+                </div>
+            </a>
+            {% else %}
+            <div>
+                <h3 class="small" style="font-size:1.125rem;">前の記事</h3>
+                <div class="">（一番古い記事です）</div>
+            </div>
+            {% endif %}
+        </li>
+        <li>
+            <a class="link" href="/archives/">
+                <div class="">
+                    <h3 class="small" style="font-size:1.125rem;">記事一覧</h3>
+                    <div class="">記事の一覧に戻ります</div>
+                </div>
+            </a>
+        </li>
+        <li>
+            {% if page.next is not null %}
+            <a class="link" href="{{ page.next.href }}">
+                <div>
+                    <h3 class="small" style="font-size:1.125rem;">次の記事</h3>
+                    <div class="">{{ page.next.title }}</div>
+                </div>
+            </a>
+            {% else %}
+            <div>
+                <h3 class="small" style="font-size:1.125rem;">次の記事</h3>
+                <div class="">（一番新しい記事です）</div>
+            </div>
+            {% endif %}
+        </li>
+    </ul>
+</article>
+{# そのうち作りたい
+<section class="padding">
+    <h3 style="font-size:1.125rem;">最近の記事</h3>
+    <div id="post-list-position"></div>
+</section>
+#}
 {% endblock %}
 
 {% block aftertitle %}
@@ -40,15 +86,4 @@
     <span>{{ page.update_at|date("Y年m月d日") }}更新</span>
     {%- endif %}
 </p>
-{% endblock %}
-
-{% block main_content %}
-    {{ parent() }}
-    <section class="after-content-message">
-        <p>最後までお読みいただきありがとうございました。<br>なにかお気づきの点がありましたら、<a href="/contact.html">お問い合わせ</a>ください。</p>
-        <p><img class="after-content-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" decoding="async"
-            width="1" height="1" /></p>
-        <p>（日行連公式キャラクター「ユキマサくん」）</p>
-        <div class="after-content-message-text"></div>
-    </section>
 {% endblock %}

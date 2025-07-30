@@ -1,9 +1,68 @@
-{#- 
-    'posts.html.twig' から呼び出される。
-    もしくは、'/bin/create_page.php' で直接書き出し対象になる。
--#}
-<template id="post-list-fragment">
-{% for post in page.posts %}
-    {% include 'components/post-list.html.twig' %}
-{% endfor %}
-</template>
+{%- if page.pager.isFirst -%}
+    {% set firstDisabled = 'disabled' %}
+    {% set prevDisabled = 'disabled' %}
+    {% set nextDisabled = '' %}
+    {% set lastDisabled = '' %}
+{%- elseif page.pager.isLast -%}
+    {% set firstDisabled = '' %}
+    {% set prevDisabled = '' %}
+    {% set nextDisabled = 'disabled' %}
+    {% set lastDisabled = 'disabled' %}
+{%- else -%}
+    {% set firstDisabled = '' %}
+    {% set prevDisabled = '' %}
+    {% set nextDisabled = '' %}
+    {% set lastDisabled = '' %}
+{%- endif -%}
+
+<div class="grid" id="posts-list">
+    {% for post in page.posts %}
+        {% include 'components/post-list.html.twig' %}
+    {% endfor %}
+    
+    <div class="s12" style="overflow-x:auto;">
+        <nav class="toolbar max" aria-label="ページ送りナビ">
+        <button class="border" {{ firstDisabled }}
+            data-hx-get="/archives/index/1.html" data-hx-target="#posts-list-parent" >
+            <i>
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="first-page-link">
+                    <title id="first-page-link">最初のページ</title>
+                    <use x="0" y="0" href="#chevron-bar-left"></use>
+                </svg>
+            </i>
+        </button>
+        <button class="border" {{ prevDisabled }}
+            data-hx-get="/archives/index/{{ page.pager.now - 1 }}.html" data-hx-target="#posts-list-parent" >
+            <i>
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="prev-page-link">
+                    <title id="prev-page-link">1つ前のページ</title>
+                    <use x="0" y="0" href="#chevron-left"></use>
+                </svg>
+            </i>
+        </button>
+        <div class="center-align">
+            <span>{{ page.pager.now }}</span>
+            <span>/</span>
+            <span>{{ page.pager.last }}</span><br>
+            <span style="font-size:0.8rem;">ページ</span>
+        </div>
+        <button class="border" {{ nextDisabled }}
+            data-hx-get="/archives/index/{{ page.pager.now + 1 }}.html" data-hx-target="#posts-list-parent" >
+            <i>
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="next-page-link">
+                    <title id="next-page-link">1つ次のページ</title>
+                    <use x="0" y="0" href="#chevron-right"></use>
+                </svg>
+            </i>
+        </button>
+        <button class="border" {{ lastDisabled }}
+            data-hx-get="/archives/index/{{ page.pager.last }}.html" data-hx-target="#posts-list-parent" >
+            <i>
+                <svg height="16" width="16" viewBox="0 0 16 16" aria-labelledby="last-page-link">
+                    <title id="last-page-link">最後のページ</title>
+                    <use x="0" y="0" href="#chevron-bar-right"></use>
+                </svg>
+            </i>
+        </button>
+    </div>
+</div>

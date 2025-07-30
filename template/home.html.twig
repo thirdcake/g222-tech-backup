@@ -8,13 +8,17 @@
 {% extends './partials/base.html.twig' %}
 
 {% block main %}
-<article class="home">
-    <div class="home-module">
-        <h1>{{ page.title_display|raw }}</h1>
-        <div class="after-home-title">{{ content|raw }}</div>
-    </div>
+<div class="no-padding g222-hero">
+    <header>
+        <h1>{{ page.title_display }}</h1>
+    </header>
+    <div class="padding center-align">{{ content|raw }}</div>
+</div>
+<div class="">
+{% if page.modules is defined%}
     {% for module in page.modules %}
-    {% include module.front_matter.layout %}
+        {% include module.front_matter.layout %}
     {% endfor %}
-</article>
+{% endif %}
+</div>
 {% endblock %}

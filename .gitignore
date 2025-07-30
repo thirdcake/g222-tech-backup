@@ -1,9 +1,13 @@
-vendor/
+bin/
+cache/
+config/tokens.json
+dist/img/
 node_modules/
 preview/img
-config/tokens.json
+vendor/
 composer.lock
 package-lock.json
+
 *.jpg
 *.webp
 *.png

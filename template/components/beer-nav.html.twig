@@ -1,0 +1,53 @@
+
+<nav class="left max l" aria-label="画面幅広メインナビ">
+    <header class="center top">
+        <!-- canvas で何か書きたい -->
+        <canvas id="site-top-canvas" width="200" height="100" style="height:4rem;width:auto;"></canvas>
+    </header>
+    {%- for item in site.menu -%}
+    <a href="{{ item.link }}">
+        <i>
+            <svg viewBox="0 0 16 16">
+            {%- if page is defined and item.link == page.url -%}
+                <use href="{{ item.svg_fill }}"></use>
+            {%- else -%}
+                <use href="{{ item.svg }}"></use>
+            {%- endif -%}
+            </svg>
+        </i>
+        <div>{{ item.name }}</div>
+    </a>
+    {%- endfor -%}
+</nav>
+<nav class="left m" aria-label="画面幅中メインナビ">
+    {%- for item in site.menu -%}
+    <a href="{{ item.link }}">
+        <i>
+            <svg viewBox="0 0 16 16">
+            {%- if page is defined and item.link == page.url -%}
+                <use href="{{ item.svg_fill }}"></use>
+            {%- else -%}
+                <use href="{{ item.svg }}"></use>
+            {%- endif -%}
+            </svg>
+        </i>
+        <div>{{ item.name }}</div>
+    </a>
+    {%- endfor -%}
+</nav>
+<nav class="bottom s" aria-label="画面幅小メインナビ">
+    {%- for item in site.menu -%}
+    <a href="{{ item.link }}">
+        <i>
+            <svg viewBox="0 0 16 16">
+            {%- if page is defined and item.link == page.url -%}
+                <use href="{{ item.svg_fill }}"></use>
+            {%- else -%}
+                <use href="{{ item.svg }}"></use>
+            {%- endif -%}
+            </svg>
+        </i>
+    </a>
+    {%- endfor -%}
+</nav>
+

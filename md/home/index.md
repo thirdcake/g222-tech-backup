@@ -7,7 +7,7 @@ module_filename:
     - "josys.md"
     - "gyosei.md"
     - "eigyo.md"
-title_display: "<span>法務と</span><span>情報技術で</span><span>企業を支えます</span>"
+title_display: '法務 × 情報技術'
 ---
 
 つつじ行政書士事務所は、企業経営を支援する行政書士事務所です。  

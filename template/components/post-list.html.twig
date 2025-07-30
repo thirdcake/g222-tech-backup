@@ -10,13 +10,19 @@
         href: string;
         latest_date: string(datetime);
 -#}
-<div id="{{ post.post_id }}" class="content-inner">
-    <a href="{{ post.href }}" class="entry-list">
-        <div>
-            <h2>{{ post.title }}</h2>
+<article class="s12 m6 l4 no-padding border">
+    <img class="responsive small" width=16 height=9 
+        alt="{{ post.eyecatch.alt }}" style="aspect-ratio:3/1;" 
+        src="{{ post.eyecatch.src }}">
+    <a href="{{ post.href }}">
+        <div class="padding">
+            <div class="right-align">
+                <time datetime="{{ post.latest_date|date("Y-m-d") }}">
+                    {{ post.latest_date|date("Y年m月d日") }}
+                </time>
+            </div>
+            <h2 style="font-size:1.125rem;font-weight:bold;">{{ post.title }}</h2>
             <p>{{ post.description }}</p>
-            <p><time datetime="{{ post.latest_date|date("Y-m-d") }}">{{ post.latest_date|date("Y年m月d日") }}</time></p>
-            <div class="entry-list-img" style="background-image: url('{{ post.eyecatch.src }}');"></div>
         </div>
     </a>
-</div>
+</article>
