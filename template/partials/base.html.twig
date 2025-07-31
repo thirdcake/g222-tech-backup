@@ -55,13 +55,13 @@
     </header>
     <main class="responsive">
         {% block main %}
-        <div class="no-padding g222-hero">
+        <div class="padding g222-hero">
             <h1>{{ page.title }}</h1>
             {% block aftertitle %} {% endblock %}
         </div>
 
         {% block main_content %}
-        <article class="border white large-padding">
+        <article class="border white padding">
             <div class="g222-content">{{ content|raw }}</div>
         </article>
         {% endblock %}

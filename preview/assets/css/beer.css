@@ -93,7 +93,7 @@ body.dark {
   --surface-container-high: #2b292d;
   --surface-container-highest: #363438;
 }
-/* outlined icons */
+/* outlined icons
 @font-face {
   font-family: "Material Symbols Outlined";
   font-style: normal;
@@ -101,7 +101,8 @@ body.dark {
   font-display: block;
   src: url(material-symbols-outlined.woff2) format("woff2"), url(https://cdn.jsdelivr.net/npm/beercss@3.11.33/dist/cdn/material-symbols-outlined.woff2) format("woff2");
 }
-/* rounded icons */
+*/
+/* rounded icons
 @font-face {
   font-family: "Material Symbols Rounded";
   font-style: normal;
@@ -109,7 +110,7 @@ body.dark {
   font-display: block;
   src: url(material-symbols-rounded.woff2) format("woff2"), url(https://cdn.jsdelivr.net/npm/beercss@3.11.33/dist/cdn/material-symbols-rounded.woff2) format("woff2");
 }
-/* sharp icons */
+/* sharp icons
 @font-face {
   font-family: "Material Symbols Sharp";
   font-style: normal;
@@ -117,7 +118,7 @@ body.dark {
   font-display: block;
   src: url(material-symbols-sharp.woff2) format("woff2"), url(https://cdn.jsdelivr.net/npm/beercss@3.11.33/dist/cdn/material-symbols-sharp.woff2) format("woff2");
 }
-/* subset of only required icons */
+/* subset of only required icons
 @font-face {
   font-family: "Material Symbols Subset";
   font-style: normal;
@@ -125,6 +126,7 @@ body.dark {
   font-display: block;
   src: url(material-symbols-subset.woff2) format("woff2"), url(https://cdn.jsdelivr.net/npm/beercss@3.11.33/dist/cdn/material-symbols-subset.woff2) format("woff2");
 }
+*/
 * {
   -webkit-tap-highlight-color: transparent;
   position: relative;
@@ -3875,6 +3877,7 @@ progress.max + * {
 :is(button, .button, .chip):has(> .shape) > .responsive {
   border: none;
 }
+/*
 .shape.arch {
   mask-image: url(arch.svg);
 }
@@ -3991,6 +3994,7 @@ progress.max + * {
     transform: rotate(360deg);
   }
 }
+*/
 /* checkbox, radio, switch */
 .checkbox,
 .radio,

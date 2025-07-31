@@ -14,9 +14,14 @@
     line-height: 1.5;
 }
 
+article:has(.g222-content) {
+    max-width: 45rem;
+    margin-inline: auto;
+}
+
 .g222-content {
-    max-width: 40rem;
-    padding-bottom: 64px;
+    margin: 64px min(2vw, 2rem);
+    line-height: 1.7;
     font-size: clamp(1rem, 2vw + 4px, 1.125rem);
 }
 
@@ -49,6 +54,13 @@
 .g222-content a:not(.button) {
     color: var(--on-primary-container);
     text-decoration: underline;
+    font-size: inherit;
+    display: inline;
+    align-items: unset;
+    border: none;
+    font-family: inherit;
+    outline: inherit;
+    justify-content: unset;
 }
 
 .g222-content a:not(.button):hover {
@@ -59,4 +71,13 @@
 .g222-content a:not(.button):visited {
     color: var(--primary);
     text-decoration: underline;
+}
+
+.page-date {
+    display:flex;
+    gap: 1rem 2rem;
+    justify-content: center;
+    align-items:center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
