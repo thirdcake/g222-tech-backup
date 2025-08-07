@@ -8,7 +8,8 @@ function myhtmx() {
         if(!hx) return;
         hx.disabled = true;
         const hx_get = hx.dataset.hxGet,
-            swapElement = document.querySelector(hx.dataset.hxTarget);
+            swapElement = document.querySelector(hx.dataset.hxTarget),
+            swapMethod = hx.dataset.hxSwap ?? 'innerHTML';
         try{
             swapElement.innerHTML = loadingMessage;
             const url = new URL(hx_get, location.href);
@@ -20,7 +21,16 @@ function myhtmx() {
                 throw new Error('response.ok false');
             }
             const rawHtml = await response.text();
-            swapElement.innerHTML = rawHtml;
+            switch(swapMethod) {
+                case 'outerHTML':
+                    swapElement.outerHTML = rawHtml;
+                    break;
+                case 'textContent':
+                    swapElement.textContent = rawHtml;
+                    break;
+                default:  // innerHTML
+                    swapElement.innerHTML = rawHtml;
+            }
         }catch(error){
             console.error('htmxerror: ', error);
             swapElement.innerHTML = errorMessage;

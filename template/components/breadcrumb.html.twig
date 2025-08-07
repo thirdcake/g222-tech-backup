@@ -4,6 +4,33 @@
         svg: string;
         text: string;
 -#}
+<nav aria-label="パンくずリスト" 
+    style="display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:0 1rem;">
+    {% for bread in page.breadcrumb %}
+        {% if bread.href is defined %}
+        <a href="{{ bread.href }}" class="link underline">
+            <div style="display:flex; justify-content: flex-start; align-items:flex-start;gap:.5rem;">
+                <i>
+                    <svg viewbox="0 0 16 16">
+                        <use href="{{ bread.svg }}"></use>
+                    </svg>
+                </i>
+                <div>{{ bread.text }}</div>
+            </div>
+        </a>
+        <div>&gt;</div>
+        {% else %}
+        <div style="display:flex; justify-content: flex-start; align-items:flex-start;gap:.5rem;">
+            <i>
+                <svg viewbox="0 0 16 16">
+                    <use href="{{ bread.svg }}"></use>
+                </svg>
+            </i>
+            <div>{{ bread.text }}</div>
+        </div>
+        {% endif %}
+    {% endfor %}
+</nav>
 {#
 <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="/">

@@ -4,11 +4,6 @@
 -#}
 {% extends 'partials/base.html.twig' %}
 
-{% block main %}
-{%- include 'components/breadcrumb.html.twig' -%}
-{{ parent() }}
-{% endblock %}
-
 {% block aftertitle %}
     {% if page.after_title is defined %}
     <p>{{ page.after_title|raw }}</p>

@@ -5756,6 +5756,10 @@ article:has(.g222-content) {
   flex-wrap: wrap;
 }
 
+/* view transition api */
+@view-transition {
+  navigation: auto;
+}
 /*
 @use "./css/base";
 @use "./css/contact";

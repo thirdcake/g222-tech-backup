@@ -121,11 +121,45 @@
 
     <header class="responsive">
         <h2 style="font-size:1rem;">つつじ行政書士事務所</h2>
-    </header>
+                    <nav aria-label="パンくずリスト" 
+    style="display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:0 1rem;">
+                    <a href="/" class="link underline">
+            <div style="display:flex; justify-content: flex-start; align-items:flex-start;gap:.5rem;">
+                <i>
+                    <svg viewbox="0 0 16 16">
+                        <use href="#home"></use>
+                    </svg>
+                </i>
+                <div>ホーム</div>
+            </div>
+        </a>
+        <div>&gt;</div>
+                            <a href="/archives/" class="link underline">
+            <div style="display:flex; justify-content: flex-start; align-items:flex-start;gap:.5rem;">
+                <i>
+                    <svg viewbox="0 0 16 16">
+                        <use href="#archives"></use>
+                    </svg>
+                </i>
+                <div>記事一覧</div>
+            </div>
+        </a>
+        <div>&gt;</div>
+                            <div style="display:flex; justify-content: flex-start; align-items:flex-start;gap:.5rem;">
+            <i>
+                <svg viewbox="0 0 16 16">
+                    <use href="#page-fill"></use>
+                </svg>
+            </i>
+            <div>ITストラテジスト試験</div>
+        </div>
+            </nav>
+
+            </header>
     <main class="responsive">
         <article class="no-padding border" style="max-width:500px;aspect-ratio: 16/9;margin:0 auto;">
     <img width="16" height="9" 
-        style="width:100%; height:auto; view-transition-name: photo-example-342; contain: paint;" 
+        style="width:100%; height:auto; view-transition-name: post-342;" 
         src="/img/342/eyecatch.webp" alt="愛知県犬山市にある織田信長の弟が作った茶室" />
     <div class="absolute bottom left right padding bottom-shadow white-text">
         愛知県犬山市にある織田信長の弟が作った茶室
@@ -233,31 +267,67 @@ IT系の国家試験としては、 <a href="/archives/54.html">2023年春に、
 </section>
 
 <article class="border">
-    <ul class="list border">
-        <li>
-                        <a class="link" href="/archives/273.html">
-                <div>
-                    <h3 class="small" style="font-size:1.125rem;">前の記事</h3>
-                    <div class="">Grav CMSの使いどころ</div>
+    <h2 style="font-size:1.125rem;font-weight:bold;padding:var(--_padding);">前後の記事</h2>
+    <ul style="list-style-type:none;margin:0;padding:0;">
+        <li style="border-top: 1px solid var(--outline-variant);padding:var(--_padding);">
+            <div style="display:flex;aling-items:flex-start;justify-content:flex-start;gap:1rem;">
+                <svg class="circle left-round" viewBox="0 0 24 24"
+                    style="background-color:var(--primary);color:var(--on-primary);flex-shrink:0;">
+                    <use href="#chevron-left" x="4" y="4"></use>
+                </svg>
+                                <div>
+                    <h3 class="small" style="font-size:1rem;">
+                        <a class="link" href="/archives/273.html">Grav CMSの使いどころ</a>
+                    </h3>
+                    <div class="m l">Gravについて、2週間ほど試してみた感想と、参考になるサイトをまとめました。</div>
                 </div>
-            </a>
-                    </li>
-        <li>
-            <a class="link" href="/archives/">
-                <div class="">
-                    <h3 class="small" style="font-size:1.125rem;">記事一覧</h3>
-                    <div class="">記事の一覧に戻ります</div>
-                </div>
-            </a>
+                            </div>
         </li>
-        <li>
-                        <div>
-                <h3 class="small" style="font-size:1.125rem;">次の記事</h3>
-                <div class="">（一番新しい記事です）</div>
+        <li style="border-top: 1px solid var(--outline-variant);padding:var(--_padding);">
+            <div style="display:flex;aling-items:flex-start;justify-content:flex-start;gap:1rem;">
+                <svg class="round" viewBox="0 0 24 24"
+                    style="background-color:var(--primary);color:var(--on-primary);flex-shrink:0;">
+                    <use href="#archives" x="4" y="4"></use>
+                </svg>
+                <div>
+                    <h3 class="small" style="font-size:1rem;">
+                        <a class="link" href="/archives/">記事一覧</a>
+                    </h3>
+                    <div class="m l">過去記事の一覧に戻ります</div>
+                </div>
             </div>
-                    </li>
+        </li>
+        <li style="border-top: 1px solid var(--outline-variant);padding:var(--_padding);">
+            <div style="display:flex;aling-items:flex-start;justify-content:flex-start;gap:1rem;">
+                <svg class="circle right-round" viewBox="0 0 24 24"
+                    style="background-color:var(--primary);color:var(--on-primary);flex-shrink:0;">
+                    <use href="#chevron-right" x="4" y="4"></use>
+                </svg>
+                                <div>
+                    <h3 class="small" style="font-size:1rem;">次の記事はありません</h3>
+                    <div class="m l">（一番新しい記事です）</div>
+                </div>
+                            </div>
+        </li>
     </ul>
 </article>
+
+<article id="recent-posts">読み込み中 ...</article>
+<script>
+'use strict';
+const div = document.getElementById('recent-posts');
+window.fetch('/archives/index/recent.html')
+.then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.text();
+})
+.then(text => {
+    div.outerHTML = text;
+})
+.catch
+</script>
     </main>
     <footer class="responsive">
         <section class="padding" style="margin-top: 64px; margin-bottom: 32px;">
@@ -289,7 +359,9 @@ IT系の国家試験としては、 <a href="/archives/54.html">2023年春に、
                 <span>Twitter(X)</span>
             </a>
                     </div>
-        <p class="padding" style="font-size:.8rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+        <p class="padding" style="font-size:.8rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>
+        群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、
+        <a href="https://tsutsujiilo.com/" class="underline" style="display:inline;">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
     </section>
     </footer>
 

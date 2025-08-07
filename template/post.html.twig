@@ -11,7 +11,6 @@
 {% extends './partials/base.html.twig' %}
 
 {% block main %}
-{%- include 'components/breadcrumb.html.twig' -%}
 {% if page.eyecatch.src is defined %}
 {{ include('components/eyecatch.html.twig') }}
 {% endif %}
@@ -30,53 +29,83 @@
 </section>
 
 <article class="border">
-    <ul class="list border">
-        <li>
-            {% if page.prev is not null %}
-            <a class="link" href="{{ page.prev.href }}">
+    <h2 style="font-size:1.125rem;font-weight:bold;padding:var(--_padding);">前後の記事</h2>
+    <ul style="list-style-type:none;margin:0;padding:0;">
+        <li style="border-top: 1px solid var(--outline-variant);padding:var(--_padding);">
+            <div style="display:flex;aling-items:flex-start;justify-content:flex-start;gap:1rem;">
+                <svg class="circle left-round" viewBox="0 0 24 24"
+                    style="background-color:var(--primary);color:var(--on-primary);flex-shrink:0;">
+                    <use href="#chevron-left" x="4" y="4"></use>
+                </svg>
+                {% if page.prev is not null %}
                 <div>
-                    <h3 class="small" style="font-size:1.125rem;">前の記事</h3>
-                    <div class="">{{ page.prev.title }}</div>
+                    <h3 class="small" style="font-size:1rem;">
+                        <a class="link" href="{{ page.prev.href }}">{{ page.prev.title }}</a>
+                    </h3>
+                    <div class="m l">{{ page.prev.description }}</div>
                 </div>
-            </a>
-            {% else %}
-            <div>
-                <h3 class="small" style="font-size:1.125rem;">前の記事</h3>
-                <div class="">（一番古い記事です）</div>
-            </div>
-            {% endif %}
-        </li>
-        <li>
-            <a class="link" href="/archives/">
-                <div class="">
-                    <h3 class="small" style="font-size:1.125rem;">記事一覧</h3>
-                    <div class="">記事の一覧に戻ります</div>
-                </div>
-            </a>
-        </li>
-        <li>
-            {% if page.next is not null %}
-            <a class="link" href="{{ page.next.href }}">
+                {% else %}
                 <div>
-                    <h3 class="small" style="font-size:1.125rem;">次の記事</h3>
-                    <div class="">{{ page.next.title }}</div>
+                    <h3 class="small" style="font-size:1rem;">前の記事はありません</h3>
+                    <div class="m l">（一番古い記事です）</div>
                 </div>
-            </a>
-            {% else %}
-            <div>
-                <h3 class="small" style="font-size:1.125rem;">次の記事</h3>
-                <div class="">（一番新しい記事です）</div>
+                {% endif %}
             </div>
-            {% endif %}
+        </li>
+        <li style="border-top: 1px solid var(--outline-variant);padding:var(--_padding);">
+            <div style="display:flex;aling-items:flex-start;justify-content:flex-start;gap:1rem;">
+                <svg class="round" viewBox="0 0 24 24"
+                    style="background-color:var(--primary);color:var(--on-primary);flex-shrink:0;">
+                    <use href="#archives" x="4" y="4"></use>
+                </svg>
+                <div>
+                    <h3 class="small" style="font-size:1rem;">
+                        <a class="link" href="/archives/">記事一覧</a>
+                    </h3>
+                    <div class="m l">過去記事の一覧に戻ります</div>
+                </div>
+            </div>
+        </li>
+        <li style="border-top: 1px solid var(--outline-variant);padding:var(--_padding);">
+            <div style="display:flex;aling-items:flex-start;justify-content:flex-start;gap:1rem;">
+                <svg class="circle right-round" viewBox="0 0 24 24"
+                    style="background-color:var(--primary);color:var(--on-primary);flex-shrink:0;">
+                    <use href="#chevron-right" x="4" y="4"></use>
+                </svg>
+                {% if page.next is not null %}
+                <div>
+                    <h3 class="small" style="font-size:1rem;">
+                        <a class="link" href="{{ page.next.href }}">{{ page.next.title }}</a>
+                    </h3>
+                    <div class="m l">{{ page.next.description }}</div>
+                </div>
+                {% else %}
+                <div>
+                    <h3 class="small" style="font-size:1rem;">次の記事はありません</h3>
+                    <div class="m l">（一番新しい記事です）</div>
+                </div>
+                {% endif %}
+            </div>
         </li>
     </ul>
 </article>
-{# そのうち作りたい
-<section class="padding">
-    <h3 style="font-size:1.125rem;">最近の記事</h3>
-    <div id="post-list-position"></div>
-</section>
-#}
+
+<article id="recent-posts">読み込み中 ...</article>
+<script>
+'use strict';
+const div = document.getElementById('recent-posts');
+window.fetch('/archives/index/recent.html')
+.then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.text();
+})
+.then(text => {
+    div.outerHTML = text;
+})
+.catch
+</script>
 {% endblock %}
 
 {% block aftertitle %}

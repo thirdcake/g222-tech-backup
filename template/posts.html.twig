@@ -4,11 +4,6 @@
 -#}
 {% extends './partials/base.html.twig' %}
 
-{% block main %}
-    {%- include 'components/breadcrumb.html.twig' -%}
-    {{ parent() }}
-{% endblock %}
-
 {% block aftertitle %}
 <p style="text-align:center;">{{ content|raw }}</p>
 {% endblock %}

@@ -52,6 +52,9 @@
     {{ include('components/beer-nav.html.twig') }}
     <header class="responsive">
         <h2 style="font-size:1rem;">{{ site.site_name }}</h2>
+        {% if page.breadcrumb is defined %}
+            {{ include('components/breadcrumb.html.twig')}}
+        {% endif %}
     </header>
     <main class="responsive">
         {% block main %}

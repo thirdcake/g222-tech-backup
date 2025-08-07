@@ -122,11 +122,45 @@
 
     <header class="responsive">
         <h2 style="font-size:1rem;">つつじ行政書士事務所</h2>
-    </header>
+                    <nav aria-label="パンくずリスト" 
+    style="display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:0 1rem;">
+                    <a href="/" class="link underline">
+            <div style="display:flex; justify-content: flex-start; align-items:flex-start;gap:.5rem;">
+                <i>
+                    <svg viewbox="0 0 16 16">
+                        <use href="#home"></use>
+                    </svg>
+                </i>
+                <div>ホーム</div>
+            </div>
+        </a>
+        <div>&gt;</div>
+                            <a href="/archives/" class="link underline">
+            <div style="display:flex; justify-content: flex-start; align-items:flex-start;gap:.5rem;">
+                <i>
+                    <svg viewbox="0 0 16 16">
+                        <use href="#archives"></use>
+                    </svg>
+                </i>
+                <div>記事一覧</div>
+            </div>
+        </a>
+        <div>&gt;</div>
+                            <div style="display:flex; justify-content: flex-start; align-items:flex-start;gap:.5rem;">
+            <i>
+                <svg viewbox="0 0 16 16">
+                    <use href="#page-fill"></use>
+                </svg>
+            </i>
+            <div>当事務所のスケジュール</div>
+        </div>
+            </nav>
+
+            </header>
     <main class="responsive">
         <article class="no-padding border" style="max-width:500px;aspect-ratio: 16/9;margin:0 auto;">
     <img width="16" height="9" 
-        style="width:100%; height:auto; view-transition-name: photo-example-137; contain: paint;" 
+        style="width:100%; height:auto; view-transition-name: post-137;" 
         src="/img/137/eyecatch.jpg" alt="つつじ行政書士事務所のスケジュールです" />
     <div class="absolute bottom left right padding bottom-shadow white-text">
         つつじ行政書士事務所のスケジュールです
@@ -185,33 +219,69 @@
 </section>
 
 <article class="border">
-    <ul class="list border">
-        <li>
-                        <a class="link" href="/archives/48.html">
-                <div>
-                    <h3 class="small" style="font-size:1.125rem;">前の記事</h3>
-                    <div class="">よろず支援相談を知っていますか</div>
+    <h2 style="font-size:1.125rem;font-weight:bold;padding:var(--_padding);">前後の記事</h2>
+    <ul style="list-style-type:none;margin:0;padding:0;">
+        <li style="border-top: 1px solid var(--outline-variant);padding:var(--_padding);">
+            <div style="display:flex;aling-items:flex-start;justify-content:flex-start;gap:1rem;">
+                <svg class="circle left-round" viewBox="0 0 24 24"
+                    style="background-color:var(--primary);color:var(--on-primary);flex-shrink:0;">
+                    <use href="#chevron-left" x="4" y="4"></use>
+                </svg>
+                                <div>
+                    <h3 class="small" style="font-size:1rem;">
+                        <a class="link" href="/archives/48.html">よろず支援相談を知っていますか</a>
+                    </h3>
+                    <div class="m l">よろず支援拠点の概要と利点、そして利用した感想についてのまとめ。</div>
                 </div>
-            </a>
-                    </li>
-        <li>
-            <a class="link" href="/archives/">
-                <div class="">
-                    <h3 class="small" style="font-size:1.125rem;">記事一覧</h3>
-                    <div class="">記事の一覧に戻ります</div>
-                </div>
-            </a>
+                            </div>
         </li>
-        <li>
-                        <a class="link" href="/archives/223.html">
+        <li style="border-top: 1px solid var(--outline-variant);padding:var(--_padding);">
+            <div style="display:flex;aling-items:flex-start;justify-content:flex-start;gap:1rem;">
+                <svg class="round" viewBox="0 0 24 24"
+                    style="background-color:var(--primary);color:var(--on-primary);flex-shrink:0;">
+                    <use href="#archives" x="4" y="4"></use>
+                </svg>
                 <div>
-                    <h3 class="small" style="font-size:1.125rem;">次の記事</h3>
-                    <div class="">通信の秘密の法律上の建てつけ</div>
+                    <h3 class="small" style="font-size:1rem;">
+                        <a class="link" href="/archives/">記事一覧</a>
+                    </h3>
+                    <div class="m l">過去記事の一覧に戻ります</div>
                 </div>
-            </a>
-                    </li>
+            </div>
+        </li>
+        <li style="border-top: 1px solid var(--outline-variant);padding:var(--_padding);">
+            <div style="display:flex;aling-items:flex-start;justify-content:flex-start;gap:1rem;">
+                <svg class="circle right-round" viewBox="0 0 24 24"
+                    style="background-color:var(--primary);color:var(--on-primary);flex-shrink:0;">
+                    <use href="#chevron-right" x="4" y="4"></use>
+                </svg>
+                                <div>
+                    <h3 class="small" style="font-size:1rem;">
+                        <a class="link" href="/archives/223.html">通信の秘密の法律上の建てつけ</a>
+                    </h3>
+                    <div class="m l">憲法に規定された「通信の秘密」について、その違法性の判断がブログ記事になっていたので、紹介します。</div>
+                </div>
+                            </div>
+        </li>
     </ul>
 </article>
+
+<article id="recent-posts">読み込み中 ...</article>
+<script>
+'use strict';
+const div = document.getElementById('recent-posts');
+window.fetch('/archives/index/recent.html')
+.then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.text();
+})
+.then(text => {
+    div.outerHTML = text;
+})
+.catch
+</script>
     </main>
     <footer class="responsive">
         <section class="padding" style="margin-top: 64px; margin-bottom: 32px;">
@@ -243,7 +313,9 @@
                 <span>Twitter(X)</span>
             </a>
                     </div>
-        <p class="padding" style="font-size:.8rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、<a href="https://tsutsujiilo.com/">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
+        <p class="padding" style="font-size:.8rem">※ 当事務所は、福岡県久留米市にある行政書士事務所です。<br>
+        群馬県館林市にある、外国人ビザ申請に強い行政書士事務所をお探しの方は、
+        <a href="https://tsutsujiilo.com/" class="underline" style="display:inline;">行政書士つつじ国際法務事務所</a>をご覧ください。</p>
     </section>
     </footer>
 
