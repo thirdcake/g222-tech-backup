@@ -5735,6 +5735,7 @@ article:has(.g222-content) {
   font-family: inherit;
   outline: inherit;
   justify-content: unset;
+  user-select: text;
 }
 
 .g222-content a:not(.button):hover {
@@ -5755,22 +5756,5 @@ article:has(.g222-content) {
   flex-direction: row;
   flex-wrap: wrap;
 }
-
-/* view transition api */
-@view-transition {
-  navigation: auto;
-}
-/*
-@use "./css/base";
-@use "./css/contact";
-@use "./css/post";
-@use "./css/components/breadcrumb";
-@use "./css/components/content-wrap";
-@use "./css/components/eyecatch";
-@use "./css/components/footer";
-@use "./css/components/header";
-@use "./css/components/nav-item";
-@use "./css/components/post-list";
-*/
 
 /*# sourceMappingURL=bundle.css.map */

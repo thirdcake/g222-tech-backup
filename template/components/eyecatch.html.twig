@@ -4,8 +4,8 @@
         alt: string;
 -#}
 <article class="no-padding border" style="max-width:500px;aspect-ratio: 16/9;margin:0 auto;">
-    <img width="16" height="9" 
-        style="width:100%; height:auto; view-transition-name: post-{{ page.id }};" 
+    <img width="16" height="9" fetchpriority="high"
+        style="width:100%; height:auto;" 
         src="{{ page.eyecatch.src }}" alt="{{ page.eyecatch.alt }}" />
     <div class="absolute bottom left right padding bottom-shadow white-text">
         {{ page.eyecatch.alt }}

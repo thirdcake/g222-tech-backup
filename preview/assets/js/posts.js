@@ -1,6 +1,12 @@
 "use strict";
 
 function myhtmx() {
+    // swap が成功したときにカスタムイベントを発火
+    const swapEventSuccess = new CustomEvent("htmx:afterSwap", { bubbles: true });
+    document.body.addEventListener('htmx:afterSwap', (ev)=>{
+        ev.target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }, false);
+
     const errorMessage = `<p>サーバーエラーが発生しました。</p>`,
         loadingMessage = `<p>読み込み中 ...</p>`;
     document.addEventListener('click', async ({target})=>{
@@ -31,6 +37,7 @@ function myhtmx() {
                 default:  // innerHTML
                     swapElement.innerHTML = rawHtml;
             }
+            swapElement.dispatchEvent(swapEventSuccess);
         }catch(error){
             console.error('htmxerror: ', error);
             swapElement.innerHTML = errorMessage;

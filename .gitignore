@@ -4,6 +4,8 @@ config/tokens.json
 dist/
 node_modules/
 preview/img
+preview/yukimasa
+preview/assets/sns
 vendor/
 composer.lock
 package-lock.json

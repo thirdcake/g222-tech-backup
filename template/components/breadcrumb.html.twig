@@ -9,10 +9,10 @@
     {% for bread in page.breadcrumb %}
         {% if bread.href is defined %}
         <a href="{{ bread.href }}" class="link underline">
-            <div style="display:flex; justify-content: flex-start; align-items:flex-start;gap:.5rem;">
+            <div style="display:flex; justify-content: flex-start; align-items:flex-start;gap:.3rem;">
                 <i>
-                    <svg viewbox="0 0 16 16">
-                        <use href="{{ bread.svg }}"></use>
+                    <svg viewbox="0 0 20 20">
+                        <use x="2" y="2" href="{{ bread.svg }}"></use>
                     </svg>
                 </i>
                 <div>{{ bread.text }}</div>
@@ -22,8 +22,8 @@
         {% else %}
         <div style="display:flex; justify-content: flex-start; align-items:flex-start;gap:.5rem;">
             <i>
-                <svg viewbox="0 0 16 16">
-                    <use href="{{ bread.svg }}"></use>
+                <svg viewbox="0 0 20 20">
+                    <use x="2" y="2" href="{{ bread.svg }}"></use>
                 </svg>
             </i>
             <div>{{ bread.text }}</div>
@@ -31,20 +31,3 @@
         {% endif %}
     {% endfor %}
 </nav>
-{#
-<nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">
-        {{ include('components/nav-item.html.twig', {svg: '/assets/icons.svg#home', spantext: 'ホーム'}) }}
-    </a>
-    {% for bread in page.breadcrumb %}
-        <span>&nbsp;&gt;&nbsp;</span>
-        {% if bread.href is defined %}
-            <a href="{{ bread.href }}">
-                {{ include('components/nav-item.html.twig', {svg: bread.svg, spantext: bread.text}) }}
-            </a>
-        {% else %}
-            {{ include('components/nav-item.html.twig', {svg: bread.svg, spantext: bread.text}) }}
-        {% endif %}
-    {% endfor %}
-</nav>
-#}

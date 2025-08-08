@@ -16,16 +16,14 @@
 {% endif %}
 {{ parent() }}
 
-<section class="padding">
+<section class="padding" id="after-content">
     <p>最後までお読みいただきありがとうございました。<br>
     なにかお気づきの点がありましたら、<a href="/contact.html" class="button small border">お問い合わせ</a>ください。
     </p>
-    <p>
-        <img class="after-content-message-img" src="#" alt="日行連公式キャラクター「ユキマサくん」" 
-            width="300" height="300" style="width:300px;max-width:100%;height:auto;" />
-    </p>
+    <img src="#" alt="日行連公式キャラクター「ユキマサくん」" 
+        width="300" height="300" style="display:block;width:300px;max-width:100%;height:auto;" />
     <p>（日行連公式キャラクター「ユキマサくん」）</p>
-    <div class="after-content-message-text"></div>
+    <div class="border padding tertiary-container" style="max-width:500px;">message</div>
 </section>
 
 <article class="border">
@@ -90,22 +88,12 @@
     </ul>
 </article>
 
-<article id="recent-posts">読み込み中 ...</article>
-<script>
-'use strict';
-const div = document.getElementById('recent-posts');
-window.fetch('/archives/index/recent.html')
-.then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.text();
-})
-.then(text => {
-    div.outerHTML = text;
-})
-.catch
-</script>
+<article id="recent-posts" class="border">
+    <div class="padding">読み込み中 ...</div>
+    <noscript>
+        <div class="padding error-container">JavaScriptが有効になっておらず、読み込みに失敗しています。</div>
+    </noscript>
+</article>
 {% endblock %}
 
 {% block aftertitle %}

@@ -2,10 +2,10 @@
 /**
  * ユキマサくんの画像と言葉
  */
-function yukimasa() {
-    const imgDom = document.querySelector(".after-content-message-img");
-    const msgDom = document.querySelector(".after-content-message-text");
-    if (!(imgDom && msgDom)) return;
+function yukimasa(targetDOM) {
+    const imgDOM = targetDOM.querySelector('img'),
+        msgDOM = targetDOM.querySelector('div');
+    if(!imgDOM || !msgDOM) return;
     
     const data = {
         days: ["日", "月", "火", "水", "木", "金", "土"],
@@ -15,10 +15,20 @@ function yukimasa() {
     const monthNum = date.getMonth(),
         dayNum = date.getDay(),
         hourNum = date.getHours();
-    imgDom.src = `/yukimasa/${monthNum + 1}.webp`;
-    const hello = (hourNum < 4)?data.hours[2] : (hourNum < 11)?data.hours[0] : (hourNum < 17)?data.hours[1] : data.hours[2];
+    imgDOM.src = `/yukimasa/${monthNum + 1}.webp`;
+    const hello = (hour) => {
+        if(hour < 4) {
+            return data.hours[2];
+        } else if (hour < 11) {
+            return data.hours[0];
+        } else if (hour < 17) {
+            return data.hours[1];
+        } else {
+            return data.hours[2];
+        }
+    };
     const day = data.days[dayNum];
     const msg = data.msgs[dayNum][(Math.random()*data.msgs[dayNum].length)|0];
-    msgDom.textContent = `${hello} 今日は${day}曜日です。 ${msg}`;
+    msgDOM.textContent = `${ hello(hourNum) } 今日は${day}曜日です。 ${msg}`;
 }
 export {yukimasa};

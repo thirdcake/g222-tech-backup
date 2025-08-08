@@ -1,31 +1,30 @@
 'use strict';
-function loadRecentPosts() {
-    window.fetch('/archives/index.recent.html')
+function loadRecentPosts(targetDOM) {
+    window.fetch('/archives/index/recent.html')
     .then(response => {
         if(!response.ok) throw new Error('HTTP error!');
-        return response.tect();
+        return response.text();
     })
     .then(text => {
-        document.getElementById('recent-posts').outerHTML = text;
+        targetDOM.outerHTML = text;
     })
     .catch(error => {
         console.error('Failed to load recent posts', error);
-        document.getElementById('recent-posts').innerHTML = '読み込みエラーがありました。'
+        document.getElementById('recent-posts').innerHTML = '<div class="padding">読み込みエラーがありました。</div>'
     });
 }
 
-function interSecttionLoadRecent () {
-    const marker = document.getElementById('yukimasa');
+function interSecttionLoadRecent (targetDOM) {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
                 observer.unobserve(entry.target);
-                loadRecentPosts();
+                loadRecentPosts(targetDOM);
             }
         });
     });
-    observer.observe(marker);
+    observer.observe(targetDOM);
 }
 
-export {interSectionLoadRecent};
+export {interSecttionLoadRecent};
 

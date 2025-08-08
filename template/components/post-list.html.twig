@@ -12,17 +12,17 @@
 -#}
 <article class="s12 m6 l4 no-padding border">
     <img class="responsive small" width=16 height=9 
-        alt="{{ post.eyecatch.alt }}" style="aspect-ratio:3/1;view-transition-name: {{ post.post_id }};" 
-        src="{{ post.eyecatch.src }}">
-    <a href="{{ post.href }}">
-        <div class="margin">
-            <div class="right-align">
-                <time datetime="{{ post.latest_date|date("Y-m-d") }}">
-                    {{ post.latest_date|date("Y年m月d日") }}
-                </time>
-            </div>
-            <h2 style="font-size:1.125rem;font-weight:bold;text-decoration:underline;color:var(--primary);">{{ post.title }}</h2>
-            <p>{{ post.description }}</p>
+        alt="{{ post.eyecatch.alt }}" style="aspect-ratio:3/1;" 
+        src="{{ post.eyecatch.src }}">    
+    <div class="margin">
+        <div class="right-align">
+            <time datetime="{{ post.latest_date|date("Y-m-d") }}">
+                {{ post.latest_date|date("Y年m月d日") }}
+            </time>
         </div>
-    </a>
+        <h2 style="font-size:1.125rem;font-weight:bold;text-decoration:underline;color:var(--primary);">
+            <a href="{{ post.href }}">{{ post.title }}</a>
+        </h2>
+        <p>{{ post.description }}</p>
+    </div>
 </article>
