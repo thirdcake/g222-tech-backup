@@ -4,7 +4,7 @@
     <ol style="list-style-type:none;margin:0;padding:0;">
         {% for post in page.posts|slice(0, 5) %}
         <li style="border-top: 1px solid var(--outline-variant);padding:var(--_padding);">
-            <div style="display:flex;align-items:flex-start;justify-content:flex-start;gap:1rem;">
+            <div style="display:flex;align-items:center;justify-content:flex-start;gap:1rem;">
                 <div class="circle" 
                     style="display:flex;justify-content:center;align-items:center;width:3rem;height:3rem;
                     font-size:2rem;background-color:var(--primary);color:var(--on-primary);flex-shrink:0;">
@@ -21,7 +21,7 @@
         {% endfor %}
     </ol>
     <div style="border-radius:0;border-top:1px solid var(--outline-variant);padding:var(--_padding);
-        display:flex;align-items:flex-start;justify-content:flex-start;gap:1rem;">
+        display:flex;align-items:center;justify-content:flex-start;gap:1rem;">
             <svg class="round" viewBox="0 0 24 24"
                 style="background-color:var(--primary);color:var(--on-primary);flex-shrink:0;">
                 <use href="#archives" x="4" y="4"></use>

@@ -82,3 +82,7 @@ article:has(.g222-content) {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+svg {
+    border-radius: 0;
+}
