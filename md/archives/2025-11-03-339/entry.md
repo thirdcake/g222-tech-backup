@@ -4,8 +4,10 @@ description: "久留米市にあるクレープ屋さんを、地元の行政書
 eyecatch: 
     src: "/img/339/eyecatch.jpg"
     alt: "ノナカマチクレープのブリュレクレープ"
+scripts: ["/img/339/maplibre-gl.js", "/img/339/mymap.js"]
+styles: ["/img/339/maplibre-gl.css", "/img/339/mymap.css"]
 create_at: "2024-10-02T19:07:00"
-update_at: "2025-08-24T10:16:05+09:00"
+update_at: "2025-11-03T14:43:26+09:00"
 ---
 
 別で作っているつぶやきサイトでは、ときどきつぶやいているのですが、わたしは甘いものが大好きです。  
@@ -146,6 +148,13 @@ JR久大本線の南久留米駅から、少し歩いた住宅街の中にあり
 
 イートインコーナーがあって、店舗の中で食べられます。  
 わたしが行ったときは、3組くらいのお客さんがワイワイしながら食べていて、にぎやかなお店でした。
+
+---
+
+## 地図
+
+<div id="map" style="aspect-ratio:16/9; width:800px; height:auto; max-width:100%;"></div>
+<div id="map-index"></div>
 
 ---
 
