@@ -48,11 +48,6 @@
             "src": "/assets/sns/qiita-icon.png"
         },
         {
-            "name": "Mastodon",
-            "href": "https://mastodon-japan.net/@g222",
-            "src": "/assets/sns/mastodon-logo-purple.svg"
-        },
-        {
             "name": "Twitter(X)",
             "href": "https://x.com/g222tech",
             "src": "/assets/sns/twitter-logo.svg"

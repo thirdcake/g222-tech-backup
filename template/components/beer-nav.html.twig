@@ -37,7 +37,7 @@
 </nav>
 <nav class="bottom s" aria-label="画面幅小メインナビ">
     {%- for item in site.menu -%}
-    <a href="{{ item.link }}">
+    <a href="{{ item.link }}" aria-label="{{ item.name }}">
         <i>
             <svg viewBox="0 0 16 16">
             {%- if page is defined and item.link == page.url -%}
