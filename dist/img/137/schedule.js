@@ -9,7 +9,11 @@ window.addEventListener('DOMContentLoaded', ()=>{
     document.getElementById('today').textContent = today.toLocaleDateString('ja-JP', option);
     const tbody = document.getElementById('calendar');
     const youbi = ['日','月','火','水','木','金','土'];
-    fetch('/calendar.json').then(res=>res.json()).then(data=>{
+    const date = new Date(Date.now() - 6*60*60*1000);
+    const url = new URL('/calendar.json', window.location.origin);
+    const param = `${date.getMonth() + 1}-${date.getDate()}`;
+    url.searchParams.set('d', param);
+    fetch(url).then(res=>res.json()).then(data=>{
       const frag = data.busy.reduce((p,c)=>{
         const tr = document.createElement('tr');
         const date = new Date(c.day);
